@@ -3,20 +3,28 @@ const { Schema } = mongoose;
 
 let transactionsSchema = new Schema(
   {
-    userID: {
+    customerID: {
       type: mongoose.Types.ObjectId,
-      ref: "users",
+      ref: "customers",
     },
-    orderID: {
-      type: mongoose.Types.ObjectId,
-      ref: "orders",
-    },
+    productDetails: [{
+      productVariantId : {
+          type: mongoose.Types.ObjectId,
+          ref: "productVariants"
+      },
+      productId : {
+          type: mongoose.Types.ObjectId,
+          ref: "products"
+      },
+      itemCount: {
+          type: Number,
+      }, 
+  }],
     totalProductsPrice: {
       type: Number,
     },
     shippingCharges: {
-      type: Number,
-      default: 0
+      type: Number
     },
     paymentMethod: {
       type: String,
@@ -34,6 +42,11 @@ let transactionsSchema = new Schema(
       //   message: "This is not allowed",
       // },
     }, 
+    isDelete: {
+      type: Boolean,
+      default: false
+    }
+
 
   },
   { timestamps: true }

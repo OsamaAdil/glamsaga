@@ -1,43 +1,30 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-let usersSchema = new Schema ({
-    firstName : {
+let customersSchema = new Schema ({
+    fullName : {
         type : String,
         trim: true,
         // required: 'Name is required',
     },
-    lastName : {
-        type : String,
-        trim: true,
-        // required: 'Name is required',
-    },
-    email : {
-        type: String,
-        trim: true,
-        lowercase: true,
-        unique: true,
-        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
-    },
+    // email : {
+    //     type: String,
+    //     trim: true,
+    //     lowercase: true,
+    //     unique: true,
+    //     match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+    // },
     phoneNumber : {
         type: String,
         minlength: 10,
         maxlength: 10,
-        // unique : true,
+        unique : true,
         trim: true,
         // required: 'Phone number is required',
     },
     role: { 
         type: String, 
-        default: 'USER' 
-    },
-    transactionIDs: [{
-        type: mongoose.Types.ObjectId,
-        ref: "transactions",
-      }],
-    orderIDs: {
-        type: mongoose.Types.ObjectId,
-        ref: "orders",
+        default: 'user' 
     },
     address: {
         type: String,
@@ -46,8 +33,9 @@ let usersSchema = new Schema ({
         type: String
     },
     pincode: {
-        type: Number,
-        length: 6,
+        type: String,
+        minlength: 6,
+        maxlength: 6,
         // required: 'pin code is required'
     },
     city: {
@@ -70,10 +58,6 @@ let usersSchema = new Schema ({
     isBlocked: { type: Boolean, default: false }
 }, { timestamps: true })
 
-usersSchema.virtual('fullName').get(function () {
-    return this.firstName + this.lastName;
-  });
-
-let users = mongoose.model("users", usersSchema);
-module.exports = users
+let customers = mongoose.model("customers", customersSchema);
+module.exports = customers
 

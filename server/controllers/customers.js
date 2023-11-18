@@ -1,27 +1,33 @@
-const Orders = require("../models/orders");
+const Customers = require("../models/customers");
 
 const rectifyName = function (a) {
   return a.toLowerCase();
 };
 
 //Create
-const createOrders = function (req, res) {
+const createCustomers = function (req, res) {
   let sendRes = {
     message: "",
     error: true,
     data: []
   };
 
-  if (!req.body.name) {
+  if (!req.body.fullName || !req.body.phoneNumber || !req.body.address  || !req.body.landmark || !req.body.pincode || !req.body.city || !req.body.state ) {
     sendRes.message = "Please add the required data";
     return res.status(400).send(sendRes);
   }
 
-  let OrdersPayload = {
-    name : req.body.name
+  let customersPayload = {
+    fullName : req.body.fullName,
+    phoneNumber : req.body.phoneNumber,
+    address : req.body.address,
+    landmark : req.body.landmark, 
+    pincode: req.body.pincode,
+    city: req.body.city, 
+    state: req.body.state
   };
   
-  Orders.create(OrdersPayload, (err, resp) => {
+  Customers.create(customersPayload, (err, resp) => {
     if (err) {
       return res.status(500).send(sendRes);
     }
@@ -31,21 +37,20 @@ const createOrders = function (req, res) {
   });
 
 };
-exports.createOrders = createOrders;
+exports.createCustomers = createCustomers;
 
 // Get
-const getOrders = function (req, res) {
+const getCustomers = function (req, res) {
   let sendRes = {
     message: "",
     error: true,
     data: [],
   };
 
-  let findData = { isApproved: true };
+  let findData = { isDelete: false };
 
-  Orders.find(findData, (err, resp) => {
+  Customers.find(findData, (err, resp) => {
     if (err) {
-      
       sendRes.message = "Server error while fectching details from server";
       return res.status(500).send(sendRes);
     }
@@ -55,61 +60,67 @@ const getOrders = function (req, res) {
     return res.status(200).send(sendRes);
   });
 };
-exports.getOrders = getOrders;
+exports.getCustomers = getCustomers;
 
 // Update
-const editOrders = function (req, res) {
+const editCustomers = function (req, res) {
   let sendRes = {
     message: "",
     error: true,
     data: []
   };
 
-  if (!req.body.rating || !req.body.productId) {
+  if (!req.body.fullName || !req.body.phoneNumber || !req.body.address  || !req.body.landmark || !req.body.pincode || !req.body.city || !req.body.state || !req.body.customerId ) {
     sendRes.message = "Bad request from user";
     return res.status(400).send(sendRes);
   }
   
-  let query = { _id: req.body.ratingId }; 
+  let query = { _id: req.body.customerId };
   
-  let updateOrders = {
-    rating : req.body.rating
+  let updatecustomers = {
+    fullName : req.body.fullName,
+    phoneNumber : req.body.phoneNumber,
+    address : req.body.address,
+    landmark : req.body.landmark, 
+    pincode: req.body.pincode,
+    city: req.body.city, 
+    state: req.body.state
   };
 
   let options = { new: true };
 
-  Orders.findOneAndUpdate(query, updateOrders, options, (err, resp) => {
+  Customers.findOneAndUpdate(query, updatecustomers, options, (err, resp) => {
     if (err) {
       sendRes.message = "Server error while fectching details from server";
       return res.status(500).send(sendRes);
     }
     sendRes.message = `updated data succesfully`;
-    sendRes.data = resp;
     sendRes.error = false;
+    sendRes.data = resp;
     return res.status(200).send(sendRes);
   });
 };
-exports.editOrders = editOrders;
+exports.editCustomers = editCustomers;
 
 // Delete
-const deleteOrders = function (req, res) {
+const deleteCustomers = function (req, res) {
   let sendRes = {
     message: "",
     error: true,
   };
 
-  if (!req.body.ratingId) {
+  if (!req.body.customerId) {
     sendRes.message = "Data not provided to delete the data!";
     return res.status(400).send(sendRes);
   }
 
-  let query = { _id: req.body.ratingId };
+  let query = { _id: req.body.customerId };
 
-  let updateOrders = {
-    isActive: false,
+  let updatecustomers = {
+    isDelete: true,
   };
 
-  Orders.findOneAndUpdate(query, updateOrders, (err, resp) => {
+  Customers.findOneAndUpdate(query, updatecustomers, (err, resp) => {
     if (err) {
       sendRes.message = "Server error while fectching details from server";
       return res.status(500).send(sendRes);
@@ -119,4 +130,4 @@ const deleteOrders = function (req, res) {
     return res.status(200).send(sendRes);
   });
 };
-exports.deleteOrders = deleteOrders;
+exports.deleteCustomers = deleteCustomers;

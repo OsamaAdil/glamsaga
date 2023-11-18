@@ -1,4 +1,4 @@
-const Transactions = require("../models/Transactions");
+const Transactions = require("../models/transactions");
 
 const rectifyName = function (a) {
   return a.toLowerCase();
@@ -9,16 +9,32 @@ const createTransactions = function (req, res) {
   let sendRes = {
     message: "",
     error: true,
-    data: []
+    data: [],
   };
 
-  if (!req.body.name) {
+  if (
+    !req.body.customerId ||
+    !req.body.productDetails.productVariantId ||
+    !req.body.productDetails.productId ||
+    !req.body.productDetails.itemCount ||
+    !req.body.totalProductsPrice ||
+    !req.body.shippingCharges ||
+    !req.body.paymentMethod
+  ) {
     sendRes.message = "Please add the required data";
     return res.status(400).send(sendRes);
   }
 
   let TransactionsPayload = {
-    name : req.body.name
+    customerId: req.body.customerId,
+    productDetails: {
+      productVariantId: req.body.productDetails.productVariantId,
+      productId: req.body.productDetails.productId,
+      itemCount: req.body.productDetails.itemCount,
+    },
+    totalProductsPrice: req.body.totalProductsPrice,
+    shippingCharges: req.body.shippingCharges,
+    paymentMethod: req.body.paymentMethod
   };
   
   Transactions.create(TransactionsPayload, (err, resp) => {
@@ -29,7 +45,6 @@ const createTransactions = function (req, res) {
     sendRes.error = false;
     return res.status(200).send(sendRes);
   });
-
 };
 exports.createTransactions = createTransactions;
 
@@ -41,11 +56,10 @@ const getTransactions = function (req, res) {
     data: [],
   };
 
-  let findData = { isApproved: true };
+  let findData = {};
 
   Transactions.find(findData, (err, resp) => {
     if (err) {
-      
       sendRes.message = "Server error while fectching details from server";
       return res.status(500).send(sendRes);
     }
@@ -62,32 +76,54 @@ const editTransactions = function (req, res) {
   let sendRes = {
     message: "",
     error: true,
-    data: []
+    data: [],
   };
 
-  if (!req.body.rating || !req.body.productId) {
+  if (  
+    !req.body.transactionId ||
+    !req.body.customerId ||
+    !req.body.productDetails.productVariantId ||
+    !req.body.productDetails.productId ||
+    !req.body.productDetails.itemCount ||
+    !req.body.totalProductsPrice ||
+    !req.body.shippingCharges ||
+    !req.body.paymentMethod
+    ) {
     sendRes.message = "Bad request from user";
     return res.status(400).send(sendRes);
   }
-  
-  let query = { _id: req.body.ratingId }; 
-  
+
+  let query = { _id: req.body.transactionId };
+
   let updateTransactions = {
-    rating : req.body.rating
+    customerId: req.body.customerId,
+    productDetails: {
+      productVariantId: req.body.productDetails.productVariantId,
+      productId: req.body.productDetails.productId,
+      itemCount: req.body.productDetails.itemCount,
+    },
+    totalProductsPrice: req.body.totalProductsPrice,
+    shippingCharges: req.body.shippingCharges,
+    paymentMethod: req.body.paymentMethod
   };
 
   let options = { new: true };
 
-  Transactions.findOneAndUpdate(query, updateTransactions, options, (err, resp) => {
-    if (err) {
-      sendRes.message = "Server error while fectching details from server";
-      return res.status(500).send(sendRes);
+  Transactions.findOneAndUpdate(
+    query,
+    updateTransactions,
+    options,
+    (err, resp) => {
+      if (err) {
+        sendRes.message = "Server error while fectching details from server";
+        return res.status(500).send(sendRes);
+      }
+      sendRes.message = `updated data succesfully`;
+      sendRes.data = resp;
+      sendRes.error = false;
+      return res.status(200).send(sendRes);
     }
-    sendRes.message = `updated data succesfully`;
-    sendRes.data = resp;
-    sendRes.error = false;
-    return res.status(200).send(sendRes);
-  });
+  );
 };
 exports.editTransactions = editTransactions;
 
@@ -98,18 +134,20 @@ const deleteTransactions = function (req, res) {
     error: true,
   };
 
-  if (!req.body.ratingId) {
+  if (!req.body.transactionId) {
     sendRes.message = "Data not provided to delete the data!";
     return res.status(400).send(sendRes);
   }
 
-  let query = { _id: req.body.ratingId };
+  let query = { _id: req.body.transactionId };
 
   let updateTransactions = {
-    isActive: false,
+    isDelete: true,
   };
 
-  Transactions.findOneAndUpdate(query, updateTransactions, (err, resp) => {
+  let options = { new: true };
+
+  Transactions.findOneAndUpdate(query, updateTransactions, options,(err, resp) => {
     if (err) {
       sendRes.message = "Server error while fectching details from server";
       return res.status(500).send(sendRes);

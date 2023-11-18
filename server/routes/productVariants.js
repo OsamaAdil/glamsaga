@@ -1,10 +1,7 @@
 const express = require('express');
 const router = express.Router();
-// const authenticator = require('../middlewares/authenticator');
-// const authenticator = require('../middlewares/authentication');
-const { createProductVariants, getProductVariants, editProductVariants, deleteProductVariants } = require('../controllers/productVariants');
 
-// router.use(authenticator);
+const { createProductVariants, getProductVariants, editProductVariants, deleteProductVariants } = require('../controllers/productVariants');
 
 router.post('/', createProductVariants );
 router.get('/', getProductVariants);

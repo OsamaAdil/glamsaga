@@ -8,10 +8,10 @@ let productVariantsSchema = new Schema ({
     },
     size: {
         type: String,
-        // enum: {
-        //     values: ["small", "medium", "large"],
-        //     message: "This is not allowed"
-        // }
+        enum: {
+            values: ["small", "medium", "large"],
+            message: "This is not allowed"
+        }
     },
     colour: { 
         type: String, 

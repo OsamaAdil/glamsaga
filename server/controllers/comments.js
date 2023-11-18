@@ -1,11 +1,11 @@
-const ProductVariants = require("../models/productVariants");
+const Comments = require("../models/comments");
 
 const rectifyName = function (a) {
   return a.toLowerCase();
 };
 
 //Create
-const createProductVariants = function (req, res) {
+const createComments = function (req, res) {
   let sendRes = {
     message: "",
     error: true,
@@ -14,26 +14,28 @@ const createProductVariants = function (req, res) {
 
   if (
     !req.body.productId ||
-    !req.body.size ||
-    !req.body.colour ||
-    !req.body.length ||
-    !req.body.width ||
-    !req.body.height
+    !req.body.userDetails.name ||
+    !req.body.userDetails.postedOn ||
+    !req.body.commentDetails.comment ||
+    !req.body.commentDetails.rating
     ) {
     sendRes.message = "Please add the required data";
     return res.status(400).send(sendRes);
   }
 
-  let ProductVariantsPayload = {
+  let CommentsPayload = {
     productId: req.body.productId,
-    size: req.body.size,
-    colour: req.body.colour,
-    length: req.body.length,
-    width: req.body.width,
-    height: req.body.height
+    userDetails: {
+      name: req.body.userDetails.name,
+      postedOn: req.body.userDetails.postedOn
+    },
+    commentDetails: {
+      comment: req.body.commentDetails.comment,
+      rating: req.body.commentDetails.rating
+    }
   };
   
-  ProductVariants.create(ProductVariantsPayload, (err, resp) => {
+  Comments.create(CommentsPayload, (err, resp) => {
     if (err) {
       return res.status(500).send(sendRes);
     }
@@ -43,19 +45,19 @@ const createProductVariants = function (req, res) {
   });
 
 };
-exports.createProductVariants = createProductVariants;
+exports.createComments = createComments;
 
 // Get
-const getProductVariants = function (req, res) {
+const getComments = function (req, res) {
   let sendRes = {
     message: "",
     error: true,
-    data: [],
+    data: []
   };
 
-  let findData = { };
+  let findData = {};
 
-  ProductVariants.find(findData, (err, resp) => {
+  Comments.find(findData, (err, resp) => {
     if (err) {
       sendRes.message = "Server error while fectching details from server";
       return res.status(500).send(sendRes);
@@ -66,10 +68,10 @@ const getProductVariants = function (req, res) {
     return res.status(200).send(sendRes);
   });
 };
-exports.getProductVariants = getProductVariants;
+exports.getComments = getComments;
 
 // Update
-const editProductVariants = function (req, res) {
+const editComments = function (req, res) {
   let sendRes = {
     message: "",
     error: true,
@@ -77,33 +79,34 @@ const editProductVariants = function (req, res) {
   };
 
   if (
-    !req.body.productVariantId  ||
     !req.body.productId ||
-    !req.body.size ||
-    !req.body.colour ||
-    !req.body.length ||
-    !req.body.width ||
-    !req.body.height
-) {
+    !req.body.userDetails.name ||
+    !req.body.userDetails.postedOn ||
+    !req.body.commentDetails.comment ||
+    !req.body.commentDetails.rating
+    ) {
     sendRes.message = "Bad request from user";
     return res.status(400).send(sendRes);
   }
   
-  let query = { _id: req.body.productVariantId }; 
+  let query = { _id: req.body.commentId }; 
   
-  let updateProductVariants = {
+  let updateComments = {
     productId: req.body.productId,
-    size: req.body.size,
-    colour: req.body.colour,
-    length: req.body.length,
-    width: req.body.width,
-    height: req.body.height,
+    userDetails: {
+      name: req.body.userDetails.name,
+      postedOn: req.body.userDetails.postedOn
+    },
+    commentDetails: {
+      comment: req.body.commentDetails.comment,
+      rating: req.body.commentDetails.rating
+    },
     isDelete: req.body.isDelete
   };
 
   let options = { new: true };
 
-  ProductVariants.findOneAndUpdate(query, updateProductVariants, options, (err, resp) => {
+  Comments.findOneAndUpdate(query, updateComments, options, (err, resp) => {
     if (err) {
       sendRes.message = "Server error while fectching details from server";
       return res.status(500).send(sendRes);
@@ -114,27 +117,27 @@ const editProductVariants = function (req, res) {
     return res.status(200).send(sendRes);
   });
 };
-exports.editProductVariants = editProductVariants;
+exports.editComments = editComments;
 
 // Delete
-const deleteProductVariants = function (req, res) {
+const deleteComments = function (req, res) {
   let sendRes = {
     message: "",
     error: true,
   };
 
-  if (!req.body.productVariantId) {
+  if (  !req.body.commentId ) {
     sendRes.message = "Data not provided to delete the data!";
     return res.status(400).send(sendRes);
   }
 
-  let query = { _id: req.body.productVariantId };
+  let query = { _id: req.body.commentId };
 
-  let updateProductVariants = {
+  let updateComments = {
     isDelete: true,
   };
 
-  ProductVariants.findOneAndUpdate(query, updateProductVariants, (err, resp) => {
+  Comments.findOneAndUpdate(query, updateComments, (err, resp) => {
     if (err) {
       sendRes.message = "Server error while fectching details from server";
       return res.status(500).send(sendRes);
@@ -144,4 +147,4 @@ const deleteProductVariants = function (req, res) {
     return res.status(200).send(sendRes);
   });
 };
-exports.deleteProductVariants = deleteProductVariants;
+exports.deleteComments = deleteComments;

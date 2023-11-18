@@ -101,5 +101,10 @@ let productsSchema = new Schema ({
     }
 }, { timestamps: true });
 
+productsSchema.virtual('sellingPrice').get(function () {
+    return this.price - (this.discountPercent * this.price );
+  });
+  
+
 let products = mongoose.model("products", productsSchema);
 module.exports = products;
