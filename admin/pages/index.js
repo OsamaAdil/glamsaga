@@ -1,23 +1,22 @@
 import React, { useState } from "react";
 import style from "../components/login/login.module.css";
 import Head from "next/head";
-// import { checkCredentials } from "@/services/checkCredentials";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 
 export default function Home() {
 
   const router = useRouter();
+  const linkText = router.pathname.split("/")[1];
 
   const [user, setUser] = useState({
     email: "",
-    password: "",
+    password: ""
   });
 
   const handleLogin = () => {
     const checkCredential = async (user) => {
-      router.push("/products");
+      router.push("/genres");
       try {
-        // const response = await checkCredentials(user);
         if (response?.data?.token) {
           var token = response?.data?.token;
           localStorage.setItem("token", JSON.stringify(token));
@@ -28,14 +27,9 @@ export default function Home() {
     };
     checkCredential(user);
   };
+
   return (
     <>
-      <Head>
-        <title>Glamsage - Admin Interface</title>
-        <meta name="description" content="Glamsage - Admin Interface|"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/next.svg" />
-      </Head>
       <main>
         <div className={style.mainWrap}>
           <div className={style.logo}> </div>

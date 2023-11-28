@@ -4,12 +4,8 @@ const {Schema} = mongoose;
 let categoriesSchema = new Schema ({
     name: {
         type: String,
-        // enum : {
-        //     values: ["Kids", "Accessories","Bagpacks","Diaper Bags and Travel Cases", "Handbags", "Others", "Suitcase and Travel Bags"], 
-        //     message: "This is not allowed"
-        // }
     },
-    isActive : {
+    isDelete : {
         type: Boolean,
         default: true
     }

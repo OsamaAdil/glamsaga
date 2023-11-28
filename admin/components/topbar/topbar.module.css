@@ -1,0 +1,15 @@
+.mainwrap{
+    display: flex;
+    flex-direction: row;
+    font-size: 2rem;
+    padding: 0rem 0rem 1rem 0rem;
+    font-weight: 600;
+    color: #902551;
+  }
+
+.line{
+    margin-bottom: 2rem;
+    border-radius: 1px;
+    border: 1px solid #b79028;
+}
+

@@ -1,0 +1,156 @@
+.loginMainWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(158, 157, 157, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 12000;
+  /* pointer-events: none; */
+  /* cursor: pointer; */
+}
+
+
+.logibox {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: white;
+  padding: 3rem;
+  border-radius: 5px;
+  font-size: 2rem;
+  position: absolute;
+  color: #464646;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  height: 20rem;
+  /* cursor: auto; */
+  /* pointer-events: none; */
+}
+
+.logibox > :nth-child(1) {
+  height: 2rem;
+}
+
+.logibox > :nth-child(1) > button {
+  width: 1.4rem;
+  height: 1.6rem;
+  padding: 0.2rem;
+}
+
+.logibox > :nth-child(2) {
+  width: 100%;
+}
+
+.inputNumber::-webkit-inner-spin-button, 
+.inputNumber::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.inputNumber{
+  width: 100%;
+}
+
+
+
+.addbox {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: white;
+  padding: 3rem;
+  border-radius: 5px;
+  font-size: 2rem;
+  position: absolute;
+}
+
+.logibox > :nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logibox > :nth-child(2) {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 1rem 1rem 1rem 1rem;
+  background-color: white;
+  gap: 1rem;
+  border: 1px solid #ababab;
+  font-size: 1.5rem;
+}
+
+.logibox > :nth-child(2) > :nth-child(2) {
+  border: none;
+  outline: none;
+  background: transparent;
+} 
+
+.logibox > :nth-child(3) {
+    display: flex;
+    justify-content: center;
+    font-size: 0.8rem; 
+  }
+
+.loginOtp{
+  width: 100%  ;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.loginOtp::-webkit-inner-spin-button, 
+.loginOtp::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.loginOtp{
+  width: 100%;
+}
+
+
+.whatsapp_float {
+  position: fixed;
+  width: 65px;
+  height: 75px;
+  bottom: 40px;
+  right: 60px;
+  /* background-image: url("../../public/whatsapp.svg"); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  color: #fff;
+  border-radius: 50px;
+  z-index: 100;
+}
+
+
+@media (min-width: 20em) and (max-width: 30em) {
+  .whatsapp_float{
+    width: 55px;
+    height: 65px;
+    bottom: 20px;
+    right: 20px;
+  }
+ 
+}
+
+/* tab port - 480px to 768 */
+@media (min-width: 30.0625em) and (max-width: 650px) {
+  .whatsapp_float{
+    width: 55px;
+    height: 65px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+}
