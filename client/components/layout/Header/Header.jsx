@@ -1,12 +1,13 @@
 // Header.js
 
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./header.module.css";
 import Link from "next/link";
 
 export default function Header() {
   const [toggle, setToggle] = useState(true);
   const [toggleCart, setToggleCart] = useState(false);
+  const [cart, setCart] = useState([]);
   let icon = toggle ? "/hamburger-menu-icon.webp" : "/cross.png";
 
   function handleClick() {
@@ -29,7 +30,28 @@ export default function Header() {
     }
   }
 
-  
+  const handleStorageChange = () => {
+    console.log('storage changed');
+      
+    const updatedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(updatedCart);
+  };
+
+  useEffect(() => {
+    // Load cart data from local storage on component mount
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(savedCart);
+
+    // Add event listener to update cart when localStorage changes
+   
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      // Cleanup the event listener when the component unmounts
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
 
   return (
     <>
@@ -48,9 +70,11 @@ export default function Header() {
           </div>
         </div>
         <div className={style.middlebox} id="expand">
-          <div className={style.tiles}><Link href='./newArrivals'>New Arrivals</Link></div>
-          <div className={style.tiles}>Classic Collections</div>
-          <div className={style.tiles}>Best Sellers</div>
+          <div className={style.tiles}>
+            <Link href="./newArrivals">New Arrivals</Link>
+          </div>
+          <div className={style.tiles}> <Link href="./classicCollections">Classic Collections</Link></div>
+          <div className={style.tiles}> <Link href="./bestSellers">Best Sellers</Link></div>
           <div className={`${style.tiles} ${style.shopBy}`}>
             Shop By
             <div className={style["dropdown-content"]}>
@@ -83,13 +107,24 @@ export default function Header() {
           </div>
         </div>
         <div className={style.dummy1}></div>
-        <div className={style.cartItem}></div>
+        <div className={style.cartItem}>
+          <ul>
+            {cart.map((item) => (
+              <li key={item.id}>
+                {item.title} - ${item.price} - Quantity: {item.quantity}
+              </li>
+            ))}
+          </ul>
+        </div>
+
         <div className={style.dummy1}></div>
         <div className={style.flex}>
-        <div>Sub Total</div>
-        <div>$0.00</div>
+          <div>Sub Total</div>
+          <div>$0.00</div>
         </div>
-        <div className={style.checkOut}><button className={style.checkOutBtn}> Check Out</button> </div>
+        <div className={style.checkOut}>
+          <button className={style.checkOutBtn}> Check Out</button>{" "}
+        </div>
       </div>
     </>
   );

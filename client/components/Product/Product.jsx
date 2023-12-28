@@ -34,6 +34,30 @@ export function Product() {
     }
   }, []);
 
+  function addToCart(product) {
+    // Retrieve existing cart from local storage
+    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if the product is already in the cart
+    const existingProduct = existingCart.find((item) => item.id === product.GenreID);
+
+    if (existingProduct) {
+      // If product is already in the cart, update quantity
+      existingProduct.quantity += 1;
+    } else {
+      // If product is not in the cart, add it
+      existingCart.push({
+        id: product.GenreID,
+        title: product.Title,
+        price: product.SellingPrice,
+        quantity: 1,
+      });
+    }
+
+    // Save the updated cart to local storage
+    localStorage.setItem("cart", JSON.stringify(existingCart));
+  }
+
   return (
     <>
       <Swiper
@@ -56,7 +80,9 @@ export function Product() {
                 <div className={style.rating}> </div>
               </div>
               <div>
-                <button className={style.button}>Add to Cart</button>
+                <button className={style.button} onClick={() => addToCart(product)}>
+                  Add to Cart
+                </button>
               </div>
             </div>
           </SwiperSlide>
