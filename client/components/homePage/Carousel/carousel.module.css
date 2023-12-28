@@ -1,0 +1,14 @@
+/* carousel.module.css */
+
+.container {
+  position: relative;
+}
+.container img {
+  width: 100%;
+}
+
+/* Add styles for Swiper navigation buttons */
+.container .swiper-button-next,
+.container .swiper-button-prev {
+  background-color: transparent !important ;
+}

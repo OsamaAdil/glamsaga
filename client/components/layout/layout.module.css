@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
+
+.html {
+  font-size: 62.7%;
+  position: relative;
+}
+
 .loginMainWrap {
   display: flex;
   flex-direction: column;
@@ -14,7 +21,6 @@
   /* cursor: pointer; */
 }
 
-
 .logibox {
   width: 320px;
   display: flex;
@@ -27,7 +33,7 @@
   position: absolute;
   color: #464646;
   font-weight: 400;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   height: 20rem;
   /* cursor: auto; */
   /* pointer-events: none; */
@@ -47,17 +53,15 @@
   width: 100%;
 }
 
-.inputNumber::-webkit-inner-spin-button, 
-.inputNumber::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+.inputNumber::-webkit-inner-spin-button,
+.inputNumber::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-.inputNumber{
+.inputNumber {
   width: 100%;
 }
-
-
 
 .addbox {
   width: 80%;
@@ -92,31 +96,30 @@
   border: none;
   outline: none;
   background: transparent;
-} 
+}
 
 .logibox > :nth-child(3) {
-    display: flex;
-    justify-content: center;
-    font-size: 0.8rem; 
-  }
+  display: flex;
+  justify-content: center;
+  font-size: 0.8rem;
+}
 
-.loginOtp{
-  width: 100%  ;
+.loginOtp {
+  width: 100%;
   border: none;
   outline: none;
   background: transparent;
 }
 
-.loginOtp::-webkit-inner-spin-button, 
-.loginOtp::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+.loginOtp::-webkit-inner-spin-button,
+.loginOtp::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-.loginOtp{
+.loginOtp {
   width: 100%;
 }
-
 
 .whatsapp_float {
   position: fixed;
@@ -133,24 +136,51 @@
   z-index: 100;
 }
 
+.headings {
+  font-size: 4rem;
+  font-family: Poppins;
+}
 
 @media (min-width: 20em) and (max-width: 30em) {
-  .whatsapp_float{
+  .whatsapp_float {
     width: 55px;
     height: 65px;
     bottom: 20px;
     right: 20px;
   }
- 
 }
 
 /* tab port - 480px to 768 */
 @media (min-width: 30.0625em) and (max-width: 650px) {
-  .whatsapp_float{
+  .whatsapp_float {
     width: 55px;
     height: 65px;
     bottom: 20px;
     right: 20px;
   }
+}
 
+.dummy {
+  height: 10rem;
+}
+
+.whatsapp {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 5rem;
+  right: 3rem;
+  z-index: 10000000;
+}
+
+.whatsapp img {
+  width: 100%;
+  height: 100%;
+  
+}
+
+.whatsapp img:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background: white;
+  border-radius: 20px;
 }

@@ -1,0 +1,54 @@
+.html {
+  font-size: 62.7%;
+  background-color: #f5eded;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5rem;
+  gap: 10rem;
+  font-family: Poppins;
+  font-size: 1.5rem;
+  background-color: #f5eded;
+  background-color: #f5eded;
+  opacity: 0.8;
+  background-image: radial-gradient(#501e3b 0.5px, transparent 0.5px),
+    radial-gradient(#501e3b 0.5px, #f5eded 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+.description {
+  min-width: 30rem;
+  max-width: 60rem;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+  border-radius: 10px;
+}
+
+.contactUs {
+  min-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.contactUs div {
+  width: 100%;
+  height: 10rem;
+  background: #f5eded;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+}
+
+.contactUs img {
+  width: 5rem;
+  height: 5rem;
+}

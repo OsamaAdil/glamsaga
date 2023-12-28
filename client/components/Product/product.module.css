@@ -1,0 +1,68 @@
+.html {
+  font-size: 62.5%;
+
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.containerr {
+  margin-top: 3rem;
+  background-color: gray;
+  width: 25rem;
+  height: 40rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 10px;
+  font-family: poppins;
+  color: #902551;
+  font-size: 1.3rem;
+  background: #f5eded;
+  font-weight: 700;
+  gap : 1rem;
+}
+
+.containerr img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.containerr span {
+  text-decoration: line-through;
+}
+
+.cost {
+  padding: 1rem;
+}
+.button {
+  height: 3.6rem;
+  min-width: 15rem;
+  background: #3c152b;
+  color: white;
+  border-radius: 0.4rem;
+
+  border: none;
+}
+
+.button:hover {
+  box-shadow: 1px 1px 6.199999809265137px 0px #ffb900;
+}
+
+
+/* carousel.module.css */
+
+.container {
+  position: relative;
+  /* padding-top: 10rem; */
+}
+.container img {
+  width: 100%;
+}
+
+/* Add styles for Swiper navigation buttons */
+.container .swiper-button-next,
+.container .swiper-button-prev {
+  background-color: transparent !important ;
+}
+

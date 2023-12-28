@@ -1,0 +1,23 @@
+.html {
+    font-size: 62.7%;
+  }
+  
+  .container {
+    display: flex;
+    font-family: poppins;
+    font-size: large;
+    font-weight : 500;
+  }
+  
+  .filteredProductContainer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3rem;
+    row-gap: 2rem;
+    column-gap: 2rem;
+  }
+  
+  .filterContainer {
+    padding: 5rem;
+  }
+  

@@ -1,0 +1,54 @@
+.html {
+  font-size: 62.7%;
+  background-color: #f5eded;
+  font-family: Poppins;
+}
+
+.container {
+  padding: 3rem;
+}
+
+.headings {
+  color: #3c152b;
+  font-size: 2rem;
+  font-weight: 600;
+
+}
+
+.sideHeading {
+  color: #3c152b;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* align-items: center; */
+  row-gap: 3rem;
+  column-gap: 3rem;
+  margin-top: 2rem;
+}
+
+.paymentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+  text-align: center;
+  margin-top: 6rem;
+  font-family: poppins;
+  font-size: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.paymentContainer img {
+  max-width: 100%;
+}
+
+.gifting {
+  width: 100%;
+  background-color: #f5eded;
+}

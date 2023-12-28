@@ -1,0 +1,27 @@
+.html {
+  font-size: 62.7%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 2rem;
+  width: 20rem;
+  height: 20rem;
+  background: #f5eded;
+  border-radius: 2rem;
+}
+
+.imgContainer img {
+  height: 10rem;
+  width: 10rem;
+}
+
+.name {
+  color: #902551;
+  font-size: 1.2rem;
+  font-family: poppins;
+  font-weight: bold;
+}
