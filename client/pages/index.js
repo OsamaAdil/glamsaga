@@ -3,7 +3,7 @@ import Carousel from "@/components/homePage/Carousel/Carousel";
 import React, { useEffect, useState } from "react";
 import style from "./index.module.css";
 import Category from "@/components/homePage/Category/Category";
-import Link from 'next/link';
+import Link from "next/link";
 // import Category from "@/components/homePage/category/";
 
 // import { fetchProductDetails } from "@/services/product";
@@ -17,24 +17,30 @@ export default function Home() {
       <div className={style.container}>
         <div className={style.flex}>
           <div className={style.headings}>New Arrivals</div>
-          <div className={style.sideHeading}><Link href="./newArrivals">View All</Link></div>
+          <div className={style.sideHeading}>
+            <Link href="./newArrivals">View All</Link>
+          </div>
         </div>
-        <Product />
+        <Product type="New Arrival" />
       </div>
       <div className={style.container}>
         <div className={style.flex}>
           <div className={style.headings}>Classic Collection</div>
-          <div className={style.sideHeading}><Link href="./classicCollections">View All</Link></div>
+          <div className={style.sideHeading}>
+            <Link href="./classicCollections">View All</Link>
+          </div>
         </div>
-        <Product />
+        <Product type="Classic Collections" />
       </div>
 
       <div className={style.container}>
         <div className={style.flex}>
-          <div className={style.headings}><Link href="./bestSellers">Best Sellers</Link></div>
+          <div className={style.headings}>
+            <Link href="./bestSellers">Best Sellers</Link>
+          </div>
           <div className={style.sideHeading}>View All</div>
         </div>
-        <Product />
+        <Product type="Best Sellers" />
       </div>
 
       <div className={style.container}>
@@ -60,14 +66,14 @@ export default function Home() {
           <img src={"/payment.png"} />
         </div>
       </div>
-     <a  href="https://wa.me/918928033265" target="_blank"> <div className={style.gifting}> 
-      <img className={style.gifting} src={"/corporategifting.png"} />
-      </div></a>
-
-      
+      <a href="https://wa.me/918928033265" target="_blank">
+        {" "}
+        <div className={style.gifting}>
+          <img className={style.gifting} src={"/corporategifting.png"} />
+        </div>
+      </a>
     </>
   );
 }
 
-
-  // powershell -ExecutionPolicy Bypass -File "C:\Users\Abdullah\AppData\Roaming\npm\json-server.ps1" --watch --port 4000 ./data/product.json
+// powershell -ExecutionPolicy Bypass -File "C:\Users\Abdullah\AppData\Roaming\npm\json-server.ps1" --watch --port 4000 ./data/product.json

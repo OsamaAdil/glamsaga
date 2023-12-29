@@ -11,9 +11,12 @@ import SwiperCore, { Navigation, Pagination } from "swiper/core"; // Import Swip
 // Install Swiper modules
 SwiperCore.use([Navigation, Pagination]);
 
-export function Product() {
+export function Product({type}) {
   const [products, setProducts] = useState([]);
   let [k, setK] = useState(1);
+
+  const filteredArray = products.filter((product) =>
+  product.Flag.includes(type))
 
   useEffect(() => {
     axios
@@ -34,12 +37,16 @@ export function Product() {
     }
   }, []);
 
+
+
   function addToCart(product) {
     // Retrieve existing cart from local storage
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
 
     // Check if the product is already in the cart
-    const existingProduct = existingCart.find((item) => item.id === product.GenreID);
+    const existingProduct = existingCart.find(
+      (item) => item.id === product.ProductID
+    );
 
     if (existingProduct) {
       // If product is already in the cart, update quantity
@@ -47,7 +54,7 @@ export function Product() {
     } else {
       // If product is not in the cart, add it
       existingCart.push({
-        id: product.GenreID,
+        id: product.ProductID,
         title: product.Title,
         price: product.SellingPrice,
         quantity: 1,
@@ -66,7 +73,7 @@ export function Product() {
         slidesPerView={k}
         navigation
       >
-        {products.map((product, index) => (
+        {filteredArray.map((product, index) => (
           <SwiperSlide key={index}>
             <div className={style.containerr}>
               <div>
@@ -80,7 +87,10 @@ export function Product() {
                 <div className={style.rating}> </div>
               </div>
               <div>
-                <button className={style.button} onClick={() => addToCart(product)}>
+                <button
+                  className={style.button}
+                  onClick={() => addToCart(product)}
+                >
                   Add to Cart
                 </button>
               </div>

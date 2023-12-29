@@ -41,12 +41,8 @@ export default function Header() {
     // Load cart data from local storage on component mount
     const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(savedCart);
-
     // Add event listener to update cart when localStorage changes
-   
-
     window.addEventListener("storage", handleStorageChange);
-
     return () => {
       // Cleanup the event listener when the component unmounts
       window.removeEventListener("storage", handleStorageChange);
@@ -108,13 +104,17 @@ export default function Header() {
         </div>
         <div className={style.dummy1}></div>
         <div className={style.cartItem}>
-          <ul>
-            {cart.map((item) => (
-              <li key={item.id}>
-                {item.title} - ${item.price} - Quantity: {item.quantity}
-              </li>
-            ))}
-          </ul>
+          {cart.map((item)=>
+          {
+          return
+          (
+          
+
+          <div className={style.dummy1}></div>
+          
+          )}
+          
+
         </div>
 
         <div className={style.dummy1}></div>

@@ -19,7 +19,7 @@ export function FilterProduct({type}) {
 
   const filteredArray= products.filter((product)=> product.Flag.includes(type)?true:false)
 
-  console.log(filteredArray);
+  
 
   return (
     <>
