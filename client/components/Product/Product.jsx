@@ -11,12 +11,16 @@ import SwiperCore, { Navigation, Pagination } from "swiper/core"; // Import Swip
 // Install Swiper modules
 SwiperCore.use([Navigation, Pagination]);
 
-export function Product({type}) {
+export function Product({ type }) {
   const [products, setProducts] = useState([]);
+  const [productVariant, setProductVariant] = useState([]);
+  const [productVariantId, setProductVariantId] = useState([]);
   let [k, setK] = useState(1);
+  const [cart, setCart] = useState([]);
 
   const filteredArray = products.filter((product) =>
-  product.Flag.includes(type))
+    product.Flag.includes(type)
+  );
 
   useEffect(() => {
     axios
@@ -35,9 +39,8 @@ export function Product({type}) {
     } else if (window.innerWidth > 500) {
       setK(2);
     }
+   
   }, []);
-
-
 
   function addToCart(product) {
     // Retrieve existing cart from local storage
@@ -73,30 +76,32 @@ export function Product({type}) {
         slidesPerView={k}
         navigation
       >
-        {filteredArray.map((product, index) => (
-          <SwiperSlide key={index}>
-            <div className={style.containerr}>
-              <div>
-                <img src={"/bag.png"} alt={`Product ${index}`} />
-              </div>
-              <div>{product.Title}</div>
-              <div>
-                <div className="cost">
-                  Rs.{product.SellingPrice} <span>Rs{product.Price}</span>
+        {filteredArray.map(
+          (product, index) =>
+              <SwiperSlide key={index}>
+                <div className={style.containerr}>
+                  <div>
+                    <img src={"/bag.png"} alt={`Product ${index}`} />
+                  </div>
+                  <div>{product.Title}</div>
+                  <div>
+                    <div className="cost">
+                      Rs.{product.SellingPrice} <span>Rs{product.Price}</span>
+                    </div>
+                    <div className={style.rating}> </div>
+                  </div>
+                  <div>
+                    <button
+                      className={style.button}
+                      onClick={() => addToCart(product)}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
-                <div className={style.rating}> </div>
-              </div>
-              <div>
-                <button
-                  className={style.button}
-                  onClick={() => addToCart(product)}
-                >
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
+              </SwiperSlide>
+            )
+        }
       </Swiper>
     </>
   );

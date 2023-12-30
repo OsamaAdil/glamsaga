@@ -29,10 +29,10 @@ export default function Carousel() {
         <img src={"image1.jpg"} alt="slide 1" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src={"image1.jpg"} alt="slide 2" />
+        <img src={"image2.jpg"} alt="slide 2" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src={"image1.jpg"} alt="slide 3" />
+        <img src={"image3.jpg"} alt="slide 3" />
       </SwiperSlide>
     </Swiper>
   );
