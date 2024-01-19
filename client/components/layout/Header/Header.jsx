@@ -4,10 +4,14 @@ import React, { useState, useEffect } from "react";
 import style from "./header.module.css";
 import Link from "next/link";
 import Cart from "@/components/Cart/Cart";
+import { useDispatch } from "react-redux";
+import { onCartClick } from "@/redux/features/cartSlice";
 
 export default function Header() {
   const [toggle, setToggle] = useState(true);
-  const [cartVisible, setCartVisible] = useState(false);
+  // const [cartVisible, setCartVisible] = useState(false);
+  const dispatch = useDispatch();
+
   let icon = toggle ? "/hamburger-menu-icon.webp" : "/cross.png";
 
   function handleClick() {
@@ -21,12 +25,16 @@ export default function Header() {
   }
 
   function handleCartClick() {
-    setCartVisible(!cartVisible);
+    dispatch(onCartClick());
   }
 
-  function handleToggleChange(newToggleState) {
-    setCartVisible(newToggleState);
-  }
+  // function handleCartClick() {
+  //   setCartVisible(!cartVisible);
+  // }
+
+  // function handleToggleChange(newToggleState) {
+  //   setCartVisible(newToggleState);
+  // }
 
   return (
     <>
@@ -72,11 +80,16 @@ export default function Header() {
             <img src={"searchButton.png"} alt="Search" />
           </div>
           <div className={style.cart}>
-            <img src={"Cart.png"} alt="Cart" id="cart" onClick={handleCartClick} />
+            <img
+              src={"Cart.png"}
+              alt="Cart"
+              id="cart"
+              onClick={handleCartClick}
+            />
           </div>
         </div>
       </div>
-      <Cart type={cartVisible} onToggleChange={handleToggleChange} />
+      <Cart />
     </>
   );
 }

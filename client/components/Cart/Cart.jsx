@@ -1,89 +1,98 @@
 // cart.js
 
 import style from "./cart.module.css";
-import { useState, useEffect, useCallback } from "react";
+import {useSelector,useDispatch} from "react-redux";
+import { onCartClick } from "@/redux/features/cartSlice";
+// import { useState, useEffect, useCallback } from "react";
 
-export default function Cart({ type, onToggleChange }) {
-  const [cart, setCart] = useState([]);
-  const [toggle, setToggle] = useState(type);
-  const [, forceUpdate] = useState(); 
+export default function Cart() {
 
-  const handleStorageChange = () => {
-    const updatedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    setCart(updatedCart);
-    forceUpdate({}); // Trigger re-render
-  };
+const toggle = useSelector((state)=>state.cart.cartToggler)
+const dispatch = useDispatch()
 
-  useEffect(() => {
-    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    setCart(savedCart);
-    window.addEventListener("storage", handleStorageChange);
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-    };
-  }, [handleStorageChange]);
+function handleClick1(){
+  dispatch(onCartClick());
+}
+//   const [cart, setCart] = useState([]);
+//   const [toggle, setToggle] = useState(type);
+//   const [, forceUpdate] = useState(); 
 
-  useEffect(() => {
-    setToggle(type);
-  }, [type]);
+//   const handleStorageChange = () => {
+//     const updatedCart = JSON.parse(localStorage.getItem("cart")) || [];
+//     setCart(updatedCart);
+//     forceUpdate({}); // Trigger re-render
+//   };
 
-  function handleClick1() {
-    setToggle(!toggle);
-    onToggleChange(!toggle);
-  }
+//   useEffect(() => {
+//     const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+//     setCart(savedCart);
+//     window.addEventListener("storage", handleStorageChange);
+//     return () => {
+//       window.removeEventListener("storage", handleStorageChange);
+//     };
+//   }, [handleStorageChange]);
 
-  function handleIncrement(item) {
-    const updatedCart = cart.map((cartItem) =>
-      cartItem.id === item.id
-        ? { ...cartItem, quantity: cartItem.quantity + 1 }
-        : cartItem
-    );
-    setCart(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-  }
+//   useEffect(() => {
+//     setToggle(type);
+//   }, [type]);
 
-  function handleDecrement(item) {
-    if (item.quantity > 1) {
-      const updatedCart = cart.map((cartItem) =>
-        cartItem.id === item.id
-          ? { ...cartItem, quantity: cartItem.quantity - 1 }
-          : cartItem
-      );
-      setCart(updatedCart);
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
-    }
-  }
+//   function handleClick1() {
+//     setToggle(!toggle);
+//     onToggleChange(!toggle);
+//   }
 
-  function deletefromCart(item) {
-    const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
+//   function handleIncrement(item) {
+//     const updatedCart = cart.map((cartItem) =>
+//       cartItem.id === item.id
+//         ? { ...cartItem, quantity: cartItem.quantity + 1 }
+//         : cartItem
+//     );
+//     setCart(updatedCart);
+//     localStorage.setItem("cart", JSON.stringify(updatedCart));
+//   }
 
-    setCart(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-  }
+//   function handleDecrement(item) {
+//     if (item.quantity > 1) {
+//       const updatedCart = cart.map((cartItem) =>
+//         cartItem.id === item.id
+//           ? { ...cartItem, quantity: cartItem.quantity - 1 }
+//           : cartItem
+//       );
+//       setCart(updatedCart);
+//       localStorage.setItem("cart", JSON.stringify(updatedCart));
+//     }
+//   }
 
-  const cartItems = cart.map((item, index) => (
-    <div key={index}>
-      <div className={style.cartItemContainer}>
-        <div>
-          <img src="/bag.png" />
-        </div>
-        <div className={style.itemDescription}>
-          {" "}
-          <button onClick={() => handleDecrement(item)}>-</button>
-          {item.quantity}
-          <button onClick={() => handleIncrement(item)}>+</button> x{item.price}
-          ={item.price * item.quantity}{" "}
-          <img src="/trash.svg" onClick={() => deletefromCart(item)} />
-        </div>
-      </div>
-      <div className={style.dummy1}></div>
-    </div>
-  ));
+//   function deletefromCart(item) {
+//     const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
 
-  const Total = cart.reduce(
-    (accumulator, item) => accumulator + item.quantity * item.price,
-    0
-  );
+//     setCart(updatedCart);
+//     localStorage.setItem("cart", JSON.stringify(updatedCart));
+//   }
+
+  // const cartItems = cart.map((item, index) => (
+  //   <div key={index}>
+  //     <div className={style.cartItemContainer}>
+  //       <div>
+  //         <img src="/bag.png" />
+  //       </div>
+  //       <div className={style.itemDescription}>
+  //         {" "}
+  //         <button onClick={() => handleDecrement(item)}>-</button>
+  //         {item.quantity}
+  //         <button onClick={() => handleIncrement(item)}>+</button> x{item.price}
+  //         ={item.price * item.quantity}{" "}
+  //         <img src="/trash.svg" onClick={() => deletefromCart(item)} />
+  //       </div>
+  //     </div>
+  //     <div className={style.dummy1}></div>
+  //   </div>
+  // ));
+
+  // const Total = cart.reduce(
+  //   (accumulator, item) => accumulator + item.quantity * item.price,
+  //   0
+  // );
 
   return (
     <div
@@ -104,11 +113,11 @@ export default function Cart({ type, onToggleChange }) {
         </div>
       </div>
       <div className={style.dummy1}></div>
-      <div className={style.cartItem}>{cartItems}</div>
+      {/* <div className={style.cartItem}>{cartItems}</div> */}
       <div className={style.dummy1}></div>
       <div className={style.flex}>
         <div>Sub Total</div>
-        <div>{Total}</div>
+        {/* // <div>{Total}</div> */}
       </div>
       <div className={style.checkOut}>
         <button className={style.checkOutBtn}> Check Out</button>{" "}
