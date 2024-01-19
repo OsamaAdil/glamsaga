@@ -1,12 +1,9 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import Header from "./Header/Header";
-// import Cart from "../globalComponents/cart";
-// import Search from "../../pages/search";
 import style from "./layout.module.css";
 import Footer from "./footer/Footer";
-// import Whatsapp from "../globalComponents/whatsapp";
+import { ReduxProvider } from "@/components/Provider/Provider";
 
 const Layout = ({ children, Tag }) => {
   const [closeFlag, setCloseFlag] = useState(false);
@@ -26,20 +23,20 @@ const Layout = ({ children, Tag }) => {
         />
         <link rel="icon" href="/logo.png" />
       </Head>
-      <Header></Header>
-      <div className={style.dummy}></div>
 
-      {children}
-      {/* {search ? <Search search={search} /> : <div> {children} </div>} */}
-      {/* <Whatsapp /> */}
-      {/* <Cart /> */}
-      {/* {closeFlag ? <Login setCloseFlag={setCloseFlag} /> : false} */}
-      <div className={style.whatsapp}>
-        <a href="https://wa.me/918928033265" target="_blank">
-          <img src="/whatsapp.png" />
-        </a>
-      </div>
-      <Footer></Footer>
+      <ReduxProvider>
+        <Header></Header>
+        <div className={style.dummy}></div>
+
+        {children}
+
+        <div className={style.whatsapp}>
+          <a href="https://wa.me/918928033265" target="_blank">
+            <img src="/whatsapp.png" />
+          </a>
+        </div>
+        <Footer></Footer>
+      </ReduxProvider>
     </>
   );
 };
