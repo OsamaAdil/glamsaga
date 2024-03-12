@@ -1,4 +1,5 @@
 const Category = require("../models/categories");
+const {resStr} = require("../helpers/responseStructure");
 
 const rectifyName = function (a) {
   return a.toLowerCase();
@@ -6,6 +7,10 @@ const rectifyName = function (a) {
 
 //Create
 const createCategory = function (req, res) {
+
+  // manipulation
+
+
   let sendRes = {
     message: "",
     error: true,
@@ -45,24 +50,32 @@ const createCategory = function (req, res) {
 exports.createCategory = createCategory;
 
 // Get
-const getCategory = function (req, res) {
-  let sendRes = {
-    message: "",
-    error: true,
-    data: []
-  };
+const getCategory = function (data, cb) {
 
   let findData = { };
+  
+  // if (!data.name) {
+  //   sendRes.message = "Please add the name";
+  //   sendRes.status = 400;
+  //   return cb(sendRes);
+  // }
 
   Category.find(findData, (err, resp) => {
     if (err) {
-      sendRes.message = "Server error while fectching details from server";
-      return res.status(500).send(sendRes);
+      // sendRes.status = 500;
+      // return res.status(500).send(sendRes);
+      // return cb(sendRes)
+      return cb(resStr(500, "Server error while fetching details from server", null, true))
     }
-    sendRes.message = "fetched succesfully";
-    sendRes.error = false;
-    sendRes.data = resp;
-    return res.status(200).send(sendRes);
+    // sendRes.message = "";
+    // sendRes.error = false;
+    // sendRes.status = 200;
+    // sendRes.data = ;
+    //yahan pe
+    // return res.status(200).send(sendRes);
+    // return sendRes;
+    // return cb(false, sendRes);
+    return cb(null, resStr(200, "fetched succesfully", resp, true))
   });
 };
 exports.getCategory = getCategory;

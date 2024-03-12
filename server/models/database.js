@@ -5,9 +5,12 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-let mongoHost =  "mongodb://localhost";
+let mongoHost =  "mongodb://192.168.1.15";
+// let mongoHost =  "mongodb://localhost";
 let mongoPort = "27017";
 let dbName = process.env.DB_NAME;
+
+// mongodb+srv://osamaadilkhan25:<password>@cluster0.rkpzlop.mongodb.net/?retryWrites=true&w=majority
 
 const connectMongoDBDatabaseWithRetry = async function(){
     try {

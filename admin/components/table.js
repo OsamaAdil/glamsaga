@@ -4,10 +4,10 @@ import Router, { useRouter } from "next/router";
 
 const genres = ["Edit", "Name", "Details", "Delete"];
 const categories = ["Edit", "Name", "Details", "Delete"];
-const products = ["Edit", "Name", "Details", "Delete"];
-const productvariants = ["Edit", "Name", "Details", "Delete"];
-const comments = ["Edit", "Name", "Details", "Delete"];
-const transcations = ["Edit", "Name", "Details", "Delete"];
+const products = ["Edit", "Name", "productId", "Details", "Delete"];
+const productvariants = ["Edit", "productId", "Size", "Colour", "Delete"];
+const comments = ["Edit", "productId", "Comment", "Rating", "User Name", "Delete"];
+const transactions = ["Edit", "paymentMethod", "status", "product","totalProductsPrice", "Delete"];
 const customers = ["Edit", "Name", "Details", "Delete"];
 
 let tableHeaderData = [];
@@ -31,8 +31,8 @@ const Table = ({data}) => {
   if(linkText == "comments") {
     tableHeaderData = comments
   }
-  if(linkText == "transcations") {
-    tableHeaderData = transcations
+  if(linkText == "transactions") {
+    tableHeaderData = transactions
   }
   if(linkText == "customers") {
     tableHeaderData = customers
@@ -71,7 +71,57 @@ const Table = ({data}) => {
                     <tr key = {i}>
                       <td className={style.td}>Edit</td>
                       <td className={style.td}>{el.title}</td>
+                      <td className={style.td}>{el._id}</td>
                       <td className={style.td}>{el.category}</td>
+                      <td className={style.td}>{el.isDelete.toString()}</td>
+                    </tr>
+                  </>
+                ))
+                }
+               {linkText == "productvariants" && data?.map((el, i) => (
+                  <>
+                    <tr key = {i}>
+                      <td className={style.td}>Edit</td>
+                      <td className={style.td}>{el.productId}</td>
+                      <td className={style.td}>{el.size}</td>
+                      <td className={style.td}>{el.colour}</td>
+                      <td className={style.td}>{el.isDelete.toString()}</td>
+                    </tr>
+                  </>
+                ))
+                }
+                {linkText == "comments" && data?.map((el, i) => (
+                  <>
+                    <tr key = {i}>
+                      <td className={style.td}>Edit</td>
+                      <td className={style.td}>{el.productId}</td>
+                      <td className={style.td}>{el.commentDetails.comment}</td>
+                      <td className={style.td}>{el.commentDetails.rating}</td>
+                      <td className={style.td}>{el.userDetails.name}</td>
+                      <td className={style.td}>{el.isDelete.toString()}</td>
+                    </tr>
+                  </>
+                ))
+                }
+                {linkText == "transactions" && data?.map((el, i) => (
+                  <>
+                    <tr key = {i}>
+                      <td className={style.td}>Edit</td>
+                      <td className={style.td}>{el.paymentMethod}</td>
+                      <td className={style.td}>{el.status}</td>
+                      <td className={style.td}>{el.productDetails[0].productId}</td>
+                      <td className={style.td}>{el.totalProductsPrice}</td>
+                      <td className={style.td}>{el.isDelete.toString()}</td>
+                    </tr>
+                  </>
+                ))
+                }
+                {linkText == "customers" && data?.map((el, i) => (
+                  <>
+                    <tr key = {i}>
+                      <td className={style.td}>Edit</td>
+                      <td className={style.td}>{el.fullName}</td>
+                      <td className={style.td}>{el.phoneNumber}</td>
                       <td className={style.td}>{el.isDelete.toString()}</td>
                     </tr>
                   </>

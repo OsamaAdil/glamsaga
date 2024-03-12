@@ -68,6 +68,35 @@ const getProductVariants = function (req, res) {
 };
 exports.getProductVariants = getProductVariants;
 
+const getProductVariantsByID = function (req, res) {
+  let sendRes = {
+    message: "",
+    error: true,
+    data: [],
+  };
+
+  if (!req.body.productVariantId) {
+    sendRes.message = "Please add required details for product";
+    return res.status(400).send(sendRes);
+  }
+
+  let findData = {
+    _id: req.body.productVariantId
+  };
+
+  ProductVariants.findOne(findData, (err, resp) => {
+    if (err) {
+      sendRes.message = "Server error while fectching details from server";
+      return res.status(500).send(sendRes);
+    }
+    sendRes.message = "fetched succesfully";
+    sendRes.error = false;
+    sendRes.data = resp;
+    return res.status(200).send(sendRes);
+  });
+};
+exports.getProductVariantsByID = getProductVariantsByID;
+
 // Update
 const editProductVariants = function (req, res) {
   let sendRes = {

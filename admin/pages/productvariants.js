@@ -9,6 +9,7 @@ import { baseURL } from "@/config/constant";
 const categories = () => {
   const router = useRouter();
   const linkText = router.pathname.split("/")[1];
+  console.log("linkText", linkText);
 
   const [data, setData] = useState();
 

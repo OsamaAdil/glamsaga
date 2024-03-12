@@ -15,6 +15,8 @@ import { useDispatch, useSelector } from 'react-redux';
 const genres = () => {
   const router = useRouter();
   const linkText = router.pathname.split("/")[1];
+  console.log("linkText", linkText);
+  
   const dispatch = useDispatch();
   const genre = useSelector(state => state);
 
