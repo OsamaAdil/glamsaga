@@ -1,3 +1,4 @@
+"use client";
 import style from "./product.module.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -7,7 +8,11 @@ import "swiper/css/navigation"; // Import navigation styles
 import "swiper/css/pagination"; // Import pagination styles
 
 import SwiperCore, { Navigation, Pagination } from "swiper/core"; // Import Swiper core
+import { useSelector, useDispatch } from "react-redux";
+import { addItemToCart } from "@/redux/features/cartSlice";
 
+import { baseURL } from "@/config/constant";
+import { fetchProducts } from "@/components/api";
 // Install Swiper modules
 SwiperCore.use([Navigation, Pagination]);
 
@@ -16,21 +21,23 @@ export function Product({ type }) {
   const [productVariant, setProductVariant] = useState([]);
   const [productVariantId, setProductVariantId] = useState([]);
   let [k, setK] = useState(1);
-  const [cart, setCart] = useState([]);
+  // const [cart, setCart] = useState([]);
+  const cart = useSelector((state) => state.cart.cart);
+  const dispatch = useDispatch();
 
-  const filteredArray = products.filter((product) =>
-    product.Flag.includes(type)
-  );
+  // .get(  "http://localhost:4000/products")
 
   useEffect(() => {
-    axios
-      .get("http://localhost:4000/products")
-      .then((res) => {
-        setProducts(res.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching products:", error);
-      });
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/products");
+        setProducts(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
 
     if (window.innerWidth > 1024) {
       setK(4);
@@ -39,33 +46,14 @@ export function Product({ type }) {
     } else if (window.innerWidth > 500) {
       setK(2);
     }
-   
   }, []);
 
+  const filteredArray = products.filter((product) =>
+    product.Flag.includes(type)
+  );
+
   function addToCart(product) {
-    // Retrieve existing cart from local storage
-    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    // Check if the product is already in the cart
-    const existingProduct = existingCart.find(
-      (item) => item.id === product.ProductID
-    );
-
-    if (existingProduct) {
-      // If product is already in the cart, update quantity
-      existingProduct.quantity += 1;
-    } else {
-      // If product is not in the cart, add it
-      existingCart.push({
-        id: product.ProductID,
-        title: product.Title,
-        price: product.SellingPrice,
-        quantity: 1,
-      });
-    }
-
-    // Save the updated cart to local storage
-    localStorage.setItem("cart", JSON.stringify(existingCart));
+    dispatch(addItemToCart(product));
   }
 
   return (
@@ -76,32 +64,30 @@ export function Product({ type }) {
         slidesPerView={k}
         navigation
       >
-        {filteredArray.map(
-          (product, index) =>
-              <SwiperSlide key={index}>
-                <div className={style.containerr}>
-                  <div>
-                    <img src={"/bag.png"} alt={`Product ${index}`} />
-                  </div>
-                  <div>{product.Title}</div>
-                  <div>
-                    <div className="cost">
-                      Rs.{product.SellingPrice} <span>Rs{product.Price}</span>
-                    </div>
-                    <div className={style.rating}> </div>
-                  </div>
-                  <div>
-                    <button
-                      className={style.button}
-                      onClick={() => addToCart(product)}
-                    >
-                      Add to Cart
-                    </button>
-                  </div>
+        {filteredArray?.map((product, index) => (
+          <SwiperSlide key={index}>
+            <div className={style.containerr}>
+              <div>
+                <img src={"/bag.png"} alt={`Product ${index}`} />
+              </div>
+              <div>{product.Title}</div>
+              <div>
+                <div className="cost">
+                  Rs.{product.SellingPrice} <span>Rs{product.Price}</span>
                 </div>
-              </SwiperSlide>
-            )
-        }
+                <div className={style.rating}> </div>
+              </div>
+              <div>
+                <button
+                  className={style.button}
+                  onClick={() => addToCart(product)}
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

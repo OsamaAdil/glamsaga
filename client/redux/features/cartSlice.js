@@ -1,49 +1,51 @@
-// cartSlice.js
-
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cartToggler: false,
-  cart: [], // Initial cart state as an empty array
+  cart: [],
 };
 
 export const cartSlice = createSlice({
-  name: 'cart',
+  name: "cart",
   initialState,
   reducers: {
     onCartClick: (state) => {
-      // Toggle the cartToggler value to show/hide the cart
       state.cartToggler = !state.cartToggler;
     },
     addItemToCart: (state, action) => {
-      // Add an item to the cart
-      state.cart.push(action.payload);
-    },
-    incrementCartItem: (state, action) => {
-      // Increment the quantity of a specific item in the cart
-      const { itemId } = action.payload;
-      const cartItem = state.cart.find((item) => item.id === itemId);
-      if (cartItem) {
-        cartItem.quantity += 1;
+      const cartItem = {
+        id: action.payload.ProductID,
+        title: action.payload.Title,
+        price: action.payload.SellingPrice,
+        quantity: 1,
+      };
+      const itemId = action.payload.ProductID;
+      const index = state.cart.findIndex((item) => item.id === itemId);
+      if (index !== -1) {
+        state.cart[index].quantity = state.cart[index].quantity + 1;
+      } else {
+        state.cart.push(cartItem);
+      }
+      if(!state.cartToggler){
+        state.cartToggler = !state.cartToggler;
       }
     },
+
+    incrementCartItem: (state, action) => {
+      state.cart[action.payload].quantity += 1;
+    },
     decrementCartItem: (state, action) => {
-      // Decrement the quantity of a specific item in the cart
-      const { itemId } = action.payload;
-      const cartItem = state.cart.find((item) => item.id === itemId);
-      if (cartItem && cartItem.quantity > 1) {
-        cartItem.quantity -= 1;
+      if (state.cart[action.payload].quantity > 1) {
+        state.cart[action.payload].quantity -= 1;
       }
     },
     deleteCartItem: (state, action) => {
-      // Delete a specific item from the cart
-      const { itemId } = action.payload;
+      const itemId = action.payload.id;
       state.cart = state.cart.filter((item) => item.id !== itemId);
     },
   },
 });
 
-// Export action creators
 export const {
   onCartClick,
   addItemToCart,
@@ -52,5 +54,4 @@ export const {
   deleteCartItem,
 } = cartSlice.actions;
 
-// Export reducer
 export default cartSlice.reducer;

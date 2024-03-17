@@ -76,4 +76,5 @@ export default function Home() {
   );
 }
 
+// 
 // powershell -ExecutionPolicy Bypass -File "C:\Users\Abdullah\AppData\Roaming\npm\json-server.ps1" --watch --port 4000 ./data/product.json
