@@ -95,3 +95,41 @@ html,body {
   background-color: #3c152b;
   color: #b79028;
 }
+
+#scrollable-select-wrapper {
+  /* max-height: 20px; Set the maximum height to control the scrollable area */
+  overflow-y: auto; /* Add vertical scrolling */
+  /* font-size: 1.6rem; */
+  color: #3c152b;
+}
+
+#scrollable-select-wrapper > select {
+  color: #3c152b;
+  font-size: 1.6rem;
+  font-weight: 400;
+  height: 4rem;
+  padding: 0.5rem;
+  border: 2px solid #f3d0cc;
+  border-radius: 10px;
+}
+
+
+#scrollable-select-wrapper > select option{
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding: 0.5rem 1rem; 
+  height: 4rem;
+  color: #3c152b;
+}
+
+
+.resizeable-textarea{
+  resize: both; /* This allows both horizontal and vertical resizing */
+  overflow: auto; /* This ensures that scrollbars appear when content overflows */
+  min-height: 10px; /* Set a minimum height to prevent it from becoming too small */
+  max-height: 600px; /* Set a maximum height if needed */
+  width: 50%; /* Set the width to 100% or any desired width */
+  padding: 10px;
+  margin-top: 10px;
+}
+

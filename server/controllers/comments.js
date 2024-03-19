@@ -14,10 +14,10 @@ const createComments = function (req, res) {
 
   if (
     !req.body.productId ||
-    !req.body.userDetails.name ||
-    !req.body.userDetails.postedOn ||
-    !req.body.commentDetails.comment ||
-    !req.body.commentDetails.rating
+    !req.body.userName ||
+    !req.body.postedOn ||
+    !req.body.comment ||
+    !req.body.rating
     ) {
     sendRes.message = "Please add the required data";
     return res.status(400).send(sendRes);
@@ -25,14 +25,10 @@ const createComments = function (req, res) {
 
   let CommentsPayload = {
     productId: req.body.productId,
-    userDetails: {
-      name: req.body.userDetails.name,
-      postedOn: req.body.userDetails.postedOn
-    },
-    commentDetails: {
-      comment: req.body.commentDetails.comment,
-      rating: req.body.commentDetails.rating
-    }
+    userName: req.body.userName,
+    postedOn: req.body.postedOn,
+    comment: req.body.comment,
+    rating: req.body.rating
   };
   
   Comments.create(CommentsPayload, (err, resp) => {
@@ -80,10 +76,10 @@ const editComments = function (req, res) {
 
   if (
     !req.body.productId ||
-    !req.body.userDetails.name ||
-    !req.body.userDetails.postedOn ||
-    !req.body.commentDetails.comment ||
-    !req.body.commentDetails.rating
+    !req.body.userName ||
+    !req.body.postedOn ||
+    !req.body.comment ||
+    !req.body.rating
     ) {
     sendRes.message = "Bad request from user";
     return res.status(400).send(sendRes);
@@ -93,14 +89,10 @@ const editComments = function (req, res) {
   
   let updateComments = {
     productId: req.body.productId,
-    userDetails: {
-      name: req.body.userDetails.name,
-      postedOn: req.body.userDetails.postedOn
-    },
-    commentDetails: {
-      comment: req.body.commentDetails.comment,
-      rating: req.body.commentDetails.rating
-    },
+    userName: req.body.userName,
+    postedOn: req.body.postedOn,
+    comment: req.body.comment,
+    rating: req.body.rating,
     isDelete: req.body.isDelete
   };
 

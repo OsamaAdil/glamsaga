@@ -47,7 +47,7 @@ const getCustomers = function (req, res) {
     data: [],
   };
 
-  let findData = { isDelete: false };
+  let findData = { };
 
   Customers.find(findData, (err, resp) => {
     if (err) {
@@ -84,7 +84,8 @@ const editCustomers = function (req, res) {
     landmark : req.body.landmark, 
     pincode: req.body.pincode,
     city: req.body.city, 
-    state: req.body.state
+    state: req.body.state,
+    isDelete: req.body.isDelete
   };
 
   let options = { new: true };

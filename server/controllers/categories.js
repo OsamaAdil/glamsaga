@@ -24,6 +24,7 @@ const createCategory = function (req, res) {
 
   let CategoryPayload = {
     name: rectifyName(req.body.name),
+    isDelete : false
   };
 
   Category.findOne(CategoryPayload, (err, resp) => {

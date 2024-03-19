@@ -6,13 +6,17 @@ let commentsSchema = new Schema ({
         type: mongoose.Types.ObjectId,
         ref: "products"
     },
-    userDetails: {
-        name: String,
-        postedOn: Date
+    userName: {
+        type: String,
     },
-    commentDetails: { 
-        comment: String,
-        rating: Number
+    postedOn: {
+        type: Date
+    },
+    comment: { 
+        type: String,
+    },
+    rating: { 
+        type: Number
     },
     isDelete : {
         type : Boolean,
@@ -22,4 +26,3 @@ let commentsSchema = new Schema ({
 
 let comments = mongoose.model("comments", commentsSchema);
 module.exports = comments;
-

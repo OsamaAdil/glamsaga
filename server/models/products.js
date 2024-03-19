@@ -50,7 +50,7 @@ let productsSchema = new Schema ({
     longDescription: {
         type: String,
     },
-    category: {
+    categoryId: {
         type: String,
         // enum : {
         //     values: ["Kids", "Accessories","Bagpacks","Diaper Bags and Travel Cases", "Handbags", "Others", "Suitcase and Travel Bags"], 
@@ -84,9 +84,9 @@ let productsSchema = new Schema ({
     noOfReviews : {
         type: Number,
     },
-    comments: [{
-        type: String,
-    }],
+    // comments: [{
+    //     type: String,
+    // }],
     isStock : {
         type : Boolean,
         default : true

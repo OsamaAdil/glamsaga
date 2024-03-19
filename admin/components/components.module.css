@@ -1,3 +1,8 @@
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .buttonWrap {
   width: 12rem;
   padding: 10px 0 10px 0;
@@ -8,6 +13,7 @@
   background-color: #f3d0cc;
   color: #3c152b;
   cursor: pointer;
+  align-self: center;
 }
 
 .buttonWrap:hover {
@@ -45,7 +51,6 @@
   align-items: center;
   width: 100%;
   padding: 5rem 0 5rem 0;
-  max-width: 50rem;
   overflow: hidden;
 }
 
@@ -98,6 +103,7 @@
 }
 
 .inputWrap > div {
+  font-size: 1.6rem;
   display: flex;
   flex-direction: row;
   align-items: center;

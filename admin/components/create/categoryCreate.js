@@ -1,7 +1,28 @@
 import React, { useState } from "react";
 import style from "../components.module.css";
 
-const genreCreate = ({ tempData, setTempData, flagCreate, setFlagCreate, onCreateNew, handleSubmit, handleCancel, handleChange }) => {
+const categoryCreate = ({ tempData, setTempData, flagCreate, setFlagCreate, onCreateNew  }) => {
+
+  const handleSubmit = () => {
+    if (setFlagCreate) {
+      setFlagCreate(false);
+      onCreateNew(tempData);
+    }
+  };
+
+  const handleCancel = () => {
+    if (setFlagCreate) {
+      setFlagCreate(false);
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setTempData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
 
   return (
     <>
@@ -26,4 +47,4 @@ const genreCreate = ({ tempData, setTempData, flagCreate, setFlagCreate, onCreat
   );
 };
 
-export default genreCreate;
+export default categoryCreate;

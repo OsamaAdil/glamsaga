@@ -2,19 +2,21 @@ import React, { useState } from "react";
 import style from "./components.module.css";
 import Router, { useRouter } from "next/router";
 
-const genres = ["Edit", "Name", "Details", "Delete"];
-const categories = ["Edit", "Name", "Details", "Delete"];
+const genres = ["Edit", "Name", "Delete"];
+const categories = ["Edit", "Name", "Delete"];
 const products = ["Edit", "Name", "productId", "Details", "Delete"];
 const productvariants = ["Edit", "productId", "Size", "Colour", "Delete"];
-const comments = ["Edit", "productId", "Comment", "Rating", "User Name", "Delete"];
-const transactions = ["Edit", "paymentMethod", "status", "product","totalProductsPrice", "Delete"];
+const comments = ["Edit", "productId", "userName", "postedOn", "comment", "rating", "Delete"];
+const transactions = ["createdAt", "paymentMethod", "status", "product", "Product Variant", "item count", "totalProductsPrice", "shipping charges", "Delete"];
 const customers = ["Edit", "Name", "Details", "Delete"];
 
 let tableHeaderData = [];
 
-const Table = ({data}) => {
+const Table = ({data, handleEditButtonClick}) => {
   const router = useRouter();
   const linkText = router.pathname.split("/")[1];
+
+
 
   if(linkText == "genres") {
     tableHeaderData = genres
@@ -53,14 +55,29 @@ const Table = ({data}) => {
               </tr>
             </thead>
             <tbody>
-              {(linkText == "genres" || linkText == "categories") && data
+              {(linkText == "genres") && data
               ?.sort((a, b) => (b?.isDelete ? 1 : -1))
               ?.map((el, i) => (
                   <>
                     <tr key = {i}>
-                      <td className={style.td}>Edit</td>
+                    <div className={style.buttonContainer}>
+                        <button className={style.buttonWrap} onClick={() => handleEditButtonClick(el._id, el)}>Edit</button>
+                     </div>
                       <td className={style.td}>{el.name}</td>
-                      <td className={style.td}>{}</td>
+                      <td className={style.td}>{el.isDelete.toString()}</td>
+                    </tr>
+                  </>
+                ))
+                } 
+                {(linkText == "categories") && data
+              ?.sort((a, b) => (b?.isDelete ? 1 : -1))
+              ?.map((el, i) => (
+                  <>
+                    <tr key = {i}>
+                          <div className={style.buttonContainer}>
+                        <button className={style.buttonWrap} onClick={() => handleEditButtonClick(el._id, el)}>Edit</button>
+                     </div>
+                      <td className={style.td}>{el.name}</td>
                       <td className={style.td}>{el.isDelete.toString()}</td>
                     </tr>
                   </>
@@ -69,7 +86,9 @@ const Table = ({data}) => {
               {linkText == "products" && data?.map((el, i) => (
                   <>
                     <tr key = {i}>
-                      <td className={style.td}>Edit</td>
+                          <div className={style.buttonContainer}>
+                        <button className={style.buttonWrap} onClick={() => handleEditButtonClick(el._id, el)}>Edit</button>
+                     </div>
                       <td className={style.td}>{el.title}</td>
                       <td className={style.td}>{el._id}</td>
                       <td className={style.td}>{el.category}</td>
@@ -81,7 +100,9 @@ const Table = ({data}) => {
                {linkText == "productvariants" && data?.map((el, i) => (
                   <>
                     <tr key = {i}>
-                      <td className={style.td}>Edit</td>
+                          <div className={style.buttonContainer}>
+                        <button className={style.buttonWrap} onClick={() => handleEditButtonClick(el._id, el)}>Edit</button>
+                     </div>
                       <td className={style.td}>{el.productId}</td>
                       <td className={style.td}>{el.size}</td>
                       <td className={style.td}>{el.colour}</td>
@@ -93,11 +114,14 @@ const Table = ({data}) => {
                 {linkText == "comments" && data?.map((el, i) => (
                   <>
                     <tr key = {i}>
-                      <td className={style.td}>Edit</td>
+                          <div className={style.buttonContainer}>
+                        <button className={style.buttonWrap} onClick={() => handleEditButtonClick(el._id, el)}>Edit</button>
+                     </div>
                       <td className={style.td}>{el.productId}</td>
-                      <td className={style.td}>{el.commentDetails.comment}</td>
-                      <td className={style.td}>{el.commentDetails.rating}</td>
-                      <td className={style.td}>{el.userDetails.name}</td>
+                      <td className={style.td}>{el.userName}</td>
+                      <td className={style.td}>{el.postedOn}</td>
+                      <td className={style.td}>{el.comment}</td>
+                      <td className={style.td}>{el.rating}</td>
                       <td className={style.td}>{el.isDelete.toString()}</td>
                     </tr>
                   </>
@@ -106,11 +130,14 @@ const Table = ({data}) => {
                 {linkText == "transactions" && data?.map((el, i) => (
                   <>
                     <tr key = {i}>
-                      <td className={style.td}>Edit</td>
+                      <td className={style.td}>{el.createdAt}</td>
                       <td className={style.td}>{el.paymentMethod}</td>
                       <td className={style.td}>{el.status}</td>
                       <td className={style.td}>{el.productDetails[0].productId}</td>
+                      <td className={style.td}>{el.productDetails[0].productVariantId}</td>
+                      <td className={style.td}>{el.productDetails[0].itemCount}</td>
                       <td className={style.td}>{el.totalProductsPrice}</td>
+                      <td className={style.td}>{el.shippingCharges}</td>
                       <td className={style.td}>{el.isDelete.toString()}</td>
                     </tr>
                   </>
@@ -119,7 +146,7 @@ const Table = ({data}) => {
                 {linkText == "customers" && data?.map((el, i) => (
                   <>
                     <tr key = {i}>
-                      <td className={style.td}>Edit</td>
+                      <button className={style.td + ' ' + style.buttonWrap} onClick={() => handleEditButtonClick(el._id, el)}> Edit</button>
                       <td className={style.td}>{el.fullName}</td>
                       <td className={style.td}>{el.phoneNumber}</td>
                       <td className={style.td}>{el.isDelete.toString()}</td>

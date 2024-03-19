@@ -21,14 +21,25 @@ const createGenres = function (req, res) {
     name : req.body.name,
     isDelete : false
   };
-  
-  Genres.create(genresPayload, (err, resp) => {
+
+  Genres.findOne(genresPayload, (err, resp) => {
     if (err) {
+      
+      sendRes.message = "Error in finding";
       return res.status(500).send(sendRes);
     }
-    sendRes.message = "inserted succesfully";
-    sendRes.error = false;
-    return res.status(200).send(sendRes);
+    if (resp) {
+      sendRes.message = "Already exists";
+      return res.status(400).send(sendRes);
+    }
+    Genres.create(genresPayload, (errC, resC) => {
+      if (errC) {
+        return res.status(500).send(sendRes);
+      }
+      sendRes.message = "Inserted succesfully";
+      sendRes.error = false;
+      return res.status(200).send(sendRes);
+    });
   });
 
 };
@@ -73,11 +84,12 @@ const editGenres = function (req, res) {
   let query = { _id: req.body.genreId }; 
   
   let updateGenres = {
-    name : req.body.name
+    name : req.body.name,
+    isDelete: req.body.isDelete,
   };
 
   let options = { new: true };
-
+  
   Genres.findOneAndUpdate(query, updateGenres, options, (err, resp) => {
     if (err) {
       sendRes.message = "Server error while fectching details from server";

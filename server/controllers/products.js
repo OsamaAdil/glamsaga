@@ -15,7 +15,6 @@ const createProducts = function (req, res) {
   if (
     !req.body.genreId ||
     !req.body.categoryId ||
-    !req.body.commentId ||
     !req.body.title ||
     !req.body.price ||
     !req.body.discountPercent ||
@@ -40,7 +39,6 @@ const createProducts = function (req, res) {
   let productBasicPayload = {
     genreId: req.body.genreId || null,
     categoryId: req.body.categoryId || null,
-    commentId: req.body.commentId || null,
     title: req.body.title,
     price: req.body.price || 0,
     discountPercent: req.body.discountPercent || 0,
@@ -136,7 +134,6 @@ const editProducts = function (req, res) {
     !req.body.productId  ||
     !req.body.genreId ||
     !req.body.categoryId ||
-    !req.body.commentId ||
     !req.body.title ||
     !req.body.price ||
     !req.body.discountPercent ||
@@ -163,7 +160,6 @@ const editProducts = function (req, res) {
   let updateProducts = {
     genreId: req.body.genreId,
     categoryId: req.body.categoryId,
-    commentId: req.body.commentId,
     title: req.body.title,
     price: req.body.price,
     discountPercent: req.body.discountPercent,
@@ -179,7 +175,8 @@ const editProducts = function (req, res) {
     video: req.body.video,
     rating: req.body.rating,
     noOfRatings: req.body.noOfRatings,
-    noOfReviews: req.body.noOfReviews
+    noOfReviews: req.body.noOfReviews,
+    isDelete: req.body.isDelete
   };
 
   let options = { new: true };
