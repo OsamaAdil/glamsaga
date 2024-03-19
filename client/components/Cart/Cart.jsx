@@ -48,6 +48,7 @@ export default function Cart() {
           <button onClick={() => increment(index)}>+</button> x{item.price}=
           {item.price * item.quantity}{" "}
           <img src="/trash.svg" onClick={() => deleteItem(item)} />
+          <div>{item.size}</div>
         </div>
       </div>
       <div className={style.dummy1}></div>

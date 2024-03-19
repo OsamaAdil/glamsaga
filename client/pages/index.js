@@ -21,7 +21,7 @@ export default function Home() {
             <Link href="./newArrivals">View All</Link>
           </div>
         </div>
-        <Product type="New Arrival" />
+        <Product type="newarrivals" />
       </div>
       <div className={style.container}>
         <div className={style.flex}>
@@ -30,7 +30,7 @@ export default function Home() {
             <Link href="./classicCollections">View All</Link>
           </div>
         </div>
-        <Product type="Classic Collections" />
+        <Product type="classiccollections" />
       </div>
 
       <div className={style.container}>
@@ -40,7 +40,7 @@ export default function Home() {
           </div>
           <div className={style.sideHeading}>View All</div>
         </div>
-        <Product type="Best Sellers" />
+        <Product type="bestsellers" />
       </div>
 
       <div className={style.container}>

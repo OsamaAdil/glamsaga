@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { fetchProductVariants } from "@/components/api";
 
 const initialState = {
   cartToggler: false,
@@ -14,19 +15,23 @@ export const cartSlice = createSlice({
     },
     addItemToCart: (state, action) => {
       const cartItem = {
-        id: action.payload.ProductID,
-        title: action.payload.Title,
-        price: action.payload.SellingPrice,
+        id: action.payload.product._id,
+        title: action.payload.product.title,
+        price: action.payload.product.price,
+        discount: action.payload.product.discountPercentage,
         quantity: 1,
+
+        size: action.payload.variant ? variant.size : "M",
       };
-      const itemId = action.payload.ProductID;
+      const itemId = action.payload._id;
       const index = state.cart.findIndex((item) => item.id === itemId);
+
       if (index !== -1) {
         state.cart[index].quantity = state.cart[index].quantity + 1;
       } else {
         state.cart.push(cartItem);
       }
-      if(!state.cartToggler){
+      if (!state.cartToggler) {
         state.cartToggler = !state.cartToggler;
       }
     },

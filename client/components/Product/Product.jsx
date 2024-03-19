@@ -12,7 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addItemToCart } from "@/redux/features/cartSlice";
 
 import { baseURL } from "@/config/constant";
-import { fetchProducts } from "@/components/api";
+import { fetchProductVariants, fetchProducts } from "@/components/api";
 // Install Swiper modules
 SwiperCore.use([Navigation, Pagination]);
 
@@ -25,13 +25,16 @@ export function Product({ type }) {
   const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
 
-  // .get(  "http://localhost:4000/products")
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/products");
-        setProducts(response.data);
+        const response = await fetchProducts();
+        const variants = await fetchProductVariants();
+        // const response = await axios.get("http://localhost:4000/products");
+
+        // const response = await axios.get(`${baseURL}products`);
+        setProducts(response);
+        setProductVariant(variants);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -53,7 +56,10 @@ export function Product({ type }) {
   );
 
   function addToCart(product) {
-    dispatch(addItemToCart(product));
+    const variant = productVariant.find(
+      (item) => item.productId === product._id
+    );
+    dispatch(addItemToCart({ product, variant }));
   }
 
   return (
@@ -64,23 +70,30 @@ export function Product({ type }) {
         slidesPerView={k}
         navigation
       >
-        {filteredArray?.map((product, index) => (
+        {filteredArray.map((product, index) => (
           <SwiperSlide key={index}>
             <div className={style.containerr}>
               <div>
                 <img src={"/bag.png"} alt={`Product ${index}`} />
+                <div className={style.discount}> {``}</div>
               </div>
-              <div>{product.Title}</div>
+              <div>{product.title}</div>
               <div>
                 <div className="cost">
-                  Rs.{product.SellingPrice} <span>Rs{product.Price}</span>
+                  Rs.
+                  {Math.round(
+                    product.price * (1 - product.discountPercent / 100) * 100
+                  ) / 100}{" "}
+                  <span>Rs{product.price}</span>
                 </div>
                 <div className={style.rating}> </div>
               </div>
               <div>
                 <button
                   className={style.button}
-                  onClick={() => addToCart(product)}
+                  onClick={() => {
+                    addToCart(product);
+                  }}
                 >
                   Add to Cart
                 </button>

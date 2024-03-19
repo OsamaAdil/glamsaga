@@ -1,21 +1,21 @@
 {
   "products": [
     {
-      "ProductID": 1,
+      "_id": 1,
       "GenreID": 1,
       "CategoryID": 101,
       "CommentID": 1001,
-      "Title": "Stylish Casual Sling",
-      "Price": 49,
-      "DiscountPercentage": 15,
-      "SellingPrice": 42,
+      "title": "Stylish Casual Sling",
+      "price": 49,
+      "discountPercent": 15,
+      "Sellingprice": 42,
       "Material": "Canvas",
       "Pattern": "Printed",
       "Type": "Casual",
       "Occasion": "Weekend Outing",
       "Flag": [
-        "New Arrival",
-        "Best Sellers"
+        "newarrivals",
+        "bestsellers"
       ],
       "ShortDescription": "A trendy and comfortable casual sling bag for your weekend adventures.",
       "LongDescription": "This stylish casual sling bag is perfect for carrying your essentials during weekend outings. The printed design adds a touch of uniqueness.",
@@ -34,21 +34,21 @@
       "isDelete": false
     },
     {
-      "ProductID": 2,
+      "_id": 2,
       "GenreID": 2,
       "CategoryID": 102,
       "CommentID": 1002,
-      "Title": "Elegant Diaper Backpack",
-      "Price": 79,
-      "DiscountPercentage": 20,
-      "SellingPrice": 63,
+      "title": "Elegant Diaper Backpack",
+      "price": 79,
+      "discountPercent": 20,
+      "Sellingprice": 63,
       "Material": "Faux Leather",
       "Pattern": "Solid",
       "Type": "Functional",
       "Occasion": "Parenting Essentials",
       "Flag": [
-        "New Arrival",
-        "Best Sellers"
+        "newarrivals",
+        "bestsellers"
       ],
       "ShortDescription": "An elegant and spacious diaper backpack for modern parents.",
       "LongDescription": "This diaper backpack combines style and functionality, making it a must-have for modern parents. With a solid design and ample space, it's perfect for carrying parenting essentials.",
@@ -67,21 +67,21 @@
       "isDelete": false
     },
     {
-      "ProductID": 3,
+      "_id": 3,
       "GenreID": 3,
       "CategoryID": 103,
       "CommentID": 1003,
-      "Title": "Classic Leather Handbag",
-      "Price": 129,
-      "DiscountPercentage": 10,
-      "SellingPrice": 116,
+      "title": "Classic Leather Handbag",
+      "price": 129,
+      "discountPercent": 10,
+      "Sellingprice": 116,
       "Material": "Genuine Leather",
       "Pattern": "Classic",
       "Type": "Formal",
       "Occasion": "Business Meetings",
       "Flag": [
-        "Best Sellers",
-        "Classic Collections"
+        "bestsellers",
+        "classiccollections"
       ],
       "ShortDescription": "A timeless classic leather handbag for a sophisticated look.",
       "LongDescription": "Add a touch of sophistication to your attire with this classic leather handbag. Perfect for business meetings and formal occasions.",
@@ -100,21 +100,21 @@
       "isDelete": false
     },
     {
-      "ProductID": 4,
+      "_id": 4,
       "GenreID": 4,
       "CategoryID": 104,
       "CommentID": 1004,
-      "Title": "Cool Kids Backpack",
-      "Price": 39,
-      "DiscountPercentage": 5,
-      "SellingPrice": 37,
+      "title": "Cool Kids Backpack",
+      "price": 39,
+      "discountPercent": 5,
+      "Sellingprice": 37,
       "Material": "Nylon",
       "Pattern": "Cartoon",
       "Type": "Kids",
       "Occasion": "School Days",
       "Flag": [
-        "New Arrival",
-        "Best Sellers"
+        "newarrivals",
+        "bestsellers"
       ],
       "ShortDescription": "A fun and vibrant backpack for cool kids.",
       "LongDescription": "Let your kids stand out with this cool and vibrant backpack featuring their favorite cartoon characters. Ideal for school days and outings.",
@@ -133,21 +133,21 @@
       "isDelete": false
     },
     {
-      "ProductID": 5,
+      "_id": 5,
       "GenreID": 5,
       "CategoryID": 105,
       "CommentID": 1005,
-      "Title": "Trendy Tote Bag",
-      "Price": 59,
-      "DiscountPercentage": 15,
-      "SellingPrice": 50,
+      "title": "Trendy Tote Bag",
+      "price": 59,
+      "discountPercent": 15,
+      "Sellingprice": 50,
       "Material": "Polyester",
       "Pattern": "Geometric",
       "Type": "Trendy",
       "Occasion": "Shopping Spree",
       "Flag": [
-        "Best Sellers",
-        "Classic Collections"
+        "bestsellers",
+        "classiccollections"
       ],
       "ShortDescription": "A trendy tote bag for your stylish shopping spree.",
       "LongDescription": "Upgrade your style with this trendy tote bag featuring a geometric pattern. Perfect for a day of stylish shopping.",
@@ -166,21 +166,21 @@
       "isDelete": false
     },
     {
-      "ProductID": 6,
+      "_id": 6,
       "GenreID": 6,
       "CategoryID": 106,
       "CommentID": 1006,
-      "Title": "Adventure Duffle Bag",
-      "Price": 89,
-      "DiscountPercentage": 12,
-      "SellingPrice": 79,
+      "title": "Adventure Duffle Bag",
+      "price": 89,
+      "discountPercent": 12,
+      "Sellingprice": 79,
       "Material": "Waterproof Nylon",
       "Pattern": "Camouflage",
       "Type": "Outdoor",
       "Occasion": "Adventure Travel",
       "Flag": [
-        "New Arrival",
-        "Best Sellers"
+        "newarrivals",
+        "bestsellers"
       ],
       "ShortDescription": "An adventure duffle bag for your outdoor escapades.",
       "LongDescription": "Stay prepared for your outdoor adventures with this durable and waterproof adventure duffle bag. The camouflage pattern adds a touch of style.",
@@ -199,20 +199,20 @@
       "isDelete": false
     },
     {
-      "ProductID": 7,
+      "_id": 7,
       "GenreID": 7,
       "CategoryID": 107,
       "CommentID": 1007,
-      "Title": "Chic Clutch Elegance",
-      "Price": 29,
-      "DiscountPercentage": 8,
-      "SellingPrice": 27,
+      "title": "Chic Clutch Elegance",
+      "price": 29,
+      "discountPercent": 8,
+      "Sellingprice": 27,
       "Material": "Satin",
       "Pattern": "Embroidered",
       "Type": "Evening",
       "Occasion": "Night Out",
       "Flag": [
-        "Best Sellers"
+        "bestsellers"
       ],
       "ShortDescription": "A chic and elegant clutch for your night out.",
       "LongDescription": "Complete your evening look with this chic and elegant clutch featuring intricate embroidery. Perfect for a night out on the town.",
@@ -231,21 +231,21 @@
       "isDelete": false
     },
     {
-      "ProductID": 8,
+      "_id": 8,
       "GenreID": 8,
       "CategoryID": 108,
       "CommentID": 1008,
-      "Title": "Accessory Marvel Set",
-      "Price": 19,
-      "DiscountPercentage": 10,
-      "SellingPrice": 17,
+      "title": "Accessory Marvel Set",
+      "price": 19,
+      "discountPercent": 10,
+      "Sellingprice": 17,
       "Material": "Metal Alloy",
       "Pattern": "Assorted",
       "Type": "Accessories",
       "Occasion": "Versatile",
       "Flag": [
-        "Best Sellers",
-        "Classic Collections"
+        "bestsellers",
+        "classiccollections"
       ],
       "ShortDescription": "A marvel set of versatile accessories to enhance your style.",
       "LongDescription": "Boost your style with this marvel set of assorted accessories made from high-quality metal alloy. Versatile and perfect for various occasions.",
@@ -264,22 +264,22 @@
       "isDelete": false
     },
     {
-      "ProductID": 9,
+      "_id": 9,
       "GenreID": 9,
       "CategoryID": 109,
       "CommentID": 1009,
-      "Title": "Fashionista Backpack Bliss",
-      "Price": 69,
-      "DiscountPercentage": 15,
-      "SellingPrice": 59,
+      "title": "Fashionista Backpack Bliss",
+      "price": 69,
+      "discountPercent": 15,
+      "Sellingprice": 59,
       "Material": "PU Leather",
       "Pattern": "Modern",
       "Type": "Fashion",
       "Occasion": "Street Style",
       "Flag": [
-        "New Arrival",
-        "Best Sellers",
-        "Classic Collections"
+        "newarrivals",
+        "bestsellers",
+        "classiccollections"
       ],
       "ShortDescription": "A fashionista backpack for a blissful street style.",
       "LongDescription": "Express your fashion sense with this modern and trendy fashionista backpack. Perfect for a blissful street style look.",
@@ -300,20 +300,20 @@
   ],
   "productVariantId": [
     {
-      "id": "1",
-      "productid": 1,
+      "id": 123,
+      "productId": 1,
       "colour": "red",
       "size": "S"
     },
     {
-      "id": "1",
-      "productid": 1,
+      "id": 456,
+      "productId": 1,
       "colour": "black",
       "size": "M"
     },
     {
-      "id": "1",
-      "productid": "2",
+      "id": 789,
+      "productId": "2",
       "colour": "red",
       "size": "S"
     }
