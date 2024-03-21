@@ -1,48 +1,29 @@
-"use client";
 import style from "./product.module.css";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css"; // Import core styles
-import "swiper/css/navigation"; // Import navigation styles
-import "swiper/css/pagination"; // Import pagination styles
-
-import SwiperCore, { Navigation, Pagination } from "swiper/core"; // Import Swiper core
-import { useSelector, useDispatch } from "react-redux";
-import { addItemToCart } from "@/redux/features/cartSlice";
-
-import { baseURL } from "@/config/constant";
-import { fetchProductVariants, fetchProducts } from "@/components/api";
-// Install Swiper modules
+import "swiper/css"; 
+import "swiper/css/navigation"; 
+import "swiper/css/pagination"; 
+import SwiperCore, { Navigation, Pagination } from "swiper/core"; 
+import {fetchProducts } from "@/components/api";
 SwiperCore.use([Navigation, Pagination]);
-import Link from "next/link";
+
+import ProductCard from "../ProductCard/ProductCard";
 
 export function Product({ type }) {
-  const [products, setProducts] = useState([]);
-  const [productVariant, setProductVariant] = useState([]);
-  const [productVariantId, setProductVariantId] = useState([]);
+  const [products, setProducts] = useState([]); 
   let [k, setK] = useState(1);
-  // const [cart, setCart] = useState([]);
-  const cart = useSelector((state) => state.cart.cart);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetchProducts();
-        const variants = await fetchProductVariants();
-        // const response = await axios.get("http://localhost:4000/products");
-
-        // const response = await axios.get(`${baseURL}products`);
-        setProducts(response);
-        setProductVariant(variants);
+        const variants = await fetchProducts();
+        setProducts(variants);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-
-    fetchData();
-
+    fetchData(); 
     if (window.innerWidth > 1024) {
       setK(4);
     } else if (window.innerWidth > 800) {
@@ -56,13 +37,6 @@ export function Product({ type }) {
     product.Flag.includes(type)
   );
 
-  function addToCart(product) {
-    const variant = productVariant.find(
-      (item) => item.productId === product._id
-    );
-    dispatch(addItemToCart({ product, variant }));
-  }
-
   return (
     <>
       <Swiper
@@ -73,35 +47,9 @@ export function Product({ type }) {
       >
         {filteredArray.map((product, index) => (
           <SwiperSlide key={index}>
-            <div className={style.containerr}>
-              <Link key={product.id} href={`/products/${product._id}`} passHref>
-                <div>
-                  <img src={"/bag.png"} alt={`Product ${index}`} />
-                  <div className={style.discount}> {``}</div>
-                </div>
-                <div>{product.title}</div>
-                <div>
-                  <div className="cost">
-                    Rs.
-                    {Math.round(
-                      product.price * (1 - product.discountPercent / 100) * 100
-                    ) / 100}{" "}
-                    <span>Rs{product.price}</span>
-                  </div>
-                  <div className={style.rating}> </div>
-                </div>{" "}
-              </Link>
-              <div>
-                <button
-                  className={style.button}
-                  onClick={() => {
-                    addToCart(product);
-                  }}
-                >
-                  Add to Cart
-                </button>
-              </div>
-            </div>
+            
+              <ProductCard product={product} index={index} />
+            
           </SwiperSlide>
         ))}
       </Swiper>

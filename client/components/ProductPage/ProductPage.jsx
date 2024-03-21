@@ -31,11 +31,7 @@ const ProductPage = ({ product }) => {
     if (requiredVariants.length > 0) {
       setSelectedVariant(requiredVariants[0]);
     }
-  }, [requiredVariants]);
-
-  const handleVariantSelection = (variant) => {
-    setSelectedVariant(variant);
-  };
+  }, []);
 
   const variantMapping = requiredVariants.map((variant) => (
     <div
@@ -50,6 +46,10 @@ const ProductPage = ({ product }) => {
       {variant.size} {variant.colour}
     </div>
   ));
+
+  const handleVariantSelection = (variant) => {
+    setSelectedVariant(variant);
+  };
 
   const addToCart = (product, selectedVariant) => {
     dispatch(addItemToCart1({ product, selectedVariant }));

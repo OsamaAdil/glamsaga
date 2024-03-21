@@ -12,7 +12,7 @@ const ClassicCollections = () => {
       <div className={style.filterContainer}>
         <span>Classic Collections</span>
         <div className={style.filteredProductContainer}>
-          <FilterProduct type="Classic Collections" />
+          <FilterProduct type="classiccollections" />
         </div>
       </div>
     </div>

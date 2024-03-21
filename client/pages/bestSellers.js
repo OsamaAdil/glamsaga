@@ -12,7 +12,7 @@ const BestSellers = () => {
       <div className={style.filterContainer}>
         <span>Best Sellers</span>
         <div className={style.filteredProductContainer}>
-          <FilterProduct type="Best Sellers" />
+          <FilterProduct type="bestsellers" />
         </div>
       </div>
     </div>

@@ -1,49 +1,42 @@
 import style from "./filterProduct.module.css";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { fetchProducts } from "../api";
+import ProductCard from "../ProductCard/ProductCard";
 
-export function FilterProduct({type}) {
+export function FilterProduct({ type }) {
   const [products, setProducts] = useState([]);
+  const [filterProducts, setFilterProducts] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:4000/products")
-      .then((res) => {
-        setProducts(res.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching products:", error);
-      });
+    const fetchData = async () => {
+      try {
+        const fetchedProducts = await fetchProducts();
+        setProducts(fetchedProducts);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
+    fetchData();
   }, []);
 
-  const filteredArray= products.filter((product)=> product.Flag.includes(type)?true:false)
+  useEffect(() => {
+    const filteredArray = products.filter((product) =>
+      product.Flag.includes(type)
+    );
+    setFilterProducts(filteredArray);
+  }, [products, type]);
 
   
+  if (products.length === 0) {
+    return <div>Loading...</div>; 
+  }
 
   return (
-    <>
-     
-        {filteredArray.map((product, index) => (
-          
-            <div className={style.containerr}>
-              <div>
-                <img src={"/bag.png"} alt={`Product ${index}`} />
-              </div>
-              <div>{product.Title}</div>
-              <div>
-                <div className="cost">
-                  Rs.{product.SellingPrice} <span>Rs{product.Price}</span>
-                </div>
-                <div className={style.rating}> </div>
-              </div>
-              <div>
-                <button className={style.button}>Add to Cart</button>
-              </div>
-            </div>
-         
-        ))}
-     
-    </>
+    <div className={style.productList}>
+      {filterProducts.map((product, index) => (
+        <ProductCard key={product._id} product={product} index={index} />
+      ))}
+    </div>
   );
 }
