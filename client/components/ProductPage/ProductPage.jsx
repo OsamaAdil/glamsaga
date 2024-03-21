@@ -27,7 +27,11 @@ const ProductPage = ({ product }) => {
     (item) => item.productId === product._id
   );
 
-  
+  useEffect(() => {
+    if (requiredVariants.length > 0) {
+      setSelectedVariant(requiredVariants[0]);
+    }
+  }, [requiredVariants]);
 
   const handleVariantSelection = (variant) => {
     setSelectedVariant(variant);
