@@ -22,6 +22,7 @@ export const cartSlice = createSlice({
         quantity: 1,
         variantId: action.payload.variant.id,
         size: action.payload.variant.size,
+        colour: action.payload.variant.colour,
       };
       const itemId = action.payload.variant.id;
       const index = state.cart.findIndex((item) => item.variantId === itemId);

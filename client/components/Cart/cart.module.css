@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
+
 .dummy1 {
   height: 0.1rem;
   background-color: gray;
@@ -8,11 +10,11 @@
   top: 0px;
   right: 0px;
   min-height: 95vh;
-  width: 30rem;
+  width: 30vw;
   background-color: white;
   z-index: 100000;
   font-family: poppins;
-  font-size: 1.7rem;
+  font-size: 1rem;
   font-weight: 500;
   color: #3c152b;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -24,24 +26,30 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
-.flex1{
+.flex1 {
   display: flex;
   /* flex-direction: column; */
   align-items: center;
   justify-content: space-between;
   padding: 2rem;
+  font-family: poppins;
+  font-size: 1.5rem;
 }
 
+.flex1 span {
+  font-family: poppins;
+  font-size: 1.5rem;
+}
 
 .crossImg {
   height: 1rem;
 }
 
 .cartItem {
-  max-height: 80vh;
+  max-height: 70vh;
   /* overflow: auto; */
   overflow-y: auto;
   min-height: 65vh;
@@ -95,11 +103,25 @@
   background-color: #f1f1f1;
 }
 
-.itemDescription img {
-  height: 2rem;
-  width: 2rem;
+.trashImg img {
+  height: 3rem;
+  width: 3rem;
+}
+
+.trashImg img:hover {
+  border: solid;
+  border-color: #3c152b;
+  border-radius: 1px;
 }
 
 .itemDescription {
-  font-size: small;
+  font-family: poppins;
+  font-size: 1.5rem;
+}
+
+.incBtn {
+  width: 2rem;
+  color: white;
+  background-color: #3c152b;
+  border-radius: 10px;
 }

@@ -40,18 +40,25 @@ export default function Cart() {
       <div className={style.cartItemContainer}>
         <div className={style.flex}>
           <img src="/bag.png" />
-          <div className={style.itemDescription}> {item.title}</div>
         </div>
         <div className={style.itemDescription}>
           {" "}
-          <button onClick={() => decrement(index)}>-</button> {item.quantity}{" "}
-          <button onClick={() => increment(index)}>+</button> x{item.price}=
-          {item.price * item.quantity}{" "}
-          <img src="/trash.svg" onClick={() => deleteItem(item)} />
+          <div className={style.itemDescription}> {item.title}</div>
           <div>
-            {item.size} {item.variantId}
-            {item.colour}
+            Size : {item.size} <br />
+            Colour : {item.colour}
           </div>
+          <button className={style.incBtn} onClick={() => decrement(index)}>
+            -
+          </button>{" "}
+          {item.quantity}{" "}
+          <button className={style.incBtn} onClick={() => increment(index)}>
+            +
+          </button>{" "}
+          x{item.price}={item.price * item.quantity}{" "}
+        </div>
+        <div className={style.trashImg}>
+          <img src="/trash.svg" onClick={() => deleteItem(item)} />
         </div>
       </div>
       <div className={style.dummy1}></div>
@@ -145,7 +152,10 @@ export default function Cart() {
       }}
     >
       <div className={style.flex1}>
-        <div> Your Shopping Cart </div>
+        <div>
+          {" "}
+          <span>Your Shopping Cart</span>{" "}
+        </div>
         <div>
           <img
             src="/cross.png"
@@ -157,7 +167,7 @@ export default function Cart() {
       <div className={style.dummy1}></div>
       <div className={style.cartItem}>{cartItems}</div>
       <div className={style.dummy1}></div>
-      <div className={style.flex}>
+      <div className={style.flex1}>
         <div>Sub Total</div>
         <div>{Total}</div>
       </div>
