@@ -15,6 +15,7 @@ import { baseURL } from "@/config/constant";
 import { fetchProductVariants, fetchProducts } from "@/components/api";
 // Install Swiper modules
 SwiperCore.use([Navigation, Pagination]);
+import Link from "next/link";
 
 export function Product({ type }) {
   const [products, setProducts] = useState([]);
@@ -73,21 +74,23 @@ export function Product({ type }) {
         {filteredArray.map((product, index) => (
           <SwiperSlide key={index}>
             <div className={style.containerr}>
-              <div>
-                <img src={"/bag.png"} alt={`Product ${index}`} />
-                <div className={style.discount}> {``}</div>
-              </div>
-              <div>{product.title}</div>
-              <div>
-                <div className="cost">
-                  Rs.
-                  {Math.round(
-                    product.price * (1 - product.discountPercent / 100) * 100
-                  ) / 100}{" "}
-                  <span>Rs{product.price}</span>
+              <Link key={product.id} href={`/products/${product._id}`} passHref>
+                <div>
+                  <img src={"/bag.png"} alt={`Product ${index}`} />
+                  <div className={style.discount}> {``}</div>
                 </div>
-                <div className={style.rating}> </div>
-              </div>
+                <div>{product.title}</div>
+                <div>
+                  <div className="cost">
+                    Rs.
+                    {Math.round(
+                      product.price * (1 - product.discountPercent / 100) * 100
+                    ) / 100}{" "}
+                    <span>Rs{product.price}</span>
+                  </div>
+                  <div className={style.rating}> </div>
+                </div>{" "}
+              </Link>
               <div>
                 <button
                   className={style.button}

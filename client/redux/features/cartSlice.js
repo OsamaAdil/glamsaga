@@ -20,11 +20,34 @@ export const cartSlice = createSlice({
         price: action.payload.product.price,
         discount: action.payload.product.discountPercentage,
         quantity: 1,
-
-        size: action.payload.variant ? variant.size : "M",
+        variantId: action.payload.variant.id,
+        size: action.payload.variant.size,
       };
-      const itemId = action.payload._id;
-      const index = state.cart.findIndex((item) => item.id === itemId);
+      const itemId = action.payload.variant.id;
+      const index = state.cart.findIndex((item) => item.variantId === itemId);
+
+      if (index !== -1) {
+        state.cart[index].quantity = state.cart[index].quantity + 1;
+      } else {
+        state.cart.push(cartItem);
+      }
+      if (!state.cartToggler) {
+        state.cartToggler = !state.cartToggler;
+      }
+    },
+    addItemToCart1: (state, action) => {
+      const cartItem = {
+        id: action.payload.product._id,
+        title: action.payload.product.title,
+        price: action.payload.product.price,
+        discount: action.payload.product.discountPercentage,
+        quantity: 1,
+        variantId: action.payload.selectedVariant.id,
+        size: action.payload.selectedVariant.size,
+        colour: action.payload.selectedVariant.colour,
+      };
+      const itemId = action.payload.selectedVariant.id;
+      const index = state.cart.findIndex((item) => item.variantId === itemId);
 
       if (index !== -1) {
         state.cart[index].quantity = state.cart[index].quantity + 1;
@@ -45,8 +68,8 @@ export const cartSlice = createSlice({
       }
     },
     deleteCartItem: (state, action) => {
-      const itemId = action.payload.id;
-      state.cart = state.cart.filter((item) => item.id !== itemId);
+      const itemId = action.payload.variantId;
+      state.cart = state.cart.filter((item) => item.variantId !== itemId);
     },
   },
 });
@@ -54,6 +77,7 @@ export const cartSlice = createSlice({
 export const {
   onCartClick,
   addItemToCart,
+  addItemToCart1,
   incrementCartItem,
   decrementCartItem,
   deleteCartItem,

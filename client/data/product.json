@@ -18,7 +18,7 @@
         "bestsellers"
       ],
       "ShortDescription": "A trendy and comfortable casual sling bag for your weekend adventures.",
-      "LongDescription": "This stylish casual sling bag is perfect for carrying your essentials during weekend outings. The printed design adds a touch of uniqueness.",
+      "longDescription": "This stylish casual sling bag is perfect for carrying your essentials during weekend outings. The printed design adds a touch of uniqueness.",
       "DefaultImage": "sling1.jpg",
       "Images": [
         "sling1.jpg",
@@ -26,8 +26,8 @@
         "sling3.jpg"
       ],
       "Video": "sling_video.mp4",
-      "Rating": 4.7,
-      "NoOfRatings": 120,
+      "rating": 4.7,
+      "NoOfratings": 120,
       "NoOfReviews": 65,
       "inStock": true,
       "isActive": true,
@@ -51,7 +51,7 @@
         "bestsellers"
       ],
       "ShortDescription": "An elegant and spacious diaper backpack for modern parents.",
-      "LongDescription": "This diaper backpack combines style and functionality, making it a must-have for modern parents. With a solid design and ample space, it's perfect for carrying parenting essentials.",
+      "longDescription": "This diaper backpack combines style and functionality, making it a must-have for modern parents. With a solid design and ample space, it's perfect for carrying parenting essentials.",
       "DefaultImage": "diaper_backpack1.jpg",
       "Images": [
         "diaper_backpack1.jpg",
@@ -59,8 +59,8 @@
         "diaper_backpack3.jpg"
       ],
       "Video": "diaper_backpack_video.mp4",
-      "Rating": 4.5,
-      "NoOfRatings": 150,
+      "rating": 4.5,
+      "NoOfratings": 150,
       "NoOfReviews": 80,
       "inStock": true,
       "isActive": true,
@@ -84,7 +84,7 @@
         "classiccollections"
       ],
       "ShortDescription": "A timeless classic leather handbag for a sophisticated look.",
-      "LongDescription": "Add a touch of sophistication to your attire with this classic leather handbag. Perfect for business meetings and formal occasions.",
+      "longDescription": "Add a touch of sophistication to your attire with this classic leather handbag. Perfect for business meetings and formal occasions.",
       "DefaultImage": "leather_handbag1.jpg",
       "Images": [
         "leather_handbag1.jpg",
@@ -92,8 +92,8 @@
         "leather_handbag3.jpg"
       ],
       "Video": "leather_handbag_video.mp4",
-      "Rating": 4.8,
-      "NoOfRatings": 200,
+      "rating": 4.8,
+      "NoOfratings": 200,
       "NoOfReviews": 100,
       "inStock": true,
       "isActive": true,
@@ -117,7 +117,7 @@
         "bestsellers"
       ],
       "ShortDescription": "A fun and vibrant backpack for cool kids.",
-      "LongDescription": "Let your kids stand out with this cool and vibrant backpack featuring their favorite cartoon characters. Ideal for school days and outings.",
+      "longDescription": "Let your kids stand out with this cool and vibrant backpack featuring their favorite cartoon characters. Ideal for school days and outings.",
       "DefaultImage": "kids_backpack1.jpg",
       "Images": [
         "kids_backpack1.jpg",
@@ -125,8 +125,8 @@
         "kids_backpack3.jpg"
       ],
       "Video": "kids_backpack_video.mp4",
-      "Rating": 4.3,
-      "NoOfRatings": 80,
+      "rating": 4.3,
+      "NoOfratings": 80,
       "NoOfReviews": 45,
       "inStock": true,
       "isActive": true,
@@ -150,7 +150,7 @@
         "classiccollections"
       ],
       "ShortDescription": "A trendy tote bag for your stylish shopping spree.",
-      "LongDescription": "Upgrade your style with this trendy tote bag featuring a geometric pattern. Perfect for a day of stylish shopping.",
+      "longDescription": "Upgrade your style with this trendy tote bag featuring a geometric pattern. Perfect for a day of stylish shopping.",
       "DefaultImage": "tote_bag1.jpg",
       "Images": [
         "tote_bag1.jpg",
@@ -158,8 +158,8 @@
         "tote_bag3.jpg"
       ],
       "Video": "tote_bag_video.mp4",
-      "Rating": 4.6,
-      "NoOfRatings": 180,
+      "rating": 4.6,
+      "NoOfratings": 180,
       "NoOfReviews": 90,
       "inStock": true,
       "isActive": true,
@@ -183,7 +183,7 @@
         "bestsellers"
       ],
       "ShortDescription": "An adventure duffle bag for your outdoor escapades.",
-      "LongDescription": "Stay prepared for your outdoor adventures with this durable and waterproof adventure duffle bag. The camouflage pattern adds a touch of style.",
+      "longDescription": "Stay prepared for your outdoor adventures with this durable and waterproof adventure duffle bag. The camouflage pattern adds a touch of style.",
       "DefaultImage": "duffle_bag1.jpg",
       "Images": [
         "duffle_bag1.jpg",
@@ -191,8 +191,8 @@
         "duffle_bag3.jpg"
       ],
       "Video": "duffle_bag_video.mp4",
-      "Rating": 4.4,
-      "NoOfRatings": 150,
+      "rating": 4.4,
+      "NoOfratings": 150,
       "NoOfReviews": 75,
       "inStock": true,
       "isActive": true,
@@ -215,7 +215,7 @@
         "bestsellers"
       ],
       "ShortDescription": "A chic and elegant clutch for your night out.",
-      "LongDescription": "Complete your evening look with this chic and elegant clutch featuring intricate embroidery. Perfect for a night out on the town.",
+      "longDescription": "Complete your evening look with this chic and elegant clutch featuring intricate embroidery. Perfect for a night out on the town.",
       "DefaultImage": "clutch1.jpg",
       "Images": [
         "clutch1.jpg",
@@ -223,8 +223,8 @@
         "clutch3.jpg"
       ],
       "Video": "clutch_video.mp4",
-      "Rating": 4.2,
-      "NoOfRatings": 100,
+      "rating": 4.2,
+      "NoOfratings": 100,
       "NoOfReviews": 55,
       "inStock": true,
       "isActive": true,
@@ -248,7 +248,7 @@
         "classiccollections"
       ],
       "ShortDescription": "A marvel set of versatile accessories to enhance your style.",
-      "LongDescription": "Boost your style with this marvel set of assorted accessories made from high-quality metal alloy. Versatile and perfect for various occasions.",
+      "longDescription": "Boost your style with this marvel set of assorted accessories made from high-quality metal alloy. Versatile and perfect for various occasions.",
       "DefaultImage": "accessory_set1.jpg",
       "Images": [
         "accessory_set1.jpg",
@@ -256,8 +256,8 @@
         "accessory_set3.jpg"
       ],
       "Video": "accessory_set_video.mp4",
-      "Rating": 4.7,
-      "NoOfRatings": 130,
+      "rating": 4.7,
+      "NoOfratings": 130,
       "NoOfReviews": 70,
       "inStock": true,
       "isActive": true,
@@ -282,7 +282,7 @@
         "classiccollections"
       ],
       "ShortDescription": "A fashionista backpack for a blissful street style.",
-      "LongDescription": "Express your fashion sense with this modern and trendy fashionista backpack. Perfect for a blissful street style look.",
+      "longDescription": "Express your fashion sense with this modern and trendy fashionista backpack. Perfect for a blissful street style look.",
       "DefaultImage": "fashion_backpack1.jpg",
       "Images": [
         "fashion_backpack1.jpg",
@@ -290,8 +290,8 @@
         "fashion_backpack3.jpg"
       ],
       "Video": "fashion_backpack_video.mp4",
-      "Rating": 4.6,
-      "NoOfRatings": 160,
+      "rating": 4.6,
+      "NoOfratings": 160,
       "NoOfReviews": 85,
       "inStock": true,
       "isActive": true,
@@ -313,9 +313,64 @@
     },
     {
       "id": 789,
-      "productId": "2",
+      "productId": 2,
+      "colour": "red",
+      "size": "S"
+    },
+    {
+      "id": 78269,
+      "productId": 2,
+      "colour": "black",
+      "size": "Medium"
+    },
+    {
+      "id": 786,
+      "productId": 3,
+      "colour": "red",
+      "size": "S"
+    },
+    {
+      "id": 7856566,
+      "productId": 3,
+      "colour": "green",
+      "size": "M"
+    },
+    {
+      "id": 784,
+      "productId": 4,
+      "colour": "red",
+      "size": "S"
+    },
+    {
+      "id": 782,
+      "productId": 5,
+      "colour": "red",
+      "size": "S"
+    },
+    {
+      "id": 735,
+      "productId": 6,
+      "colour": "red",
+      "size": "S"
+    },
+    {
+      "id": 78453,
+      "productId": 7,
+      "colour": "red",
+      "size": "S"
+    },
+    {
+      "id": 7835353,
+      "productId": 8,
+      "colour": "red",
+      "size": "S"
+    },
+    {
+      "id": 780232,
+      "productId": 9,
       "colour": "red",
       "size": "S"
     }
+
   ]
 }

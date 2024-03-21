@@ -23,7 +23,7 @@ export default function Carousel() {
       effect="slide"
       grabCursor={true}
       resistanceRatio={0.5}
-      swiper-button
+      swiper-button= "true"
     >
       <SwiperSlide>
         <img src={"image1.jpg"} alt="slide 1" />
