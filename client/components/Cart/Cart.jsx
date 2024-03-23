@@ -8,6 +8,7 @@ import {
   decrementCartItem,
   deleteCartItem,
 } from "@/redux/features/cartSlice";
+import Link from "next/link";
 
 export default function Cart() {
   const toggle = useSelector((state) => state.cart.cartToggler);
@@ -172,7 +173,9 @@ export default function Cart() {
         <div>{Total}</div>
       </div>
       <div className={style.checkOut}>
-        <button className={style.checkOutBtn}> Check Out</button>{" "}
+        <Link href="./checkOut">
+          <button className={style.checkOutBtn}> Check Out</button>{" "}
+        </Link>
       </div>
     </div>
   );

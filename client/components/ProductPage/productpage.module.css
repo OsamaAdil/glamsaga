@@ -62,10 +62,18 @@
   height: 100px;
   background: white;
   text-align: center;
-  padding: 40px;
+  /* padding: 40px; */
   cursor: pointer;
   border-radius: 5px;
   border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.variantBox {
+ 
 }
 
 .variants:hover {

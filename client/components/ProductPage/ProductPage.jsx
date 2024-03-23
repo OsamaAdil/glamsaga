@@ -43,7 +43,10 @@ const ProductPage = ({ product }) => {
           : ""
       }`}
     >
-      {variant.size} {variant.colour}
+      
+        <div>{variant.size}</div>
+        <div>{variant.colour}</div>{" "}
+     
     </div>
   ));
 
