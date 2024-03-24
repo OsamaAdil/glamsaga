@@ -28,10 +28,11 @@ const ProductPage = ({ product }) => {
   );
 
   useEffect(() => {
-    if (requiredVariants.length > 0) {
-      setSelectedVariant(requiredVariants[0]);
+    if (productVariants.length > 0 && !selectedVariant) {
+      // Ensure no selected variant is already set
+      setSelectedVariant(productVariants[0]); // Set first variant as default
     }
-  }, []);
+  }, [productVariants]);
 
   const variantMapping = requiredVariants.map((variant) => (
     <div
@@ -43,10 +44,8 @@ const ProductPage = ({ product }) => {
           : ""
       }`}
     >
-      
-        <div>{variant.size}</div>
-        <div>{variant.colour}</div>{" "}
-     
+      <div>{variant.size}</div>
+      <div>{variant.colour}</div>{" "}
     </div>
   ));
 
@@ -54,10 +53,11 @@ const ProductPage = ({ product }) => {
     setSelectedVariant(variant);
   };
 
-  const addToCart = (product, selectedVariant) => {
-    dispatch(addItemToCart1({ product, selectedVariant }));
+  const addToCart = () => {
+    if (selectedVariant) {
+      dispatch(addItemToCart1({ product, selectedVariant }));
+    }
   };
-
   return (
     <div className={style.main}>
       <div className={style.container}>
