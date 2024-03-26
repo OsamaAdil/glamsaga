@@ -28,7 +28,16 @@ export default function Modal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (formData.phoneNumber.length !== 10) {
+      alert("Phone number should contain exactly 10 digits.");
+      return;
+    }
+    if (formData.pincode.length !== 6) {
+      alert("Pin code should contain exactly 6 digits.");
+      return;
+    }
     console.log("Form Submitted:", formData);
+    // Add your form submission logic here
   };
 
   const dispatch = useDispatch();
@@ -82,6 +91,8 @@ export default function Modal() {
                 fullWidth
                 label="Phone Number"
                 name="phoneNumber"
+                pattern="\d{10}"
+                title="Please enter a 10-digit phone number"
                 value={formData.phoneNumber}
                 onChange={handleChange}
                 required
@@ -119,6 +130,8 @@ export default function Modal() {
                 fullWidth
                 label="Pincode"
                 name="pincode"
+                pattern="\d{6}"
+                title="Please enter a 6-digit pin code"
                 value={formData.pincode}
                 onChange={handleChange}
                 required
@@ -150,24 +163,25 @@ export default function Modal() {
                 inputProps={{ style: { fontSize: "1.2rem" } }}
               />
             </Grid>
-            <Grid item xs={12}>
-              <Button
-                variant="contained"
-                color="primary"
-                type="submit"
-                style={{
-                  backgroundColor: "#3C152B",
-                  color: "#ffffff",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                }}
-                size="large"
-                InputLabelProps={{ style: { fontSize: "1.2rem" } }}
-              >
-                Submit and Proceed for Online Payment
-              </Button>
-            </Grid>
           </Grid>
+
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            style={{
+              backgroundColor: "#3C152B",
+              color: "#ffffff",
+              marginLeft: 90,
+              marginRight: "auto",
+              marginTop : 50,
+              
+            }}
+            size="large"
+            InputLabelProps={{ style: { fontSize: "2.5rem" } }}
+          >
+            Submit and Proceed for Online Payment
+          </Button>
         </form>
       </div>
     </div>

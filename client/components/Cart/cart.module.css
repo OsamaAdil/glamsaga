@@ -9,7 +9,7 @@
   position: fixed;
   top: 0px;
   right: 0px;
-  min-height: 95vh;
+  height: 100vh;
   width: 30vw;
   background-color: white;
   z-index: 100000;
@@ -18,7 +18,7 @@
   font-weight: 500;
   color: #3c152b;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  z-index: 1000000;
+  z-index: 999999999999;
 }
 
 .flex {
@@ -49,10 +49,10 @@
 }
 
 .cartItem {
-  max-height: 70vh;
+  max-height: 76vh;
   /* overflow: auto; */
   overflow-y: auto;
-  min-height: 65vh;
+  min-height: 75vh
 }
 
 .checkOut {

@@ -68,7 +68,11 @@ export default function Cart() {
   ));
 
   function checkOut() {
-    dispatch(onCheckOut());
+    if (cart.length > 0) {
+      dispatch(onCheckOut());
+    } else {
+      alert("Your cart is empty");
+    }
   }
 
   //   const [cart, setCart] = useState([]);
@@ -178,12 +182,10 @@ export default function Cart() {
         <div>{Total}</div>
       </div>
       <div className={style.checkOut}>
-        {/* <Link href="./checkOut"> */}
         <button className={style.checkOutBtn} onClick={checkOut}>
           {" "}
           Check Out
         </button>{" "}
-        {/* </Link> */}
       </div>
     </div>
   );

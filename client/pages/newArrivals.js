@@ -1,18 +1,94 @@
-import Filter from "@/components/Filter/Filter";
-import { FilterProduct } from "@/components/FilterProduct.jsx/FilterProduct";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import style from "./newArrivals.module.css";
+import { fetchProducts } from "@/components/api";
+import ProductCard from "@/components/ProductCard/ProductCard";
+import Filter from "@/components/Filter/Filter";
 
 const NewArrivalsPage = () => {
+  const [products, setProducts] = useState([]);
+  const [filterType, setFilterType] = useState([]);
+  const [filter, setFilter] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetchedProducts = await fetchProducts();
+        setProducts(fetchedProducts);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const filteredArray = products.filter((product) =>
+      product.Flag.includes("newarrivals")
+    );
+    setFilterType(filteredArray);
+  }, [products]);
+
+  const applyFilter = () => {
+    if (!filter) {
+      return filterType;
+    }
+
+    let filteredProducts = filterType;
+
+    // if (filter.category) {
+    //   filteredProducts = filteredProducts.filter(
+    //     (item) => item.category === filter.category
+    //   );
+    // }
+
+    if (filter.price) {
+      const [minPrice, maxPrice] = filter.price.split(" to ");
+      filteredProducts = filteredProducts.filter((item) => {
+        const itemPrice = parseFloat(item.price);
+        return (
+          itemPrice >= parseFloat(minPrice) && itemPrice <= parseFloat(maxPrice)
+        );
+      });
+    }
+
+    if (filter.discount) {
+      filteredProducts = filteredProducts.filter(
+        (item) => item.discountPercent >= filter.discount
+      );
+    }
+
+    if (filter.rating) {
+      filteredProducts = filteredProducts.filter(
+        (item) => item.rating >= filter.rating
+      );
+    }
+
+    return filteredProducts;
+  };
+
+  const handleFiltersChange = (selectedFilters) => {
+    console.log(selectedFilters);
+    setFilter(selectedFilters);
+  };
+
+  if (products.length === 0) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className={style.container}>
       <div>
-        <Filter />
+        <Filter onFiltersChange={handleFiltersChange} />
       </div>
       <div className={style.filterContainer}>
         <span>New Arrivals </span>
         <div className={style.filteredProductContainer}>
-          <FilterProduct type="newarrivals" />
+          <div className={style.productList}>
+            {applyFilter().map((product, index) => (
+              <ProductCard key={product._id} product={product} index={index} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

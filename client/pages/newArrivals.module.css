@@ -6,7 +6,7 @@
   display: flex;
   font-family: poppins;
   font-size: large;
-  font-weight : 500;
+  font-weight: 500;
 }
 
 .filteredProductContainer {
@@ -19,4 +19,12 @@
 
 .filterContainer {
   padding: 5rem;
+  /* margin-left: 30rem; */
+}
+
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* margin-left: 30rem; */
 }

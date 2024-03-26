@@ -4,6 +4,7 @@ const initialState = {
   cartToggler: false,
   cart: [],
   modalToggler: false,
+  
 };
 
 export const cartSlice = createSlice({

@@ -64,14 +64,14 @@ export default function Header() {
             {" "}
             <Link href="./bestSellers">Best Sellers</Link>
           </div>
-          <div className={`${style.tiles} ${style.shopBy}`}>
+          {/* <div className={`${style.tiles} ${style.shopBy}`}>
             Shop By
             <div className={style["dropdown-content"]}>
               <div href="#">Category</div>
               <div href="#">Color</div>
               <div href="#">Size</div>
             </div>
-          </div>
+          </div> */}
           <div className={style.tiles}>Accessories</div>
           <div className={style.tiles}>
             <Link href="./contactUs">Contact us</Link>

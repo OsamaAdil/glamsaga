@@ -134,7 +134,7 @@
   background-size: contain;
   color: #fff;
   border-radius: 50px;
-  z-index: 100;
+  z-index: 99999;
 }
 
 .headings {
