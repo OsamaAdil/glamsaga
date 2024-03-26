@@ -4,6 +4,7 @@ import Header from "./Header/Header";
 import style from "./layout.module.css";
 import Footer from "./footer/Footer";
 import { ReduxProvider } from "@/components/Provider/Provider";
+import Modal from "../Modal/Modal";
 
 const Layout = ({ children, Tag }) => {
   const [closeFlag, setCloseFlag] = useState(false);
@@ -35,6 +36,7 @@ const Layout = ({ children, Tag }) => {
             <img src="/whatsapp.png" />
           </a>
         </div>
+        <Modal />
         <Footer></Footer>
       </ReduxProvider>
     </>

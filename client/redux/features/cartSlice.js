@@ -1,15 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchProductVariants } from "@/components/api";
 
 const initialState = {
   cartToggler: false,
   cart: [],
+  modalToggler: false,
 };
 
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    onCheckOut: (state) => {
+      state.modalToggler = !state.modalToggler;
+    },
     onCartClick: (state) => {
       state.cartToggler = !state.cartToggler;
     },
@@ -76,6 +79,7 @@ export const cartSlice = createSlice({
 });
 
 export const {
+  onCheckOut,
   onCartClick,
   addItemToCart,
   addItemToCart1,

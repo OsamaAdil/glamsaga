@@ -1,8 +1,12 @@
-import styles from "./checkOut.module.css";
+"use client";
+import { onCheckOut } from "@/redux/features/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { TextField, Button, Grid } from "@mui/material";
 import { useState } from "react";
+import styles from "./modal.module.css";
 
-export default function checkOut() {
+export default function Modal() {
+  const toggle = useSelector((state) => state.cart.modalToggler);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -27,10 +31,26 @@ export default function checkOut() {
     console.log("Form Submitted:", formData);
   };
 
+  const dispatch = useDispatch();
+
+  function close() {
+    dispatch(onCheckOut());
+  }
+
   return (
-    <div className={styles.mainContainer}>
+    <div
+      className={styles.mainContainer}
+      style={{
+        display: toggle ? "flex" : "none",
+      }}
+    >
       <div id="customerDetails" className={styles.container}>
-        <div className={styles.heading}>Add your Shipping Address</div>
+        <div className={styles.heading}>
+          <div>Add your Shipping Address</div>
+          <div>
+            <img src="/cross.png" onClick={close} />{" "}
+          </div>
+        </div>
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={6}>

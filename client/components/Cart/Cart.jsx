@@ -7,6 +7,7 @@ import {
   incrementCartItem,
   decrementCartItem,
   deleteCartItem,
+  onCheckOut,
 } from "@/redux/features/cartSlice";
 import Link from "next/link";
 
@@ -65,6 +66,10 @@ export default function Cart() {
       <div className={style.dummy1}></div>
     </div>
   ));
+
+  function checkOut() {
+    dispatch(onCheckOut());
+  }
 
   //   const [cart, setCart] = useState([]);
   //   const [toggle, setToggle] = useState(type);
@@ -173,9 +178,12 @@ export default function Cart() {
         <div>{Total}</div>
       </div>
       <div className={style.checkOut}>
-        <Link href="./checkOut">
-          <button className={style.checkOutBtn}> Check Out</button>{" "}
-        </Link>
+        {/* <Link href="./checkOut"> */}
+        <button className={style.checkOutBtn} onClick={checkOut}>
+          {" "}
+          Check Out
+        </button>{" "}
+        {/* </Link> */}
       </div>
     </div>
   );

@@ -18,7 +18,7 @@
   font-weight: 500;
   color: #3c152b;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  z-index: 1000000000000000000000000000000;
+  z-index: 1000000;
 }
 
 .flex {
