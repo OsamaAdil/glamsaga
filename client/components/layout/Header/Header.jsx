@@ -77,7 +77,8 @@ export default function Header() {
             <Link href="./contactUs">Contact us</Link>
           </div>
           <div className={style.cart}>
-            <img src={"searchButton.png"} alt="Search" />
+          <Link href="./search"><img src={"searchButton.png"} alt="Search" /></Link>
+            
           </div>
           <div className={style.cart}>
             <img
