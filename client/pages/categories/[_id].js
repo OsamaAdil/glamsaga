@@ -1,27 +1,25 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import ProductPage from "@/components/ProductPage/ProductPage";
 import { fetchProducts } from "@/components/api";
+import Category from "@/components/Category/Category";
 
-const ProductDetailPage = () => {
+const CategoryPage = () => {
   const router = useRouter();
-  const { _id: productId } = router.query;
+  const { _id: ID } = router.query;
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    console.log("Router query:", router.query);
-    console.log("ProductId:", productId);
-
     const fetchData = async () => {
       try {
         const products = await fetchProducts();
-        const foundProduct = products.find(
-          (product) => product._id == productId
+        const foundProduct = products.filter(
+          (product) => product.categoryId === ID
         );
-        if (foundProduct) {
+        if (foundProduct.length > 0) {
+          // Check if any products are found
           setProduct(foundProduct);
         } else {
-          console.log("Product not found");
+          console.log("Products not found");
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -29,19 +27,13 @@ const ProductDetailPage = () => {
     };
 
     fetchData();
-  }, [productId]);
+  }, [ID]);
 
   if (!product) {
     return <div>Loading...</div>;
   }
 
-  console.log(product);
-
-  return (
-    <>
-      <ProductPage product={product} />
-    </>
-  );
+  return <Category products={product} />;
 };
 
-export default ProductDetailPage;
+export default CategoryPage;

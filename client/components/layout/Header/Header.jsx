@@ -9,7 +9,6 @@ import { onCartClick } from "@/redux/features/cartSlice";
 
 export default function Header() {
   const [toggle, setToggle] = useState(true);
-  // const [cartVisible, setCartVisible] = useState(false);
   const dispatch = useDispatch();
 
   let icon = toggle ? "/hamburger-menu-icon.webp" : "/cross.png";
@@ -27,14 +26,6 @@ export default function Header() {
   function handleCartClick() {
     dispatch(onCartClick());
   }
-
-  // function handleCartClick() {
-  //   setCartVisible(!cartVisible);
-  // }
-
-  // function handleToggleChange(newToggleState) {
-  //   setCartVisible(newToggleState);
-  // }
 
   return (
     <>
@@ -54,31 +45,26 @@ export default function Header() {
         </div>
         <div className={style.middlebox} id="expand">
           <div className={style.tiles}>
-            <Link href="./newArrivals">New Arrivals</Link>
+            <Link href="newArrivals">New Arrivals</Link>
           </div>
           <div className={style.tiles}>
-            {" "}
-            <Link href="./classicCollections">Classic Collections</Link>
+            <Link href="classicCollections">Classic Collections</Link>
           </div>
           <div className={style.tiles}>
-            {" "}
-            <Link href="./bestSellers">Best Sellers</Link>
+            <Link href="bestSellers">Best Sellers</Link>
           </div>
-          {/* <div className={`${style.tiles} ${style.shopBy}`}>
-            Shop By
-            <div className={style["dropdown-content"]}>
-              <div href="#">Category</div>
-              <div href="#">Color</div>
-              <div href="#">Size</div>
-            </div>
-          </div> */}
-          <div className={style.tiles}>Accessories</div>
           <div className={style.tiles}>
-            <Link href="./contactUs">Contact us</Link>
+            <Link href="categories/65f916efea52652270bc7afc" passHref>
+              Accessories
+            </Link>
+          </div>
+          <div className={style.tiles}>
+            <Link href="contactUs">Contact us</Link>
           </div>
           <div className={style.cart}>
-          <Link href="./search"><img src={"searchButton.png"} alt="Search" /></Link>
-            
+            <Link href="search">
+              <img src={"searchButton.png"} alt="Search" />
+            </Link>
           </div>
           <div className={style.cart}>
             <img

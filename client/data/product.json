@@ -3,7 +3,7 @@
     {
       "_id": 1,
       "GenreID": 1,
-      "CategoryID": 101,
+      "categoryId": "65f916a4ea52652270bc7af5",
       "CommentID": 1001,
       "title": "Stylish Casual Sling",
       "price": 49,
@@ -36,7 +36,7 @@
     {
       "_id": 2,
       "GenreID": 2,
-      "CategoryID": 102,
+      "categoryId": "65f916acea52652270bc7af6",
       "CommentID": 1002,
       "title": "Elegant Diaper Backpack",
       "price": 79,
@@ -69,7 +69,7 @@
     {
       "_id": 3,
       "GenreID": 3,
-      "CategoryID": 103,
+      "categoryId":  "65f916bbea52652270bc7af7",
       "CommentID": 1003,
       "title": "Classic Leather Handbag",
       "price": 129,
@@ -102,9 +102,9 @@
     {
       "_id": 4,
       "GenreID": 4,
-      "CategoryID": 104,
+      "categoryId": "65f916c7ea52652270bc7af8",
       "CommentID": 1004,
-      "title": "Cool Kids Backpack",
+      "title": "65f916c7ea52652270bc7af8",
       "price": 700,
       "discountPercent": 15,
       "Sellingprice": 37,
@@ -135,7 +135,7 @@
     {
       "_id": 5,
       "GenreID": 5,
-      "CategoryID": 105,
+      "categoryId": "65f916d0ea52652270bc7af9",
       "CommentID": 1005,
       "title": "Trendy Tote Bag",
       "price": 59,
@@ -168,7 +168,7 @@
     {
       "_id": 6,
       "GenreID": 6,
-      "CategoryID": 106,
+      "categoryId": "65f916d9ea52652270bc7afa",
       "CommentID": 1006,
       "title": "Adventure Duffle Bag",
       "price": 89,
@@ -201,7 +201,7 @@
     {
       "_id": 7,
       "GenreID": 7,
-      "CategoryID": 107,
+      "categoryId": "65f916e6ea52652270bc7afb",
       "CommentID": 1007,
       "title": "Chic Clutch Elegance",
       "price": 29,
@@ -233,7 +233,7 @@
     {
       "_id": 8,
       "GenreID": 8,
-      "CategoryID": 108,
+      "categoryId": "65f916efea52652270bc7afc",
       "CommentID": 1008,
       "title": "Accessory Marvel Set",
       "price": 19,
@@ -266,7 +266,7 @@
     {
       "_id": 9,
       "GenreID": 9,
-      "CategoryID": 109,
+      "categoryId": "65f916f8ea52652270bc7afd",
       "CommentID": 1009,
       "title": "Fashionista Backpack Bliss",
       "price": 69,
@@ -373,4 +373,86 @@
     }
 
   ]
+  ,
+  "categories": [{
+    "isDelete": false,
+    "_id": "65f916a4ea52652270bc7af5",
+    "name": "slings",
+    "createdAt": "2024-03-19T04:37:56.019Z",
+    "updatedAt": "2024-03-19T04:37:56.019Z",
+    "__v": 0
+},
+{
+    "isDelete": false,
+    "_id": "65f916acea52652270bc7af6",
+    "name": "diaper bags",
+    "createdAt": "2024-03-19T04:38:04.923Z",
+    "updatedAt": "2024-03-19T04:38:04.923Z",
+    "__v": 0
+},
+{
+    "isDelete": false,
+    "_id": "65f916bbea52652270bc7af7",
+    "name": "elegant hand bags",
+    "createdAt": "2024-03-19T04:38:19.778Z",
+    "updatedAt": "2024-03-19T04:38:19.778Z",
+    "__v": 0
+},
+{
+    "isDelete": false,
+    "_id": "65f916c7ea52652270bc7af8",
+    "name": "cool kids collection",
+    "createdAt": "2024-03-19T04:38:31.857Z",
+    "updatedAt": "2024-03-19T04:38:31.857Z",
+    "__v": 0
+},
+{
+    "isDelete": false,
+    "_id": "65f916d0ea52652270bc7af9",
+    "name": "totes",
+    "createdAt": "2024-03-19T04:38:40.504Z",
+    "updatedAt": "2024-03-19T04:38:40.504Z",
+    "__v": 0
+},
+{
+    "isDelete": false,
+    "_id": "65f916d9ea52652270bc7afa",
+    "name": "duffle bags",
+    "createdAt": "2024-03-19T04:38:49.904Z",
+    "updatedAt": "2024-03-19T04:38:49.904Z",
+    "__v": 0
+},
+{
+    "isDelete": false,
+    "_id": "65f916e6ea52652270bc7afb",
+    "name": "clutches",
+    "createdAt": "2024-03-19T04:39:02.953Z",
+    "updatedAt": "2024-03-19T04:39:02.953Z",
+    "__v": 0
+},
+{
+    "isDelete": false,
+    "_id": "65f916efea52652270bc7afc",
+    "name": "accessories",
+    "createdAt": "2024-03-19T04:39:11.010Z",
+    "updatedAt": "2024-03-19T04:39:11.010Z",
+    "__v": 0
+},
+{
+    "isDelete": false,
+    "_id": "65f916f8ea52652270bc7afd",
+    "name": "fashion bagpacks",
+    "createdAt": "2024-03-19T04:39:20.882Z",
+    "updatedAt": "2024-03-19T04:39:20.882Z",
+    "__v": 0
+},
+{
+    "isDelete": false,
+    "_id": "65f916ffea52652270bc7afe",
+    "name": "others",
+    "createdAt": "2024-03-19T04:39:27.744Z",
+    "updatedAt": "2024-03-19T04:39:27.744Z",
+    "__v": 0
+}
+]
 }

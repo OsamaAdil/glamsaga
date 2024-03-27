@@ -47,16 +47,47 @@ export default function Home() {
         <div className={style.headings}>Category</div>
 
         <div className={style.flex}>
-          <Category image="/category_1.svg" name="Slings" />
-          <Category image="/category_2.svg" name="Diaper Bags" />
-          <Category image="/category_3.svg" name="Elegant Hand Bags" />
-          <Category image="/category_4.svg" name="Cool Kids Collection" />
-          <Category image="/category_5.svg" name="Totes" />
-          <Category image="/category_6.svg" name="Duffle Bags" />
-          <Category image="/category_7.svg" name="Clutches" />
-          <Category image="/category_8.svg" name="Accessories" />
-          <Category image="/category_9.svg" name="Fashion Bagpacks" />
-          <Category image="/category_10.svg" name="Others" />
+          <Link href={`/categories/65f916a4ea52652270bc7af5`} passHref>
+            {" "}
+            <Category image="/category_1.svg" name="Slings" />{" "}
+          </Link>
+          <Link href={`/categories/65f916acea52652270bc7af6`} passHref>
+            {" "}
+            <Category image="/category_2.svg" name="Diaper Bags" />{" "}
+          </Link>
+          <Link href={`/categories/65f916bbea52652270bc7af7`} passHref>
+            {" "}
+            <Category image="/category_3.svg" name="Elegant Hand Bags" />{" "}
+          </Link>
+          <Link href={`/categories/`} passHref>
+            <Category image="/category_4.svg" name="Cool Kids Collection" />{" "}
+          </Link>
+          <Link href={`/categories/65f916c7ea52652270bc7af8`} passHref>
+            <Category image="/category_4.svg" name="Cool Kids Collection" />{" "}
+          </Link>
+          <Link href={`/categories/65f916c7ea52652270bc7af8`} passHref>
+            <Category image="/category_4.svg" name="Cool Kids Collection" />{" "}
+          </Link>
+          <Link href={`/categories/65f916d0ea52652270bc7af9`} passHref>
+            <Category image="/category_5.svg" name="Totes" />{" "}
+          </Link>
+          <Link href={`/categories/65f916d9ea52652270bc7afa`} passHref>
+            <Category image="/category_6.svg" name="Duffle Bags" />{" "}
+          </Link>
+          <Link href={`/categories/65f916e6ea52652270bc7afb`} passHref>
+            {" "}
+            <Category image="/category_7.svg" name="Clutches" />
+          </Link>
+          <Link href={`/categories/65f916efea52652270bc7afc`} passHref>
+            {" "}
+            <Category image="/category_8.svg" name="Accessories" />{" "}
+          </Link>
+          <Link href={`/categories/65f916f8ea52652270bc7afd`} passHref>
+            <Category image="/category_9.svg" name="Fashion Bagpacks" />{" "}
+          </Link>
+          <Link href={`/categories/65f916ffea52652270bc7afe`} passHref>
+            <Category image="/category_10.svg" name="Others" />
+          </Link>
         </div>
       </div>
 
@@ -76,5 +107,5 @@ export default function Home() {
   );
 }
 
-// 
+//
 // powershell -ExecutionPolicy Bypass -File "C:\Users\Abdullah\AppData\Roaming\npm\json-server.ps1" --watch --port 4000 ./data/product.json
