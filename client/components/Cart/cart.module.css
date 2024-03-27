@@ -10,7 +10,7 @@
   top: 0px;
   right: 0px;
   height: 100vh;
-  width: 30vw;
+  width: 25vw;
   background-color: white;
   z-index: 100000;
   font-family: poppins;
@@ -52,7 +52,7 @@
   max-height: 76vh;
   /* overflow: auto; */
   overflow-y: auto;
-  min-height: 75vh
+  min-height: 75vh;
 }
 
 .checkOut {
@@ -83,6 +83,7 @@
   display: flex;
   /* flex-direction: column; */
   align-items: center;
+  justify-content: flex-start;
 }
 
 .cartItemContainer img {
@@ -104,8 +105,8 @@
 }
 
 .trashImg img {
-  height: 3rem;
-  width: 3rem;
+  height: 2rem;
+  width: 2rem;
 }
 
 .trashImg img:hover {
@@ -124,4 +125,8 @@
   color: white;
   background-color: #3c152b;
   border-radius: 10px;
+}
+
+.flex2 {
+  display: flex;
 }

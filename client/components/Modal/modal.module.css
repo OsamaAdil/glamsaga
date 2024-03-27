@@ -56,3 +56,24 @@
 .formContainer .MuiButton-root:hover {
   background-color: #592542;
 }
+
+.button {
+  min-height: 3rem;
+  margin-left : 10rem;
+  min-width: 25rem;
+  font-family: poppins;
+  font-weight: 300;
+  font-size: medium;
+  border-radius: 5px;
+  border-width: 0px;
+  color: #f5eded;
+  background-color: #3c152b;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.button:hover {
+  color: #3c152b;
+  background-color: #f5eded;
+  cursor: pointer;
+}

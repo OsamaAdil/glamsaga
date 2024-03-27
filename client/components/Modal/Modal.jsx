@@ -165,23 +165,9 @@ export default function Modal() {
             </Grid>
           </Grid>
 
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            style={{
-              backgroundColor: "#3C152B",
-              color: "#ffffff",
-              marginLeft: 90,
-              marginRight: "auto",
-              marginTop : 50,
-              
-            }}
-            size="large"
-            InputLabelProps={{ style: { fontSize: "2.5rem" } }}
-          >
-            Submit and Proceed for Online Payment
-          </Button>
+          <button type="submit" className={styles.button}>
+            Submit and Proceed to Payment
+          </button>
         </form>
       </div>
     </div>

@@ -40,7 +40,7 @@ export default function Cart() {
   const cartItems = cart.map((item, index) => (
     <div key={index}>
       <div className={style.cartItemContainer}>
-        <div className={style.flex}>
+        <div className={style.flex3}>
           <img src="/bag.png" />
         </div>
         <div className={style.itemDescription}>
@@ -50,17 +50,19 @@ export default function Cart() {
             Size : {item.size} <br />
             Colour : {item.colour}
           </div>
-          <button className={style.incBtn} onClick={() => decrement(index)}>
-            -
-          </button>{" "}
-          {item.quantity}{" "}
-          <button className={style.incBtn} onClick={() => increment(index)}>
-            +
-          </button>{" "}
-          x{item.price}={item.price * item.quantity}{" "}
-        </div>
-        <div className={style.trashImg}>
-          <img src="/trash.svg" onClick={() => deleteItem(item)} />
+          <div className={style.flex2}>
+            <button className={style.incBtn} onClick={() => decrement(index)}>
+              -
+            </button>{" "}
+            {item.quantity}{" "}
+            <button className={style.incBtn} onClick={() => increment(index)}>
+              +
+            </button>{" "}
+            x {" "}{item.price}{" "} ={" "} {item.price * item.quantity}{" "}
+            <div className={style.trashImg}>
+              <img src="/trash.svg" onClick={() => deleteItem(item)} />
+            </div>
+          </div>
         </div>
       </div>
       <div className={style.dummy1}></div>
