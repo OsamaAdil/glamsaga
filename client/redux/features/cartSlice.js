@@ -4,7 +4,6 @@ const initialState = {
   cartToggler: false,
   cart: [],
   modalToggler: false,
-  
 };
 
 export const cartSlice = createSlice({
@@ -22,7 +21,7 @@ export const cartSlice = createSlice({
         id: action.payload.product._id,
         title: action.payload.product.title,
         price: action.payload.product.price,
-        discount: action.payload.product.discountPercentage,
+        discount: action.payload.product.discountPercent,
         quantity: 1,
         variantId: action.payload.variant.id,
         size: action.payload.variant.size,

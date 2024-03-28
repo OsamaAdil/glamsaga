@@ -33,7 +33,9 @@ export default function Cart() {
   }
 
   const Total = cart.reduce(
-    (accumulator, item) => accumulator + item.quantity * item.price,
+    (accumulator, item) =>
+      accumulator +
+      item.quantity * Math.round(item.price * (1 - item.discount / 100)),
     0
   );
 
@@ -54,11 +56,14 @@ export default function Cart() {
             <button className={style.incBtn} onClick={() => decrement(index)}>
               -
             </button>{" "}
-            {item.quantity}{" "}
+            &nbsp;
+            {item.quantity}&nbsp;
             <button className={style.incBtn} onClick={() => increment(index)}>
               +
             </button>{" "}
-            x {" "}{item.price}{" "} ={" "} {item.price * item.quantity}{" "}
+            &nbsp;
+            {Math.round(item.price * (1 - item.discount / 100))}&nbsp;
+            <span className={style.originalPrice}>{item.price}</span>{" "}
             <div className={style.trashImg}>
               <img src="/trash.svg" onClick={() => deleteItem(item)} />
             </div>
@@ -77,84 +82,6 @@ export default function Cart() {
     }
   }
 
-  //   const [cart, setCart] = useState([]);
-  //   const [toggle, setToggle] = useState(type);
-  //   const [, forceUpdate] = useState();
-
-  //   const handleStorageChange = () => {
-  //     const updatedCart = JSON.parse(localStorage.getItem("cart")) || [];
-  //     setCart(updatedCart);
-  //     forceUpdate({}); // Trigger re-render
-  //   };
-
-  //   useEffect(() => {
-  //     const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-  //     setCart(savedCart);
-  //     window.addEventListener("storage", handleStorageChange);
-  //     return () => {
-  //       window.removeEventListener("storage", handleStorageChange);
-  //     };
-  //   }, [handleStorageChange]);
-
-  //   useEffect(() => {
-  //     setToggle(type);
-  //   }, [type]);
-
-  //   function handleClick1() {
-  //     setToggle(!toggle);
-  //     onToggleChange(!toggle);
-  //   }
-
-  //   function handleIncrement(item) {
-  //     const updatedCart = cart.map((cartItem) =>
-  //       cartItem.id === item.id
-  //         ? { ...cartItem, quantity: cartItem.quantity + 1 }
-  //         : cartItem
-  //     );
-  //     setCart(updatedCart);
-  //     localStorage.setItem("cart", JSON.stringify(updatedCart));
-  //   }
-
-  //   function handleDecrement(item) {
-  //     if (item.quantity > 1) {
-  //       const updatedCart = cart.map((cartItem) =>
-  //         cartItem.id === item.id
-  //           ? { ...cartItem, quantity: cartItem.quantity - 1 }
-  //           : cartItem
-  //       );
-  //       setCart(updatedCart);
-  //       localStorage.setItem("cart", JSON.stringify(updatedCart));
-  //     }
-  //   }
-
-  //   function deletefromCart(item) {
-  //     const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
-
-  //     setCart(updatedCart);
-  //     localStorage.setItem("cart", JSON.stringify(updatedCart));
-  //   }
-
-  // const cartItems = cart.map((item, index) => (
-  //   <div key={index}>
-  //     <div className={style.cartItemContainer}>
-  //       <div>
-  //         <img src="/bag.png" />
-  //       </div>
-  //       <div className={style.itemDescription}>
-  //         {" "}
-  //         <button onClick={() => handleDecrement(item)}>-</button>
-  //         {item.quantity}
-  //         <button onClick={() => handleIncrement(item)}>+</button> x{item.price}
-  //         ={item.price * item.quantity}{" "}
-  //         <img src="/trash.svg" onClick={() => deletefromCart(item)} />
-  //       </div>
-  //     </div>
-  //     <div className={style.dummy1}></div>
-  //   </div>
-  // ));
-
-  // ;
-
   return (
     <div
       className={style.cartbar}
@@ -166,7 +93,7 @@ export default function Cart() {
       <div className={style.flex1}>
         <div>
           {" "}
-          <span>Your Shopping Cart</span>{" "}
+          <span className={style.heading}>Your Shopping Cart</span>{" "}
         </div>
         <div>
           <img
@@ -183,6 +110,7 @@ export default function Cart() {
         <div>Sub Total</div>
         <div>{Total}</div>
       </div>
+
       <div className={style.checkOut}>
         <button className={style.checkOutBtn} onClick={checkOut}>
           {" "}

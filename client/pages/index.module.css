@@ -6,14 +6,12 @@
 
 .container {
   padding: 3rem;
-  
 }
 
 .headings {
   color: #3c152b;
   font-size: 2rem;
   font-weight: 600;
-
 }
 
 .sideHeading {
@@ -26,6 +24,16 @@
 .flex {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  /* align-items: center; */
+  row-gap: 3rem;
+  column-gap: 3rem;
+  margin-top: 2rem;
+}
+
+.flex1 {
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   /* align-items: center; */
   row-gap: 3rem;

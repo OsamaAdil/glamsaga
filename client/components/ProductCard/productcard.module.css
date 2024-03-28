@@ -6,6 +6,7 @@
 }
 
 .containerr {
+  position: relative;
   margin-top: 3rem;
   background-color: gray;
   width: 25rem;
@@ -14,12 +15,12 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  border-radius: 10px;
+  border-radius: 5px;
   font-family: poppins;
   color: #902551;
   font-size: 1.3rem;
   background: #f5eded;
-  font-weight: 700;
+  font-weight: 500;
   gap: 1rem;
 }
 
@@ -49,4 +50,37 @@
 
 .containerr span {
   text-decoration: line-through;
+  color: gray;
+  font-size: 1.3rem;
+}
+
+.discountPercent {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  min-width: 3rem;
+  /* min-height: 3rem; */
+  color: #3c152b;
+  background: #f5eded;
+  text-align: center;
+  padding: 5px;
+}
+
+.ratingImg {
+  max-height: 1.3rem;
+}
+
+.cost {
+  display: flex;
+  justify-content: center;
+}
+
+.star {
+  display: flex;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: #3c152b;
+  background: #f5eded;
+  padding: 5px;
 }

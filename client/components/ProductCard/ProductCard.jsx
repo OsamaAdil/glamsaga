@@ -39,16 +39,14 @@ export default function ProductCard({ product, index }) {
         </Link>
         <div className={style.discount}> {``}</div>
       </div>
-      <div>{product.title}</div>
+      <div>{product.title} &nbsp;</div>
       <div>
-        <div className="cost">
-          Rs.
-          {Math.round(
-            product.price * (1 - product.discountPercent / 100) * 100
-          ) / 100}{" "}
-          <span>Rs{product.price}</span>
+        <div className={style.cost}>
+          &#8377;
+          {Math.round(product.price * (1 - product.discountPercent / 100))}{" "}
+          &nbsp;
+          <span>&#8377;{product.price}</span>
         </div>
-        <div className={style.rating}> </div>
       </div>{" "}
       <button
         className={style.button}
@@ -58,7 +56,12 @@ export default function ProductCard({ product, index }) {
       >
         Add to Cart
       </button>
+      <div className={style.discountPercent}>-{product.discountPercent}%</div>
       <div></div>
+      <div className={style.star}>
+        {product.rating}
+        <img src="/star.svg" className={style.ratingImg} />
+      </div>
     </div>
   );
 }

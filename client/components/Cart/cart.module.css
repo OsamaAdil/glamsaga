@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
+.html {
+  font-size: 62.5%;
 
+  padding: 0;
+  box-sizing: border-box;
+}
 .dummy1 {
   height: 0.1rem;
   background-color: gray;
@@ -14,7 +19,7 @@
   background-color: white;
   z-index: 100000;
   font-family: poppins;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 500;
   color: #3c152b;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -105,8 +110,8 @@
 }
 
 .trashImg img {
-  height: 2rem;
-  width: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
 }
 
 .trashImg img:hover {
@@ -124,9 +129,21 @@
   width: 2rem;
   color: white;
   background-color: #3c152b;
-  border-radius: 10px;
+  /* border-radius: 5px; */
 }
 
 .flex2 {
   display: flex;
+  align-items: center;
+}
+
+.originalPrice {
+  color: gray;
+  text-decoration: line-through;
+  font-size: 1.2rem;
+}
+
+.heading {
+  font-weight: 500;
+  font-size: 2rem !important;
 }

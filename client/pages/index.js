@@ -46,7 +46,7 @@ export default function Home() {
       <div className={style.container}>
         <div className={style.headings}>Category</div>
 
-        <div className={style.flex}>
+        <div className={style.flex1}>
           <Link href={`/categories/65f916a4ea52652270bc7af5`} passHref>
             {" "}
             <Category image="/category_1.svg" name="Slings" />{" "}
