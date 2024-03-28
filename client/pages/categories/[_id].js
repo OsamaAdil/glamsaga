@@ -1,12 +1,14 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { fetchProducts } from "@/components/api";
+import { fetchProducts, fetchCategories } from "@/components/api";
 import Category from "@/components/Category/Category";
 
 const CategoryPage = () => {
   const router = useRouter();
   const { _id: ID } = router.query;
   const [product, setProduct] = useState(null);
+  const [categories, setCategories] = useState(null);
+  const [variable, setVariable] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,11 +23,16 @@ const CategoryPage = () => {
         } else {
           console.log("Products not found");
         }
+        const fetchedCategories = await fetchCategories();
+        setCategories(fetchCategories);
+        const filteredCategory = fetchedCategories.filter(
+          (item) => item._id === ID
+        );
+        setVariable(filteredCategory[0].name);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-
     fetchData();
   }, [ID]);
 
@@ -33,7 +40,11 @@ const CategoryPage = () => {
     return <div>Loading...</div>;
   }
 
-  return <Category products={product} />;
+  return (
+    <>
+      <Category products={product} variables={variable}  />
+    </>
+  );
 };
 
 export default CategoryPage;

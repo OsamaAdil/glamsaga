@@ -6,11 +6,12 @@ import Link from "next/link";
 import Cart from "@/components/Cart/Cart";
 import { useDispatch } from "react-redux";
 import { onCartClick } from "@/redux/features/cartSlice";
+import { useRouter } from "next/router";
 
 export default function Header() {
   const [toggle, setToggle] = useState(true);
   const dispatch = useDispatch();
-
+  const router = useRouter();
   let icon = toggle ? "/hamburger-menu-icon.webp" : "/cross.png";
 
   function handleClick() {
@@ -44,27 +45,49 @@ export default function Header() {
           </div>
         </div>
         <div className={style.middlebox} id="expand">
-          <div className={style.tiles}>
-            <Link href="newArrivals">New Arrivals</Link>
+          <div
+            className={style.tiles}
+            onClick={(e) => {
+              router.push(`/newArrivals`);
+            }}
+          >
+            New Arrivals
           </div>
-          <div className={style.tiles}>
-            <Link href="classicCollections">Classic Collections</Link>
+          <div
+            className={style.tiles}
+            onClick={(e) => {
+              router.push(`/classicCollections`);
+            }}
+          >
+            Classic Collections
           </div>
-          <div className={style.tiles}>
-            <Link href="bestSellers">Best Sellers</Link>
+          <div
+            className={style.tiles}
+            onClick={(e) => {
+              router.push(`/bestSellers`);
+            }}
+          >
+            Best Sellers
           </div>
-          <div className={style.tiles}>
-            <Link href="categories/65f916efea52652270bc7afc" passHref>
-              Accessories
-            </Link>
+          <div
+            className={style.tiles}
+            onClick={(e) => {
+              router.push(`/categories/65f916efea52652270bc7afc`);
+            }}
+          >
+            Accessories
+            </div>
+          <div className={style.tiles} onClick={(e) => {
+              router.push(`/contactUs`);
+            }}>
+            Contact us
           </div>
-          <div className={style.tiles}>
-            <Link href="contactUs">Contact us</Link>
-          </div>
-          <div className={style.cart}>
-            <Link href="search">
+          <div className={style.cart} onClick={(e) => {
+              router.push(`/search`);
+            }}>
+            
               <img src={"searchButton.png"} alt="Search" />
-            </Link>
+            
           </div>
           <div className={style.cart}>
             <img

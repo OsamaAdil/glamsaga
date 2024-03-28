@@ -4,14 +4,14 @@ import style from "./filter.module.css";
 export default function Filter({ onFiltersChange }) {
   const categories = [
     "slings",
-    "diaper Bags",
-    "elegant hand Bags",
+    "diaper bags",
+    "elegant hand bags",
     "cool kids collection",
     "totes",
     "duffle bags",
     "clutches",
     "accessories",
-    "fashion bag packs",
+    "fashion bagpacks",
     "others",
   ];
   const prices = [

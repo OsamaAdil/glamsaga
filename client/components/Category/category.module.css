@@ -4,3 +4,12 @@
   gap: 20px;
   margin: 10px;
 }
+
+.heading {
+  font-size: poppins;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #3c152b;
+  margin: 10px;
+  text-align: center;
+}

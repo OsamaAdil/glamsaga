@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "./newArrivals.module.css";
-import { fetchProducts } from "@/components/api";
+import { fetchProducts, fetchCategories } from "@/components/api";
 import ProductCard from "@/components/ProductCard/ProductCard";
 import Filter from "@/components/Filter/Filter";
 
@@ -8,17 +8,20 @@ const NewArrivalsPage = () => {
   const [products, setProducts] = useState([]);
   const [filterType, setFilterType] = useState([]);
   const [filter, setFilter] = useState(null);
+  const [categories, setCategories] = useState(null);
+  
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const fetchedProducts = await fetchProducts();
         setProducts(fetchedProducts);
+        const fetchedCategories = await fetchCategories();
+        setCategories(fetchedCategories);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-
     fetchData();
   }, []);
 
@@ -36,11 +39,18 @@ const NewArrivalsPage = () => {
 
     let filteredProducts = filterType;
 
-    // if (filter.category) {
-    //   filteredProducts = filteredProducts.filter(
-    //     (item) => item.category === filter.category
-    //   );
-    // }
+   
+    if (filter.category) {
+      const filteredCategory = categories.filter(
+        (item) => item.name === filter.category
+      );
+      const categoryID = filteredCategory[0]._id;
+      console.log(categoryID);
+      filteredProducts = filteredProducts.filter(
+        (item) => item.categoryId === categoryID
+      );
+     
+    }
 
     if (filter.price) {
       const [minPrice, maxPrice] = filter.price.split(" to ");

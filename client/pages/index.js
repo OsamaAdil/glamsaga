@@ -59,12 +59,6 @@ export default function Home() {
             {" "}
             <Category image="/category_3.svg" name="Elegant Hand Bags" />{" "}
           </Link>
-          <Link href={`/categories/`} passHref>
-            <Category image="/category_4.svg" name="Cool Kids Collection" />{" "}
-          </Link>
-          <Link href={`/categories/65f916c7ea52652270bc7af8`} passHref>
-            <Category image="/category_4.svg" name="Cool Kids Collection" />{" "}
-          </Link>
           <Link href={`/categories/65f916c7ea52652270bc7af8`} passHref>
             <Category image="/category_4.svg" name="Cool Kids Collection" />{" "}
           </Link>
