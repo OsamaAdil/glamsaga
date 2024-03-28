@@ -7,7 +7,7 @@ const CategoryPage = () => {
   const router = useRouter();
   const { _id: ID } = router.query;
   const [product, setProduct] = useState(null);
-  const [categories, setCategories] = useState(null);
+  // const [categories, setCategories] = useState(null);
   const [variable, setVariable] = useState(null);
 
   useEffect(() => {
@@ -24,14 +24,15 @@ const CategoryPage = () => {
           console.log("Products not found");
         }
         const fetchedCategories = await fetchCategories();
-        setCategories(fetchCategories);
+        // setCategories(fetchCategories);
         const filteredCategory = fetchedCategories.filter(
           (item) => item._id === ID
         );
-        setVariable(filteredCategory[0].name);
+        setVariable(filteredCategory[0]?.name);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
+      // console.log(variable);
     };
     fetchData();
   }, [ID]);
@@ -42,7 +43,7 @@ const CategoryPage = () => {
 
   return (
     <>
-      <Category products={product} variables={variable}  />
+      <Category products={product} variables={variable} />
     </>
   );
 };

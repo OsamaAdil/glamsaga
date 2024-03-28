@@ -6,13 +6,11 @@ export default function Category({ products, variables }) {
     <ProductCard key={index} product={item} />
   ));
 
+  const capital = variables?.charAt(0).toUpperCase() + variables?.slice(1);
+
   return (
     <>
-      <div className={styles.heading}>
-        {/* {variables.charAt(0).toUpperCase() + variables.slice(1)}
-         */}
-        {variables}
-      </div>
+      <div className={styles.heading}>{capital}</div>
       <div className={styles.productContainer}>{productMapping}</div>
     </>
   );
