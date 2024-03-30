@@ -10,7 +10,7 @@
   gap: 10rem;
   font-family: Poppins;
   font-size: 1.5rem;
-  background-color: #6d695c;
+  /* background-color: #6d695c;
   background-image: repeating-linear-gradient(
       120deg,
       rgba(255, 255, 255, 0.1),
@@ -40,7 +40,7 @@
       transparent 75%,
       rgba(0, 0, 0, 0.1) 75%,
       rgba(0, 0, 0, 0.1)
-    );
+    ); */
   background-size: 70px 120px;
 }
 

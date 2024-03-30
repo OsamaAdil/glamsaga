@@ -15,7 +15,7 @@
   top: 0px;
   right: 0px;
   height: 100vh;
-  width: 25vw;
+  width: 30vw;
   background-color: white;
   z-index: 100000;
   font-family: poppins;
@@ -24,6 +24,7 @@
   color: #3c152b;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   z-index: 999999999999;
+  /* margin: 10px; */
 }
 
 .flex {
@@ -89,6 +90,7 @@
   /* flex-direction: column; */
   align-items: center;
   justify-content: flex-start;
+  margin: 10px;
 }
 
 .cartItemContainer img {
@@ -146,4 +148,15 @@
 .heading {
   font-weight: 500;
   font-size: 2rem !important;
+}
+
+@media screen and (min-width: 700px) and (max-width: 950px) {
+  .cartbar {
+    width: 50vw;
+  }
+}
+@media screen and (max-width: 700px) {
+  .cartbar {
+    width: 70vw;
+  }
 }

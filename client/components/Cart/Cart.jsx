@@ -39,6 +39,8 @@ export default function Cart() {
     0
   );
 
+  console.log(cart);
+
   const cartItems = cart.map((item, index) => (
     <div key={index}>
       <div className={style.cartItemContainer}>

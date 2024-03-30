@@ -94,7 +94,7 @@ export default function Home() {
       <a href="https://wa.me/918928033265" target="_blank">
         {" "}
         <div className={style.gifting}>
-          <img className={style.gifting} src={"/corporategifting.png"} />
+          <img  src={"/corporategifting.png"} />
         </div>
       </a>
     </>

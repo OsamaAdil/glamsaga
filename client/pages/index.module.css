@@ -60,4 +60,13 @@
 .gifting {
   width: 100%;
   background-color: #f5eded;
+  margin-bottom: 100px;
 }
+
+
+.gifting img{
+  width: 100%;
+  background-color: #f5eded;
+  /* margin-bottom: 40px; */
+}
+

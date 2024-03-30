@@ -33,9 +33,9 @@ export default function ProductCard({ product, index }) {
 
   return (
     <div className={style.containerr}>
-      <div>
+      <div className={style.imageContainer}>
         <Link key={product.id} href={`/products/${product._id}`} passHref>
-          <img src={"/bag.png"} alt={`Product ${index}`} />{" "}
+          <img src={"/bag1.jpg"} alt={`Product ${index}`} />{" "}
         </Link>
         <div className={style.discount}> {``}</div>
       </div>

@@ -44,7 +44,7 @@ export const cartSlice = createSlice({
         id: action.payload.product._id,
         title: action.payload.product.title,
         price: action.payload.product.price,
-        discount: action.payload.product.discountPercentage,
+        discount: action.payload.product.discountPercent,
         quantity: 1,
         variantId: action.payload.selectedVariant.id,
         size: action.payload.selectedVariant.size,
