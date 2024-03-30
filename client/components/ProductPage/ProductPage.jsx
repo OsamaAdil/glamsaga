@@ -7,6 +7,14 @@ import style from "./productpage.module.css";
 const ProductPage = ({ product }) => {
   const [productVariants, setProductVariants] = useState([]);
   const [selectedVariant, setSelectedVariant] = useState();
+  const [selectedThumbnail, setSelectedThumbnail] = useState(null);
+
+  const images = ["/bag.png", "/bag1.jpg", "/bag3.avif"];
+  const videos = [{ thumbnail: "/bag4.avif", src: "/video.mp4" }];
+
+  const handleThumbnailClick = (item) => {
+    setSelectedThumbnail(item);
+  };
 
   const dispatch = useDispatch();
 
@@ -29,8 +37,7 @@ const ProductPage = ({ product }) => {
 
   useEffect(() => {
     if (productVariants.length > 0 && !selectedVariant) {
-      // Ensure no selected variant is already set
-      setSelectedVariant(productVariants[0]); // Set first variant as default
+      setSelectedVariant(productVariants[0]);
     }
   }, [productVariants]);
 
@@ -58,12 +65,58 @@ const ProductPage = ({ product }) => {
       dispatch(addItemToCart1({ product, selectedVariant }));
     }
   };
+  const imageMapping = images.map((item, index) => (
+    <div key={index} className={style.thumbnail}>
+      {item.endsWith(".png") ||
+      item.endsWith(".jpg") ||
+      item.endsWith(".avif") ? (
+        <img
+          src={item}
+          alt={`Thumbnail ${index}`}
+          onClick={() => handleThumbnailClick(item)}
+          style={{
+            filter:
+              selectedThumbnail === item
+                ? "brightness(70%)"
+                : "brightness(100%)",
+          }}
+        />
+      ) : null}{" "}
+    </div>
+  ));
+
+  const videoMapping = videos.map((item, index) => (
+    <div key={index} className={style.thumbnail}>
+      <img
+        src={item.thumbnail}
+        onClick={() => handleThumbnailClick(item.src)}
+      />
+    </div>
+  ));
+
   return (
     <div className={style.main}>
       <div className={style.container}>
-        <div className={style.image}>
-          <img src={"/bag.png"} alt="Product" />
+        <div>
+          <div className={style.mainImage}>
+            {selectedThumbnail && selectedThumbnail.endsWith(".mp4") ? (
+              <video
+                src={selectedThumbnail}
+                controls
+                poster={selectedThumbnail}
+                style={{ height: "400px" }}
+                autoPlay
+              />
+            ) : (
+              <img src={selectedThumbnail || "/bag.png"} alt="Product" />
+            )}
+          </div>
+          <div className={style.gallery}>
+            {imageMapping}
+            {videoMapping}
+          </div>
         </div>
+
         <div className={style.productDetails}>
           <h1 className={style.title}>{product.title} </h1>
           <div>
