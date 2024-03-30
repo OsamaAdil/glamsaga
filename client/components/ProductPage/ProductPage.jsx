@@ -124,10 +124,10 @@ const ProductPage = ({ product }) => {
           </div>
           <div className={style.price}>
             {" "}
-            Rs.
+            &#8377;
             {Math.round(
-              product.price * (1 - product.discountPercent / 100) * 100
-            ) / 100}{" "}
+              product.price * (1 - product.discountPercent / 100)
+            )}{" "}
             <span className={style.costPrice}>{product.price}</span>{" "}
           </div>
           <div className={style.variantContainer}>
