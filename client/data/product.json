@@ -20,12 +20,8 @@
       "ShortDescription": "A trendy and comfortable casual sling bag for your weekend adventures.",
       "longDescription": "This stylish casual sling bag is perfect for carrying your essentials during weekend outings. The printed design adds a touch of uniqueness.",
       "DefaultImage": "sling1.jpg",
-      "Images": [
-        "sling1.jpg",
-        "sling2.jpg",
-        "sling3.jpg"
-      ],
-      "Video": "sling_video.mp4",
+      "images": ["/bag.png", "/bag1.jpg", "/bag3.avif"],
+      "video": "/video.mp4",
       "rating": 4.7,
       "NoOfratings": 120,
       "NoOfReviews": 65,

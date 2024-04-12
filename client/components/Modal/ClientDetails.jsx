@@ -1,7 +1,7 @@
 "use client";
 import styles from "./clientdetails.module.css";
 import { TextField, Grid } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { onCheckOut } from "@/redux/features/cartSlice";
 
 import { useState } from "react";

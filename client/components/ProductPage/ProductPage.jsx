@@ -9,8 +9,10 @@ const ProductPage = ({ product }) => {
   const [selectedVariant, setSelectedVariant] = useState();
   const [selectedThumbnail, setSelectedThumbnail] = useState(null);
 
-  const images = ["/bag.png", "/bag1.jpg", "/bag3.avif"];
-  const videos = [{ thumbnail: "/bag4.avif", src: "/video.mp4" }];
+  console.log(selectedThumbnail);
+  const images = product.images;
+
+  const videos = product.video;
 
   const handleThumbnailClick = (item) => {
     setSelectedThumbnail(item);
@@ -67,29 +69,14 @@ const ProductPage = ({ product }) => {
   };
   const imageMapping = images.map((item, index) => (
     <div key={index} className={style.thumbnail}>
-      {item.endsWith(".png") ||
-      item.endsWith(".jpg") ||
-      item.endsWith(".avif") ? (
-        <img
-          src={item}
-          alt={`Thumbnail ${index}`}
-          onClick={() => handleThumbnailClick(item)}
-          style={{
-            filter:
-              selectedThumbnail === item
-                ? "brightness(70%)"
-                : "brightness(100%)",
-          }}
-        />
-      ) : null}{" "}
-    </div>
-  ));
-
-  const videoMapping = videos.map((item, index) => (
-    <div key={index} className={style.thumbnail}>
       <img
-        src={item.thumbnail}
-        onClick={() => handleThumbnailClick(item.src)}
+        src={item}
+        alt={`Thumbnail ${index}`}
+        onClick={() => handleThumbnailClick(item)}
+        style={{
+          filter:
+            selectedThumbnail === item ? "brightness(70%)" : "brightness(100%)",
+        }}
       />
     </div>
   ));
@@ -113,7 +100,13 @@ const ProductPage = ({ product }) => {
           </div>
           <div className={style.gallery}>
             {imageMapping}
-            {videoMapping}
+
+            <div className={style.thumbnail}>
+              <img
+                src="\defaultVideo.png"
+                onClick={() => handleThumbnailClick(videos)}
+              />
+            </div>
           </div>
         </div>
 
