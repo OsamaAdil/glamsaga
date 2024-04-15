@@ -64,18 +64,20 @@ const ProductPage = ({ product }) => {
   };
 
   const variantMapping = requiredVariants.map((variant) => (
-    <div
-      key={variant._id}
-      onClick={() => handleVariantSelection(variant)}
-      className={`${style.variants} ${
-        selectedVariant && selectedVariant._id === variant._id
-          ? style.selectedVariant
-          : style.variants
-      }`}
-    >
-      <div>{variant.size}</div>
-      <div>{variant.colour}</div>
-    </div>
+    <>
+      <div
+        key={variant._id}
+        onClick={() => handleVariantSelection(variant)}
+        className={`${style.variants} ${
+          selectedVariant && selectedVariant._id === variant._id
+            ? style.selectedVariant
+            : style.variants
+        }`}
+      >
+        <div>{variant.size}</div>
+        <div>{variant.colour}</div>
+      </div>
+    </>
   ));
 
   const addToCart = () => {
@@ -143,6 +145,9 @@ const ProductPage = ({ product }) => {
             <span>Select Color & Size:</span>
             <br /> {variantMapping}
           </div>
+          <div> Length( in cm) : {selectedVariant?.length} </div>
+          <div> Width  (in cm): {selectedVariant?.width} </div>
+          <div> Height (in cm) : {selectedVariant?.length} </div>
           <div>
             {" "}
             <span>Description :</span> <br />
