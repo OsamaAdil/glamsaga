@@ -13,7 +13,7 @@
       "Pattern": "Printed",
       "Type": "Casual",
       "Occasion": "Weekend Outing",
-      "Flag": [
+      "flag": [
         "newarrivals",
         "bestsellers"
       ],
@@ -42,7 +42,7 @@
       "Pattern": "Solid",
       "Type": "Functional",
       "Occasion": "Parenting Essentials",
-      "Flag": [
+      "flag": [
         "newarrivals",
         "bestsellers"
       ],
@@ -75,7 +75,7 @@
       "Pattern": "Classic",
       "Type": "Formal",
       "Occasion": "Business Meetings",
-      "Flag": [
+      "flag": [
         "bestsellers",
         "classiccollections"
       ],
@@ -108,7 +108,7 @@
       "Pattern": "Cartoon",
       "Type": "Kids",
       "Occasion": "School Days",
-      "Flag": [
+      "flag": [
         "newarrivals",
         "bestsellers"
       ],

@@ -27,7 +27,7 @@ const NewArrivalsPage = () => {
 
   useEffect(() => {
     const filteredArray = products.filter((product) =>
-      product.Flag.includes("classiccollections")
+      product.flag.includes("classiccollections")
     );
     setFilterType(filteredArray);
   }, [products]);

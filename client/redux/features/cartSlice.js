@@ -23,11 +23,11 @@ export const cartSlice = createSlice({
         price: action.payload.product.price,
         discount: action.payload.product.discountPercent,
         quantity: 1,
-        variantId: action.payload.variant.id,
+        variantId: action.payload.variant._id,
         size: action.payload.variant.size,
         colour: action.payload.variant.colour,
       };
-      const itemId = action.payload.variant.id;
+      const itemId = action.payload.variant._id;
       const index = state.cart.findIndex((item) => item.variantId === itemId);
 
       if (index !== -1) {
@@ -46,11 +46,11 @@ export const cartSlice = createSlice({
         price: action.payload.product.price,
         discount: action.payload.product.discountPercent,
         quantity: 1,
-        variantId: action.payload.selectedVariant.id,
+        variantId: action.payload.selectedVariant._id,
         size: action.payload.selectedVariant.size,
         colour: action.payload.selectedVariant.colour,
       };
-      const itemId = action.payload.selectedVariant.id;
+      const itemId = action.payload.selectedVariant._id;
       const index = state.cart.findIndex((item) => item.variantId === itemId);
 
       if (index !== -1) {

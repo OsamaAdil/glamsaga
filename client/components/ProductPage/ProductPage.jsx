@@ -9,7 +9,6 @@ const ProductPage = ({ product }) => {
   const [selectedVariant, setSelectedVariant] = useState();
   const [selectedThumbnail, setSelectedThumbnail] = useState(null);
 
-  console.log(selectedThumbnail);
   const images = product.images;
 
   const videos = product.video;
@@ -37,30 +36,47 @@ const ProductPage = ({ product }) => {
     (item) => item.productId === product._id
   );
 
+  console.log(requiredVariants);
+
   useEffect(() => {
     if (productVariants.length > 0 && !selectedVariant) {
-      setSelectedVariant(productVariants[0]);
+      setSelectedVariant(requiredVariants[0]);
     }
   }, [productVariants]);
 
+  // const variantMapping = requiredVariants.map((variant) => (
+  //   <div
+  //     key={variant.id}
+  //     onClick={() => handleVariantSelection(variant)}
+  //     className={`${style.variants} ${
+  //       selectedVariant && selectedVariant.id === variant.id
+  //         ? style.selectedVariant
+  //         : ""
+  //     }`}
+  //   >
+  //     <div>{variant.size}</div>
+  //     <div>{variant.colour}</div>{" "}
+  //   </div>
+  // ));
+  const handleVariantSelection = (variant) => {
+    setSelectedVariant(variant);
+    console.log(variant);
+  };
+
   const variantMapping = requiredVariants.map((variant) => (
     <div
-      key={variant.id}
+      key={variant._id}
       onClick={() => handleVariantSelection(variant)}
       className={`${style.variants} ${
-        selectedVariant && selectedVariant.id === variant.id
+        selectedVariant && selectedVariant._id === variant._id
           ? style.selectedVariant
-          : ""
+          : style.variants
       }`}
     >
       <div>{variant.size}</div>
-      <div>{variant.colour}</div>{" "}
+      <div>{variant.colour}</div>
     </div>
   ));
-
-  const handleVariantSelection = (variant) => {
-    setSelectedVariant(variant);
-  };
 
   const addToCart = () => {
     if (selectedVariant) {

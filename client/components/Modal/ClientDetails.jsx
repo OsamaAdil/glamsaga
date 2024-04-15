@@ -156,7 +156,7 @@ export default function ClientDetails() {
           </Grid>
         </Grid>
 
-        <button type="submit" className={styles.button}>
+        <button type="submit" className={styles.button} >
           Submit and Proceed to Payment
         </button>
       </form>
