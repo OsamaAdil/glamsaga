@@ -42,6 +42,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  flex: 3;
 }
 
 .title {
@@ -115,9 +116,13 @@
 .mainImage {
   height: 400px;
   margin: 20px;
-  width: 500px;
+  max-width: 500px;
   display: flex;
   justify-content: center;
+}
+
+.imageContainer {
+  flex: 2;
 }
 
 .mainImage img {

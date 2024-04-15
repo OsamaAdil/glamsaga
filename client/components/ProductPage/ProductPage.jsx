@@ -84,7 +84,7 @@ const ProductPage = ({ product }) => {
   return (
     <div className={style.main}>
       <div className={style.container}>
-        <div>
+        <div className={style.imageContainer}>
           <div className={style.mainImage}>
             {selectedThumbnail && selectedThumbnail.endsWith(".mp4") ? (
               <video
