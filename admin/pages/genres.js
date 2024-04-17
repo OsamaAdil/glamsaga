@@ -17,8 +17,8 @@ const genres = () => {
   const router = useRouter();
   const linkText = router.pathname.split("/")[1];
   
-  const dispatch = useDispatch();
-  const genre = useSelector(state => state);
+  // const dispatch = useDispatch();
+  // const genre = useSelector(state => state);
 
  
   const [data, setData] = useState();

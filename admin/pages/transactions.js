@@ -12,7 +12,6 @@ const categories = () => {
 
   const [data, setData] = useState();
 
-
   const [tokenValue, setTokenValue] = useState();
 
   useEffect(() => {
