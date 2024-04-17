@@ -46,7 +46,7 @@
 
 .button {
   min-height: 3rem;
-  margin-left: 10rem;
+
   min-width: 25rem;
   font-family: poppins;
   font-weight: 300;
@@ -56,6 +56,13 @@
   color: #f5eded;
   background-color: #3c152b;
   margin-top: 20px;
+  padding: 10px;
+}
+
+.button1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px;
 }
 
