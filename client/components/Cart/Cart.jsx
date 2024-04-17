@@ -108,11 +108,11 @@ export default function Cart() {
       <div className={style.dummy1}></div>
       <div className={style.cartItem}>{cartItems}</div>
       <div className={style.dummy1}></div>
+
       <div className={style.flex1}>
         <div>Sub Total</div>
         <div>{Total}</div>
       </div>
-
       <div className={style.checkOut}>
         <button className={style.checkOutBtn} onClick={checkOut}>
           {" "}

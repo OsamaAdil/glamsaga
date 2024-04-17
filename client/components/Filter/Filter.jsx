@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import style from "./filter.module.css";
 
-export default function Filter({ onFiltersChange }) {
+export default function Filter({ onFiltersChange, toggleFilter }) {
   const categories = [
     "slings",
     "diaper bags",
@@ -36,7 +36,6 @@ export default function Filter({ onFiltersChange }) {
     setSelectedFilters(updatedFilters);
     onFiltersChange(updatedFilters);
   };
-  // console.log(selectedFilters);
 
   const categoryFilter = categories.map((type, index) => (
     <div key={index} className={style.mainDiv}>
@@ -90,7 +89,10 @@ export default function Filter({ onFiltersChange }) {
 
   return (
     <div className={style.container}>
-      <span>Category</span>
+      <div className={style.filterHeader}>
+        <span>Category</span>
+        <img src="/cross.png" alt="close" onClick={toggleFilter} />
+      </div>
       <div className={style.filter}>{categoryFilter}</div>
       <span>Price</span>
       <div className={style.filter}>{priceFilter}</div>

@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import style from "./newArrivals.module.css";
-import { fetchProducts,fetchCategories} from "@/components/api";
+import { fetchProducts, fetchCategories } from "@/components/api";
 import ProductCard from "@/components/ProductCard/ProductCard";
 import Filter from "@/components/Filter/Filter";
+import { useSelector, useDispatch } from "react-redux";
 
-const NewArrivalsPage = () => {
+const ClassicCollections = () => {
   const [products, setProducts] = useState([]);
   const [filterType, setFilterType] = useState([]);
   const [filter, setFilter] = useState(null);
   const [categories, setCategories] = useState(null);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,7 +23,6 @@ const NewArrivalsPage = () => {
         console.error("Error fetching data:", error);
       }
     };
-
     fetchData();
   }, []);
 
@@ -40,16 +41,13 @@ const NewArrivalsPage = () => {
     let filteredProducts = filterType;
 
     if (filter.category) {
-      const filteredCategory = categories.filter(
+      const filteredCategory = categories.find(
         (item) => item.name === filter.category
       );
-
-      const categoryID = filteredCategory[0]._id;
-      console.log(categoryID);
+      const categoryID = filteredCategory?._id;
       filteredProducts = filteredProducts.filter(
         (item) => item.categoryId === categoryID
       );
-     
     }
 
     if (filter.price) {
@@ -78,8 +76,11 @@ const NewArrivalsPage = () => {
   };
 
   const handleFiltersChange = (selectedFilters) => {
-    console.log(selectedFilters);
     setFilter(selectedFilters);
+  };
+
+  const toggleFilter = () => {
+    setIsFilterOpen(!isFilterOpen);
   };
 
   if (products.length === 0) {
@@ -89,10 +90,20 @@ const NewArrivalsPage = () => {
   return (
     <div className={style.container}>
       <div>
-        <Filter onFiltersChange={handleFiltersChange} />
+        {isFilterOpen && (
+          <Filter
+            onFiltersChange={handleFiltersChange}
+            isFilterOpen={isFilterOpen}
+            toggleFilter={toggleFilter} // Pass toggle function
+          />
+        )}
       </div>
       <div className={style.filterContainer}>
-        <span>Classic Collections </span>
+        <div className={style.span1} onClick={toggleFilter}>
+          <span>Classic Collections</span>
+          <img src="/filter.png" />
+        </div>
+
         <div className={style.filteredProductContainer}>
           <div className={style.productList}>
             {applyFilter().map((product, index) => (
@@ -105,4 +116,4 @@ const NewArrivalsPage = () => {
   );
 };
 
-export default NewArrivalsPage;
+export default ClassicCollections;

@@ -141,7 +141,7 @@
       "Pattern": "Geometric",
       "Type": "Trendy",
       "Occasion": "Shopping Spree",
-      "Flag": [
+      "flag": [
         "bestsellers",
         "classiccollections"
       ],
@@ -174,7 +174,7 @@
       "Pattern": "Camouflage",
       "Type": "Outdoor",
       "Occasion": "Adventure Travel",
-      "Flag": [
+      "flag": [
         "newarrivals",
         "bestsellers"
       ],
@@ -207,7 +207,7 @@
       "Pattern": "Embroidered",
       "Type": "Evening",
       "Occasion": "Night Out",
-      "Flag": [
+      "flag": [
         "bestsellers"
       ],
       "ShortDescription": "A chic and elegant clutch for your night out.",
@@ -239,7 +239,7 @@
       "Pattern": "Assorted",
       "Type": "Accessories",
       "Occasion": "Versatile",
-      "Flag": [
+      "flag": [
         "bestsellers",
         "classiccollections"
       ],
@@ -272,7 +272,7 @@
       "Pattern": "Modern",
       "Type": "Fashion",
       "Occasion": "Street Style",
-      "Flag": [
+      "flag": [
         "newarrivals",
         "bestsellers",
         "classiccollections"

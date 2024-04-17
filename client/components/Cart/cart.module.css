@@ -45,6 +45,7 @@
   font-size: 1.5rem;
 }
 
+
 .flex1 span {
   font-family: poppins;
   font-size: 1.5rem;
@@ -55,10 +56,10 @@
 }
 
 .cartItem {
-  max-height: 73vh;
+  /* max-height: 73vh; */
   /* overflow: auto; */
   overflow-y: auto;
-  min-height: 72vh;
+  height: 72vh;
 }
 
 .checkOut {

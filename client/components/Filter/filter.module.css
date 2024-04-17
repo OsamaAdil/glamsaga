@@ -7,11 +7,15 @@
   width: 26rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   font-family: poppins;
-  font-size: small;
+  font-size: 1rem;
   font-weight: 500;
   box-shadow: 4px 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.container img {
+  height: 1rem;
 }
 
 .mainDiv {
@@ -27,15 +31,17 @@
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  gap: 5px;
+  font-family: poppins;
+  font-size: 1.5rem;
 }
 
 .container span {
   font-size: medium;
   font-weight: 500;
+  margin-right: 20px;
 }
 
 @media screen and (max-width: 800px) {
-  .container {
-    display: none;
-  }
+ 
 }
