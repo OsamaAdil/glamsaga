@@ -123,10 +123,11 @@
     padding: 2rem;
     border-radius: 1rem;
     z-index: 100;
+    
   }
 
   .middlebox div {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   /* .middlebox div:hover{

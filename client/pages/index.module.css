@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
+
 .html {
   font-size: 62.7%;
   background-color: #f5eded;
@@ -61,12 +63,26 @@
   width: 100%;
   background-color: #f5eded;
   margin-bottom: 100px;
+  position: relative;
 }
 
-
-.gifting img{
+.gifting img {
   width: 100%;
   background-color: #f5eded;
   /* margin-bottom: 40px; */
 }
 
+.giftHeading {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  font-size: 2rem;
+  font-family: Poppins;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 800px) {
+  .giftHeading {
+    font-size: 1.3rem;
+  }
+}

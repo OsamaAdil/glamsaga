@@ -33,9 +33,9 @@ export function Product({ type }) {
     }
   }, []);
 
-  const filteredArray = products.filter((product) =>
-    product.flag.includes(type)
-  );
+  const filteredArray = products.filter((product) => {
+    return product.flag && product.flag.includes(type);
+  });
 
   return (
     <div className={style.productContainer}>

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import style from "./index.module.css";
 import Category from "@/components/homePage/Category/Category";
 import Link from "next/link";
+import { StyleRegistry } from "styled-jsx";
 // import Category from "@/components/homePage/category/";
 
 // import { fetchProductDetails } from "@/services/product";
@@ -38,7 +39,9 @@ export default function Home() {
           <div className={style.headings}>
             <Link href="./bestSellers">Best Sellers</Link>
           </div>
-          <div className={style.sideHeading}>View All</div>
+          <Link href="./bestSellers">
+            <div className={style.sideHeading}>View All</div>
+          </Link>
         </div>
         <Product type="bestsellers" />
       </div>
@@ -94,7 +97,8 @@ export default function Home() {
       <a href="https://wa.me/918928033265" target="_blank">
         {" "}
         <div className={style.gifting}>
-          <img  src={"/corporategifting.png"} />
+          <div className={style.giftHeading}>Corporate Gifting</div>
+          <img src={"/corporategifting.png"} />
         </div>
       </a>
     </>

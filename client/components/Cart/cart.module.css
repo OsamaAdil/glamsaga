@@ -55,10 +55,10 @@
 }
 
 .cartItem {
-  max-height: 76vh;
+  max-height: 73vh;
   /* overflow: auto; */
   overflow-y: auto;
-  min-height: 75vh;
+  min-height: 72vh;
 }
 
 .checkOut {
