@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from "../components/login/login.module.css";
 import Head from "next/head";
 import Router, { useRouter } from "next/router";
+import { checkCredentials } from "@/services/checkCredentials";
 
 export default function Home() {
 
@@ -15,11 +16,12 @@ export default function Home() {
 
   const handleLogin = () => {
     const checkCredential = async (user) => {
-      router.push("/genres");
       try {
+        const response = await checkCredentials(user);
         if (response?.data?.token) {
           var token = response?.data?.token;
           localStorage.setItem("token", JSON.stringify(token));
+          router.push("/genres");
         }
       } catch (error) {
         console.error("Error in checking credentials", error);

@@ -1,21 +1,20 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html{
+html {
   font-size: 62.5%;
 }
-
 
 main {
   box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
-  width: 0;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
 }
 
 .carouselImage {
@@ -35,25 +34,25 @@ main {
   z-index: 1000;
 }
 
-.mainHeading  {
+.mainHeading {
   z-index: 9000;
   font-size: 4rem;
   color: black;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-.mainHeading1  {
+.mainHeading1 {
   z-index: 9000;
   font-size: 4rem;
   color: black;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-.mainHeading2  {
+.mainHeading2 {
   z-index: 9000;
   font-size: 4rem;
   color: #d8d8d8;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .mainwrap {
@@ -64,8 +63,8 @@ main {
   padding: 4rem 6.5rem 4rem 6.5rem;
 }
 
-#originalPrice{
-  color: #ABABAB;
+#originalPrice {
+  color: #ababab;
   font-size: 3rem;
   box-sizing: border-box;
   height: auto;
@@ -82,15 +81,15 @@ main {
   padding-bottom: 5rem;
 }
 
-.text{
+.text {
   color: #464646;
   font-size: 14px;
   font-weight: 400;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 1rem 0em 1rem 0rem;
 }
 
-.Image1{
+.Image1 {
   width: 14rem;
   height: 7rem;
   background-image: url(/travelBag.svg);
@@ -109,16 +108,29 @@ main {
   opacity: 0.6;
 }
 
-.globalButton{
+.globalButton {
   background-color: white;
-  color: #EF7C30;
-  border: 1px solid #EF7C30;
+  color: #ef7c30;
+  border: 1px solid #ef7c30;
   padding: 0.5rem;
   border-radius: 5px;
 }
 
-.mobileFilter{
+.mobileFilter {
   display: block;
   width: 100vw;
   padding: 2rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: gray !important;
+}
+
+/* .swiper-button-prev{
+  color: white !important;
+} */
+a {
+  color: inherit; /* Use the default text color */
+  text-decoration: none; /* Remove underline */
 }

@@ -47,16 +47,35 @@ const productVariants = () => {
   //   setTempData()
   // };
 
-  useEffect(() => {
-    fetchPageData();
-  }, []);
+
+  const [tokenValue, setTokenValue] = useState();
 
   useEffect(() => {
-    // if (tokenValue) {
+    const token = JSON.parse(localStorage.getItem("token"));
+    setTokenValue(token);
+  });
+
+  useEffect(() => {
+    if (!tokenValue) {
+      router.push("/");
+    }
+    else{
+      router.push(`/${linkText}`);
+    }
+  }, [tokenValue]);
+
+  useEffect(() => {
+    if (tokenValue) {
+      fetchPageData();  
+    }
+  }, [tokenValue]);
+
+  useEffect(() => {
+    if (tokenValue) {
       fetchProductDetails();  
-    // }
-  // }, [tokenValue]);
-  }, []);
+    }
+  }, [tokenValue]);
+
 
   const fetchPageData = async () => {
     try {

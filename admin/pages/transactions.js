@@ -12,9 +12,28 @@ const categories = () => {
 
   const [data, setData] = useState();
 
+
+  const [tokenValue, setTokenValue] = useState();
+
   useEffect(() => {
-    fetchPageData();
-  }, []);
+    const token = JSON.parse(localStorage.getItem("token"));
+    setTokenValue(token);
+  });
+
+  useEffect(() => {
+    if (!tokenValue) {
+      router.push("/");
+    }
+    else{
+      router.push(`/${linkText}`);
+    }
+  }, [tokenValue]);
+
+  useEffect(() => {
+    if (tokenValue) {
+      fetchPageData();  
+    }
+  }, [tokenValue]);
   
   const fetchPageData = async () => {
     try {

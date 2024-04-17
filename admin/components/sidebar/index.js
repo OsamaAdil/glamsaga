@@ -2,14 +2,17 @@
 import React, { useState, useEffect } from "react";
 // import { fetchUsersDetails } from "@/services/users";
 import Link from "next/link";
+import Router, { useRouter } from "next/router";
 
 const Sidebar = () => {
-  const sections = ["Genres", "Categories", "Products", "ProductVariants", "Comments", "Transactions", "Customers"];
 
+  const router = useRouter();
+  const sections = ["Genres", "Categories", "Products", "ProductVariants", "Comments", "Transactions", "Customers"];
   const [selectedSection, setSelectedSection] = useState("Genres");
   const handleSectionClick = (section) => {
     setSelectedSection(section);
   };
+
 
   useEffect(() => {
     // getUserDetails();
@@ -28,6 +31,11 @@ const Sidebar = () => {
   //   }
   // };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    router.push("/");
+  }
+
   return (
     <div className="sideBar">
       <div className="logo"> </div>
@@ -43,6 +51,7 @@ const Sidebar = () => {
       </Link>
     ))}
       </ul>
+      <button  onClick={handleLogout} className="buttonWrap" > Logout </button>
     </div>
   );
 };

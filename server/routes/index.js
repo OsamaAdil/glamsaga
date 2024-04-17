@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+const auth = require('./auth');
 const categories = require('./categories');
 const comments = require('./comments');
 const customers = require('./customers');
@@ -9,6 +10,7 @@ const products = require('./products');
 const productVariants = require('./productVariants');
 const transactions = require('./transactions');
 
+router.use('/auth', auth);
 router.use('/categories', categories); //in waterfall, we have to make this also callback
 router.use('/comments', comments);
 router.use('/customers', customers);

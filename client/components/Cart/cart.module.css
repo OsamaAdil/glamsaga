@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
+.html {
+  font-size: 62.5%;
+
+  padding: 0;
+  box-sizing: border-box;
+}
+.dummy1 {
+  height: 0.1rem;
+  background-color: gray;
+}
+.cartbar {
+  /* display: none; */
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  height: 100vh;
+  width: 30vw;
+  background-color: white;
+  z-index: 100000;
+  font-family: poppins;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #3c152b;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 999999999999;
+  /* margin: 10px; */
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+.flex1 {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  font-family: poppins;
+  font-size: 1.5rem;
+}
+
+.flex1 span {
+  font-family: poppins;
+  font-size: 1.5rem;
+}
+
+.crossImg {
+  height: 1rem;
+}
+
+.cartItem {
+  max-height: 76vh;
+  /* overflow: auto; */
+  overflow-y: auto;
+  min-height: 75vh;
+}
+
+.checkOut {
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.checkOutBtn {
+  height: 3rem;
+  margin: auto;
+  min-width: 25rem;
+  font-family: poppins;
+  font-weight: 500;
+  font-size: medium;
+  border-radius: 5px;
+  border-width: 0px;
+  color: #f5eded;
+  background-color: #3c152b;
+}
+
+.checkOutBtn:hover {
+  color: #3c152b;
+  background-color: #f5eded;
+}
+
+.cartItemContainer {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: flex-start;
+  margin: 10px;
+}
+
+.cartItemContainer img {
+  height: 100px;
+  width: 100px;
+}
+
+.cartItem::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cartItem::-webkit-scrollbar-thumb {
+  background-color: #3c152b;
+  border-radius: 3px;
+}
+
+.cartItem::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.trashImg img {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.trashImg img:hover {
+  border: solid;
+  border-color: #3c152b;
+  border-radius: 1px;
+}
+
+.itemDescription {
+  font-family: poppins;
+  font-size: 1.5rem;
+}
+
+.incBtn {
+  width: 2rem;
+  color: white;
+  background-color: #3c152b;
+  /* border-radius: 5px; */
+}
+
+.flex2 {
+  display: flex;
+  align-items: center;
+}
+
+.originalPrice {
+  color: gray;
+  text-decoration: line-through;
+  font-size: 1.2rem;
+}
+
+.heading {
+  font-weight: 500;
+  font-size: 2rem !important;
+}
+
+@media screen and (min-width: 700px) and (max-width: 950px) {
+  .cartbar {
+    width: 50vw;
+  }
+}
+@media screen and (max-width: 700px) {
+  .cartbar {
+    width: 70vw;
+  }
+}

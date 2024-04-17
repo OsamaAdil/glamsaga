@@ -1,0 +1,10 @@
+.search {
+  margin: 40px;
+}
+
+.filteredProducts {
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}

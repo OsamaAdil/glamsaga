@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
+
+.html {
+  font-size: 62.5%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  min-width: 300px;
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: auto;
+  gap: 20px;
+  font-family: poppins;
+  color: black;
+  font-size: 1.5rem;
+  padding: 40px;
+  min-height: 500px;
+  justify-content: space-around;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.image img {
+  min-width: 40vw;
+  border-radius: 10px;
+}
+
+.productDetails {
+  min-width: 40vw;
+  background-color: #f4ecec;
+  /* border-radius: 10px; */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.productDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 3;
+}
+
+.title {
+  font-family: poppins;
+  font-weight: 500;
+  font-size: 3rem;
+}
+
+.price {
+  font-family: poppins;
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+.variantContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.variants {
+  width: 100px;
+  height: 100px;
+  background: white;
+  text-align: center;
+  /* padding: 40px; */
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.variantBox {
+}
+
+.variants:hover {
+  border-color: #ccc;
+}
+
+.selectedVariant {
+  border-color: #3c152b;
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.button {
+  height: 3.6rem;
+  width: 100%;
+  background: #3c152b;
+  color: white;
+  border-radius: 0.4rem;
+  align-self: center;
+  border: none;
+}
+
+.button:hover {
+  box-shadow: 1px 1px 6.199999809265137px 0px #ffb900;
+}
+
+.container span {
+  font-family: poppins;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.costPrice {
+  text-decoration: line-through;
+}
+
+.mainImage {
+  height: 400px;
+  margin: 20px;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+.imageContainer {
+  flex: 2;
+}
+
+.mainImage img {
+  height: 100%;
+}
+
+.gallery {
+  min-height: 120px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.thumbnail img {
+  height: 120px;
+  width: 100px;
+  border-radius: 3px;
+}
+
+.videoThumbnail img {
+  height: 120px;
+  width: 100px;
+  border-radius: 3px;
+}
+
+.playButton {
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .variantContainer {
+    flex-direction: column;
+  }
+}
