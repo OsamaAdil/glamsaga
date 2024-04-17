@@ -26,9 +26,9 @@ export function Product({ type }) {
     fetchData();
     if (window.innerWidth > 1024) {
       setK(4);
-    } else if (window.innerWidth > 800) {
+    } else if (window.innerWidth > 900) {
       setK(3);
-    } else if (window.innerWidth > 500) {
+    } else if (window.innerWidth > 800) {
       setK(2);
     }
   }, []);
