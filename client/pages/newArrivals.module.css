@@ -33,6 +33,7 @@
 .span1 img {
   height: 2rem;
   margin-left: 3rem;
+  cursor: pointer;
 }
 
 .span1 {

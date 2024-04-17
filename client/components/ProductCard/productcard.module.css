@@ -37,6 +37,7 @@
   border-radius: 0.4rem;
 
   border: none;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -92,9 +93,7 @@
 }
 
 .imageContainer img {
-  height : 100%;
-
-  
+  height: 100%;
 }
 
 /* aspect ratio : 25 * 30 */

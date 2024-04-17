@@ -45,7 +45,6 @@
   font-size: 1.5rem;
 }
 
-
 .flex1 span {
   font-family: poppins;
   font-size: 1.5rem;
@@ -53,6 +52,7 @@
 
 .crossImg {
   height: 1rem;
+  cursor: pointer;
 }
 
 .cartItem {
@@ -60,6 +60,7 @@
   /* overflow: auto; */
   overflow-y: auto;
   height: 72vh;
+  flex-grow: 1;
 }
 
 .checkOut {
@@ -79,6 +80,7 @@
   border-width: 0px;
   color: #f5eded;
   background-color: #3c152b;
+  cursor: pointer;
 }
 
 .checkOutBtn:hover {
