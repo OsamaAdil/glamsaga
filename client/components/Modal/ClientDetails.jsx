@@ -1,12 +1,28 @@
 "use client";
 import styles from "./clientdetails.module.css";
 import { TextField, Grid } from "@mui/material";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { onCheckOut } from "@/redux/features/cartSlice";
 
 import { useState } from "react";
 
 export default function ClientDetails() {
+  const cartItems = useSelector((state) => state.cart.cart);
+
+  const desiredProperties = ["variantId", "quantity"];
+
+  const data = cartItems.map((obj) => {
+    const newObj = {};
+    desiredProperties.forEach((prop) => {
+      if (obj.hasOwnProperty(prop)) {
+        newObj[prop] = obj[prop];
+      }
+    });
+    return newObj;
+  });
+
+  console.log(data);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -38,26 +54,27 @@ export default function ClientDetails() {
     }
     const fetchOrder = async () => {
       try {
-
         const generateReceiptId = () => {
           const timestamp = Date.now().toString();
           const receiptId = "receipt" + timestamp;
-          return receiptId
-        }
+          return receiptId;
+        };
 
         const getAmountTotal = () => {
-          return 500
-        }
-        
-        const receiptIdGenerated =  generateReceiptId();
-        const amount =  getAmountTotal();
+          return 500;
+        };
+
+        const receiptIdGenerated = generateReceiptId();
+        const amount = getAmountTotal();
         const currency = "INR";
-    
+
         const response = await fetch("http://localhost:7000/order", {
           method: "POST",
           body: JSON.stringify({
             amount,
             currency,
+            formData,
+            data,
             receipt: receiptIdGenerated,
           }),
           headers: {
@@ -73,7 +90,7 @@ export default function ClientDetails() {
 
         const orderId = order.data.id;
         console.log("orderId", orderId);
-        console.log("typeof(orderId)",typeof(orderId));
+        console.log("typeof(orderId)", typeof orderId);
 
         const options = {
           key: "rzp_test_PGjNbGrlpSBr2z",
@@ -81,7 +98,7 @@ export default function ClientDetails() {
           currency: "INR",
           name: "Glamsaga",
           description: "Payment for Purchase",
-          image: '/your-logo.png',
+          image: "/your-logo.png",
           order_id: orderId,
           handler: async function (response) {
             console.log("inside handler");
@@ -90,7 +107,7 @@ export default function ClientDetails() {
             const body = {
               ...response,
             };
-    
+
             const validateRes = await fetch(
               "http://localhost:7000/order/validate",
               {
@@ -128,7 +145,7 @@ export default function ClientDetails() {
 
     fetchOrder(); // Call fetchOrder function
 
-  console.log("Form Submitted:", formData);
+    console.log("Form Submitted:", formData);
     // console.log("Form Submitted:", formData);
   };
   const dispatch = useDispatch();
@@ -249,7 +266,9 @@ export default function ClientDetails() {
           </Grid>
         </Grid>
         <div className={styles.button1}>
-          <button type="submit" className={styles.button}>Submit and Proceed to Payment</button>
+          <button type="submit" className={styles.button}>
+            Submit and Proceed to Payment
+          </button>
         </div>
       </form>
     </div>
