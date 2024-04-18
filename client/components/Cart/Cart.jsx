@@ -92,32 +92,37 @@ export default function Cart() {
         display: toggle ? "block" : "none",
       }}
     >
-      <div className={style.flex1}>
-        <div>
-          {" "}
-          <span className={style.heading}>Your Shopping Cart</span>{" "}
+      <div className={style.cartContainer}>
+        <div className={style.flex1}>
+          <div>
+            {" "}
+            <span className={style.heading}>Your Shopping Cart</span>{" "}
+          </div>
+          <div>
+            <img
+              src="/cross.png"
+              className={style.crossImg}
+              onClick={handleClick1}
+            />
+          </div>
         </div>
-        <div>
-          <img
-            src="/cross.png"
-            className={style.crossImg}
-            onClick={handleClick1}
-          />
-        </div>
-      </div>
-      <div className={style.dummy1}></div>
-      <div className={style.cartItem}>{cartItems}</div>
-      <div className={style.dummy1}></div>
+        <div className={style.dummy1}></div>
+        <div className={style.cartItem}>{cartItems}</div>
 
-      <div className={style.flex1}>
-        <div>Sub Total</div>
-        <div>{Total}</div>
-      </div>
-      <div className={style.checkOut}>
-        <button className={style.checkOutBtn} onClick={checkOut}>
-          {" "}
-          Check Out
-        </button>{" "}
+        <div className={style.checkOutContainer}>
+          <div className={style.dummy1}></div>
+
+          <div className={style.flex1}>
+            <div>Sub Total</div>
+            <div>{Total}</div>
+          </div>
+          <div className={style.checkOut}>
+            <button className={style.checkOutBtn} onClick={checkOut}>
+              {" "}
+              Check Out
+            </button>{" "}
+          </div>
+        </div>
       </div>
     </div>
   );

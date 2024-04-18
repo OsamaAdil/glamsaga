@@ -11,18 +11,6 @@ export default function ClientDetails() {
 
   const desiredProperties = ["variantId", "quantity"];
 
-  const data = cartItems.map((obj) => {
-    const newObj = {};
-    desiredProperties.forEach((prop) => {
-      if (obj.hasOwnProperty(prop)) {
-        newObj[prop] = obj[prop];
-      }
-    });
-    return newObj;
-  });
-
-  console.log(data);
-
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -33,6 +21,18 @@ export default function ClientDetails() {
     city: "",
     state: "",
   });
+
+  const data = cartItems.map((obj) => {
+    const newObj = {};
+    desiredProperties.forEach((prop) => {
+      if (obj.hasOwnProperty(prop)) {
+        newObj[prop] = obj[prop];
+      }
+    });
+    return newObj;
+  });
+
+  console.log(data, formData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -4,6 +4,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css";
 import style from "./carousel.module.css";
+import Link from "next/link";
 // import img from "/image1.jpg";
 
 export default function Carousel() {
@@ -23,16 +24,33 @@ export default function Carousel() {
       effect="slide"
       grabCursor={true}
       resistanceRatio={0.5}
-      swiper-button= "true"
+      swiper-button="true"
     >
       <SwiperSlide>
-        <img src={"image1.jpg"} alt="slide 1" />
+        <div className={style.slideDiv}>
+          <div className={style.carouselHeading}>New Arrivals</div>
+          <Link href="./newArrivals">
+            {" "}
+            <img src={"image1.jpg"} alt="slide 1" />{" "}
+          </Link>
+        </div>
       </SwiperSlide>
       <SwiperSlide>
-        <img src={"image2.jpg"} alt="slide 2" />
+        <div className={style.slideDiv}>
+          <div className={style.carouselHeading}>Classic Collections</div>
+          <Link href="./classicCollections">
+            <img src={"image3.jpg"} alt="slide 2" />{" "}
+          </Link>
+        </div>
       </SwiperSlide>
       <SwiperSlide>
-        <img src={"image3.jpg"} alt="slide 3" />
+        <div className={style.slideDiv}>
+          {" "}
+          <div className={style.carouselHeading}>Best Sellers</div>
+          <Link href="./bestSellers">
+            <img src={"image2.jpg"} alt="slide 3" />
+          </Link>
+        </div>
       </SwiperSlide>
     </Swiper>
   );

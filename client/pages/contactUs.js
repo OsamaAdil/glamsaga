@@ -30,9 +30,9 @@ export default function ContactUs() {
       <div className={style.contactUs}>
         <h4> Contact Us</h4>
        
-          <div><img src="/email.png"></img> </div>
-          <div><img src ="/phone.png"></img> </div>
-          <div> <img src ="/address.png"></img></div>
+          <div><img src="/email.png"/>osamaadilkhan25@gmail.com </div>
+          <div><img src ="/phone.png"/> +91 9320115598</div>
+          <div> <img src ="/address.png"/>BKC, Bandra (east), Mumbai</div>
         
       </div>
     </div>

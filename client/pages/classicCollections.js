@@ -27,6 +27,25 @@ const ClassicCollections = () => {
   }, []);
 
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 800) {
+        setIsFilterOpen(false);
+      } else {
+        setIsFilterOpen(true);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  
+  useEffect(() => {
     const filteredArray = products.filter((product) =>
       product.flag.includes("classiccollections")
     );

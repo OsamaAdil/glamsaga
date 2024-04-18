@@ -1,4 +1,7 @@
 /* carousel.module.css */
+.html {
+  font-size: 62.7%;
+}
 
 .container {
   position: relative;
@@ -11,4 +14,35 @@
 .container .swiper-button-next,
 .container .swiper-button-prev {
   background-color: transparent !important ;
+}
+
+.slideDiv {
+  position: relative;
+  overflow: hidden;
+}
+
+.slideDiv img {
+  
+  height: 100%;
+  object-fit: cover;
+}
+
+.carouselHeading {
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  color: #3c152b;
+  font-family: Poppins;
+  font-size: 2rem;
+  font-weight: 500;
+  padding: 10px;
+  background-color: #f5eded;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 600px) {
+  .slideDiv img {
+    height: 55vh;
+  }
 }

@@ -3,14 +3,15 @@ import style from "./newArrivals.module.css";
 import { fetchProducts, fetchCategories } from "@/components/api";
 import ProductCard from "@/components/ProductCard/ProductCard";
 import Filter from "@/components/Filter/Filter";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 
 const NewArrivalsPage = () => {
   const [products, setProducts] = useState([]);
   const [filterType, setFilterType] = useState([]);
   const [filter, setFilter] = useState(null);
   const [categories, setCategories] = useState(null);
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+  const [isFilterOpen, setIsFilterOpen] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,6 +25,24 @@ const NewArrivalsPage = () => {
       }
     };
     fetchData();
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 800) {
+        setIsFilterOpen(false);
+      } else {
+        setIsFilterOpen(true);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   useEffect(() => {
