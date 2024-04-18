@@ -23,6 +23,7 @@ const Layout = ({ children, Tag }) => {
           content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
         />
         <link rel="icon" href="/logo.png" />
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
       </Head>
 
       <ReduxProvider>
